@@ -1,0 +1,10 @@
+{%- liquid
+  assign val = v | strip
+-%}
+{%- if val == '✓' -%}
+  <span class="yes">✓</span>
+{%- elsif val == '✕' or val == 'x' or val == 'X' -%}
+  <span class="no">✕</span>
+{%- else -%}
+  <span class="muted">{{ val }}</span>
+{%- endif -%}

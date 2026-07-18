@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": { "type": "page-hero", "settings": { "eyebrow": "About", "heading": "We treat data as structure, not text.", "subheading": "OPENXMLJSON exists because general-purpose editors were never built for gigabytes." } },
+    "story": { "type": "rich-text", "settings": {
+      "eyebrow": "Our approach",
+      "heading": "A different idea about big files.",
+      "body": "<p>Most tools load a file into an in-memory object graph, then choke when that graph is larger than your RAM. OPENXMLJSON does the opposite: the file is memory-mapped once and parsed into a flat index of fixed-size 24-byte node records that hold byte offsets — never copies of your data.</p><p>Tree navigation, display and search all work on those offsets, so memory tracks your working set, not the file size. Files too large to index eagerly fall back to on-demand indexing, so documents near or beyond available RAM still open. The result is a viewer that opens ~10&nbsp;GB of JSON, XML or CSV in a blink — and lets you browse and query it like a database.</p>"
+    } },
+    "stats": { "type": "stats", "settings": { "eyebrow": "By the numbers", "heading": "Engineered for scale." }, "blocks": {
+      "st1": { "type": "stat", "settings": { "number": "~10 GB", "label": "Files open & search, no in-memory copy" } },
+      "st2": { "type": "stat", "settings": { "number": "24 B", "label": "Index per node — ~3 GB for 130M nodes" } },
+      "st3": { "type": "stat", "settings": { "number": "130M/s", "label": "Objects parsed per second" } },
+      "st4": { "type": "stat", "settings": { "number": "3", "label": "Editions: Free, Premium, Netcore Unbxd" } }
+    }, "block_order": ["st1","st2","st3","st4"] },
+    "cta": { "type": "cta-band" }
+  },
+  "order": ["hero","story","stats","cta"]
+}

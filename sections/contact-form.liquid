@@ -1,0 +1,47 @@
+<section class="section">
+  <div class="wrap" style="max-width:620px">
+    {% if section.settings.heading != blank %}
+      <div class="center" style="margin-bottom:32px">
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="lead" style="margin:0 auto">{{ section.settings.subheading }}</p>
+      </div>
+    {% endif %}
+
+    {% if form.posted_successfully? %}
+      <p class="pill" style="display:block;text-align:center;padding:16px">Thanks — we'll be in touch shortly.</p>
+    {% endif %}
+
+    {% form 'contact' %}
+      {{ form.errors | default_errors }}
+      <div style="display:grid;gap:14px">
+        <input type="text" name="contact[name]" placeholder="Your name" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <input type="email" name="contact[email]" placeholder="Email address" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <input type="text" name="contact[subject]" placeholder="Subject"
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <textarea name="contact[body]" rows="6" placeholder="How can we help?" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text);font-family:inherit"></textarea>
+        <button type="submit" class="btn btn--primary btn--lg">Send message</button>
+      </div>
+    {% endform %}
+
+    {% if section.settings.email != blank %}
+      <p class="center muted" style="margin-top:20px;font-size:.9rem">Or email us directly at <a href="mailto:{{ section.settings.email }}" style="color:var(--accent)">{{ section.settings.email }}</a></p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Contact" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Talk to us." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Questions about licensing, deployment or the Netcore Unbxd Edition? Send a note." },
+    { "type": "text", "id": "email", "label": "Fallback email", "default": "hi@openxmljson.com" }
+  ],
+  "presets": [{ "name": "Contact form" }]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+{% if section.settings.show %}
+<div class="announcement">
+  {{ section.settings.text }}
+  {% if section.settings.link_text != blank %}
+    <a href="{{ section.settings.link_url }}">{{ section.settings.link_text }} &rarr;</a>
+  {% endif %}
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    { "type": "checkbox", "id": "show", "label": "Show announcement", "default": true },
+    { "type": "text", "id": "text", "label": "Text", "default": "New: Netcore Unbxd Edition — unlimited file size + auto-updates." },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "See editions" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "presets": [{ "name": "Announcement bar" }]
+}
+{% endschema %}

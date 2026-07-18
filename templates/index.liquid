@@ -1,0 +1,192 @@
+{%- comment -%}
+  Self-contained homepage. Built as a plain Liquid template (not JSON) so it
+  imports reliably. Buttons/links read from theme settings where useful.
+{%- endcomment -%}
+
+{%- assign download_url = section.settings.download_url | default: '#' -%}
+
+<section class="hero"><div class="wrap hero__inner">
+  <span class="pill">Windows &middot; macOS &middot; Linux</span>
+  <h1>Open 10&nbsp;GB JSON, XML &amp; CSV in a blink.</h1>
+  <p class="lead">A zero-copy, memory-mapped viewer that opens, navigates and regex-searches enormous data files without ever loading them into memory.</p>
+  <div class="btn-row" style="justify-content:center">
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download free</a>
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost btn--lg">Buy a license</a>
+  </div>
+  <p class="hero__meta">Free edition available &middot; No file leaves your machine</p>
+
+  <div class="hero__shot"><div class="codewin">
+    <div class="codewin__bar"><span></span><span></span><span></span><span class="codewin__title">events.ndjson &mdash; 8.4 GB &mdash; 132,884,910 nodes</span></div>
+    <div class="codewin__body">
+      <div class="codewin__tree">
+        <div class="row"><span class="k">&#9662; root</span> : {…}</div>
+        <div class="row" style="padding-left:16px"><span class="k">events</span> : [ … ], 4.1M items</div>
+        <div class="row sel" style="padding-left:32px">[0] : {…}</div>
+        <div class="row" style="padding-left:48px">id : 8842013</div>
+        <div class="row" style="padding-left:48px">level : "error"</div>
+        <div class="row" style="padding-left:32px">[1] : {…}</div>
+      </div>
+      <div class="codewin__main"><pre style="margin:0"><span class="ln">1</span>{
+<span class="ln">2</span>  <span class="tok-key">"events"</span>: [
+<span class="ln">3</span>    { <span class="tok-key">"id"</span>: <span class="tok-num">8842013</span>, <span class="tok-key">"level"</span>: <span class="tok-str">"<span class="hl">error</span>"</span>,
+<span class="ln">4</span>      <span class="tok-key">"service"</span>: <span class="tok-str">"checkout"</span> },
+<span class="ln">5</span>    { <span class="tok-key">"id"</span>: <span class="tok-num">8842014</span>, <span class="tok-key">"level"</span>: <span class="tok-str">"info"</span> }
+<span class="ln">6</span>  ]
+<span class="ln">7</span>}</pre>
+        <div style="margin-top:16px;color:#6b7480;font-size:.76rem">Find: <span class="hl">error</span> &nbsp; 12,904 matches &middot; 0.03s &middot; JSON &middot; 8.4 GB file &middot; 3.0 GB index</div>
+      </div>
+    </div>
+  </div></div>
+</div></section>
+
+<section class="section--tight"><div class="wrap">
+  <p class="center muted" style="font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px">One viewer for every large data format</p>
+  <div class="formatstrip">
+    <span class="fmt">JSON</span><span class="fmt">JSON-Lines / NDJSON</span><span class="fmt">XML</span><span class="fmt">CSV</span><span class="fmt">TSV</span><span class="fmt">Log files</span>
+  </div>
+</div></section>
+
+<section class="section section--alt" id="how-it-works"><div class="wrap">
+  <div class="center"><span class="eyebrow">How it works</span><h2>Open it. Navigate it. Find anything.</h2>
+  <p class="lead">Every file is memory-mapped and parsed once into a compact index &mdash; only the rows on screen are ever built.</p></div>
+  <div class="steps">
+    <div class="step"><div class="step__n">1</div><h3>Open the file</h3><p>Drag in a JSON, NDJSON, XML, CSV or TSV file up to ~10 GB &mdash; or paste from the clipboard or fetch a URL with auth. It opens instantly, no progress bars.</p></div>
+    <div class="step"><div class="step__n">2</div><h3>Navigate the tree</h3><p>Everything renders as one uniform, virtualized tree. Jump to any path, bookmark nodes, and read collapsed counts like &ldquo;products : […], 31 items&rdquo;.</p></div>
+    <div class="step"><div class="step__n">3</div><h3>Search &amp; export</h3><p>Regex find, live filter, or JSONPath / XPath queries backed by parallel native search. Then export or convert to JSON, XML or CSV.</p></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="center"><span class="eyebrow">A whole new class of performance</span><h2>Built for scale, byte by byte.</h2>
+  <p class="lead">A native engine treats your data as structure, not text &mdash; so memory tracks your working set, not the file size.</p></div>
+  <div class="stats">
+    <div class="stat"><div class="stat__num">~10 GB</div><div class="stat__label">Files open &amp; search, no in-memory copy</div></div>
+    <div class="stat"><div class="stat__num">24 B</div><div class="stat__label">Index per node &mdash; ~3 GB for 130M nodes</div></div>
+    <div class="stat"><div class="stat__num">130M/s</div><div class="stat__label">Objects parsed per second</div></div>
+    <div class="stat"><div class="stat__num">2 GB/s</div><div class="stat__label">Raw file read throughput</div></div>
+  </div>
+</div></section>
+
+<section class="section section--alt"><div class="wrap" style="max-width:920px">
+  <div class="center"><span class="eyebrow">163&times; faster load</span><h2>The result speaks for itself.</h2>
+  <p class="lead">Approximate load time for a large JSON file. Where general-purpose editors stall or run out of memory, the structural index just opens.</p></div>
+  <div class="bench" data-bench>
+    <div class="bench__row"><div class="bench__name win">OPENXMLJSON</div><div class="bench__track"><div class="bench__fill win" data-bar="4" style="width:0"></div></div><div class="bench__val">0.4s</div></div>
+    <div class="bench__row"><div class="bench__name">Notepad++</div><div class="bench__track"><div class="bench__fill" data-bar="62" style="width:0"></div></div><div class="bench__val">65s</div></div>
+    <div class="bench__row"><div class="bench__name">VS Code</div><div class="bench__track"><div class="bench__fill" data-bar="78" style="width:0"></div></div><div class="bench__val">82s</div></div>
+    <div class="bench__row"><div class="bench__name">Sublime</div><div class="bench__track"><div class="bench__fill" data-bar="55" style="width:0"></div></div><div class="bench__val">58s</div></div>
+    <div class="bench__row"><div class="bench__name">Chrome</div><div class="bench__track"><div class="bench__fill" data-bar="100" style="width:0"></div></div><div class="bench__val">fails</div></div>
+  </div>
+  <p class="muted center" style="font-size:.8rem;margin-top:26px">Illustrative comparison on a large JSON file. Actual results vary by hardware, file shape and configuration.</p>
+</div></section>
+
+<section class="section" id="features"><div class="wrap">
+  <div class="center"><span class="eyebrow">Everything you need</span><h2>A data workbench, not a text editor.</h2>
+  <p class="lead">Browse and query your files like a database &mdash; with the tools you'd expect from an enterprise DBMS.</p></div>
+  <div class="features">
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Virtualized tree view</h3><p>Objects, arrays, XML elements and CSV records render in one uniform, collapsible tree. Cost per frame tracks visible rows (~40), never file size.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Regex find, instantly</h3><p>Literal or regex search scoped to keys, values or attributes &mdash; chip-highlighted matches with &#9650;&#9660; stepping, backed by parallel native search.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>JSONPath &amp; XPath queries</h3><p>Query JSON/CSV with $.store.items[*].name and XML with //item/@id. Combine paths to pull several fields at once; results filter the tree.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>On-demand (lazy) indexing</h3><p>Files too large to index eagerly open anyway &mdash; only the paths you expand are materialized, so resident memory tracks the subtree you view.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>CSV spreadsheet view</h3><p>CSV/TSV opens in a grid with header detection. Leading-zero cells like ZIP codes deliberately stay strings &mdash; no silent data loss.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Follow tail (tail -f)</h3><p>Follow a growing JSON / NDJSON / log file. Only newly appended lines are parsed each tick, so it stays cheap on huge, live files.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Convert &amp; export</h3><p>Export the whole document or any node as pretty JSON, XML or CSV &mdash; cross-format conversion built in, plus export of search matches.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Open from URL</h3><p>Fetch a document over HTTP(S) with None / Basic / Bearer / API-Key auth, remember credentials, and copy the request as cURL.</p></div>
+    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Node statistics</h3><p>Right-click any container for child counts, a type histogram, distinct values and numeric min / max / avg &mdash; understand your data fast.</p></div>
+  </div>
+</div></section>
+
+<section class="section section--alt"><div class="wrap">
+  <div class="center"><span class="eyebrow">How it compares</span><h2>Other tools weren't built for gigabytes.</h2>
+  <p class="lead">General-purpose editors treat JSON as plain text. OPENXMLJSON treats it as structured data.</p></div>
+  <div class="compare"><table>
+    <thead><tr><th></th><th class="us">OPENXMLJSON</th><th>Text editors</th><th>Browser / online</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Opens 10 GB files</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
+      <tr><th scope="row">Memory tracks working set, not file size</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
+      <tr><th scope="row">Structural tree navigation</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="muted">Limited</span></td></tr>
+      <tr><th scope="row">Parallel regex search</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="muted">Slow</span></td><td><span class="no">&#10005;</span></td></tr>
+      <tr><th scope="row">JSONPath / XPath queries</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
+      <tr><th scope="row">Follow a live / growing file</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
+      <tr><th scope="row">Cross-format convert (JSON/XML/CSV)</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="muted">Partial</span></td></tr>
+      <tr><th scope="row">Data never leaves your machine</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="section" id="pricing"><div class="wrap">
+  <div class="center"><span class="eyebrow">Editions</span><h2>Start free. Upgrade when you outgrow it.</h2>
+  <p class="lead">Every edition uses the same native engine. Paid editions unlock unlimited file size and automatic updates.</p></div>
+  <div class="plans">
+    <div class="plan">
+      <div><div class="plan__name">Free</div><span class="plan__badge" style="background:#D9433B22;color:#D9433B;margin-top:8px">Free Edition</span></div>
+      <div class="plan__price">$0<small> forever</small></div>
+      <p class="plan__desc">Everything you need for everyday files.</p>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSON up to 100 MB</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>XML &amp; CSV / TSV, any size</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Tree view, find &amp; filter</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSONPath / XPath queries</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Export to JSON / XML / CSV</span></li>
+      </ul>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost btn--block">Download free</a>
+    </div>
+    <div class="plan featured">
+      <div><div class="plan__name">Premium</div><span class="plan__badge" style="background:#2FA55A22;color:#2FA55A;margin-top:8px">Premium Edition</span></div>
+      <div class="plan__price">$49<small> / license</small></div>
+      <p class="plan__desc">For engineers who live in big data files.</p>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Free</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>No file-size limit</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Automatic update checks</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Follow tail on live logs</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Open from URL with auth</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Priority email support</span></li>
+      </ul>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--block">Buy Premium</a>
+    </div>
+    <div class="plan">
+      <div><div class="plan__name">Enterprise</div><span class="plan__badge" style="background:#2F6BE322;color:#2F6BE3;margin-top:8px">Netcore Unbxd Edition</span></div>
+      <div class="plan__price">Custom</div>
+      <p class="plan__desc">Team licensing and deployment at scale.</p>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Premium</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Volume &amp; site licensing</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Managed deployment</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>SSO / centralized updates</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Dedicated support SLA</span></li>
+      </ul>
+      <a href="{{ routes.root_url }}pages/contact" class="btn btn--ghost btn--block">Contact sales</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="section section--alt"><div class="wrap">
+  <div class="center"><span class="eyebrow">Loved by data engineers</span><h2>What people say.</h2></div>
+  <div class="quotes">
+    <figure class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;Opened an 8 GB NDJSON log that crashed everything else. It was on screen before I finished my coffee.&rdquo;</p></blockquote><figcaption class="quote__who">&mdash; Priya S., Backend engineer</figcaption></figure>
+    <figure class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;The JSONPath query bar plus regex find replaced three scripts I used to run to inspect API dumps.&rdquo;</p></blockquote><figcaption class="quote__who">&mdash; Marco V., Data engineer</figcaption></figure>
+    <figure class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;Follow-tail on a live JSON log is the feature I didn't know I needed. Memory just doesn't move.&rdquo;</p></blockquote><figcaption class="quote__who">&mdash; Dan R., SRE</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section" id="faq"><div class="wrap">
+  <div class="center"><span class="eyebrow">Questions, answered</span><h2>What to know before you download.</h2></div>
+  <div class="faq" data-faq>
+    <details open><summary>How large a file can it really open?</summary><p>Around 10 GB comfortably. Files too large to index eagerly fall back to on-demand (lazy) indexing, so documents near or beyond your available RAM still open.</p></details>
+    <details><summary>Which formats are supported?</summary><p>JSON, JSON-Lines / NDJSON, XML, CSV and TSV. The parser is chosen from the file extension, and you can also paste from the clipboard or open from a URL.</p></details>
+    <details><summary>Does my data leave my machine?</summary><p>No. Files are memory-mapped and processed locally. Nothing is uploaded &mdash; the only network call is the optional Open-URL fetch you trigger yourself.</p></details>
+    <details><summary>What platforms does it run on?</summary><p>Windows, macOS (universal, Apple Silicon + Intel) and Linux.</p></details>
+    <details><summary>What's the difference between Free and paid editions?</summary><p>Free opens JSON up to 100 MB (XML/CSV any size). Premium and the Netcore Unbxd Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment.</p></details>
+  </div>
+</div></section>
+
+<section class="section cta-band"><div class="wrap center">
+  <h2>Stop waiting on progress bars.</h2>
+  <p class="lead" style="margin:0 auto 26px">Download OPENXMLJSON free and open your biggest file in seconds.</p>
+  <div class="btn-row" style="justify-content:center">
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download free</a>
+    <a href="#pricing" class="btn btn--ghost btn--lg">Compare editions</a>
+  </div>
+  <p class="hero__meta">Windows &middot; macOS &middot; Linux &middot; Free edition available</p>
+</div></section>

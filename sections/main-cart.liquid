@@ -1,0 +1,41 @@
+<section class="wrap cart-wrap">
+  <h1>{{ 'cart.general.title' | t }}</h1>
+
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      {% for item in cart.items %}
+        <div class="cart-line">
+          {% if item.image %}<img src="{{ item.image | image_url: width: 128 }}" alt="{{ item.title | escape }}">{% else %}<span></span>{% endif %}
+          <div>
+            <a href="{{ item.url }}" style="font-weight:600">{{ item.product.title }}</a>
+            {% unless item.variant.title contains 'Default' %}<div class="muted" style="font-size:.88rem">{{ item.variant.title }}</div>{% endunless %}
+            <a href="{{ item.url_to_remove }}" class="muted" style="font-size:.82rem;text-decoration:underline">{{ 'cart.general.remove' | t }}</a>
+          </div>
+          <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width:70px">
+          <div style="font-weight:700">{{ item.final_line_price | money }}</div>
+        </div>
+      {% endfor %}
+
+      <div class="cart-foot">
+        <button type="submit" name="update" class="btn btn--ghost">Update</button>
+        <div style="text-align:right">
+          <div class="muted" style="font-size:.9rem">{{ 'cart.general.subtotal' | t }}</div>
+          <div class="cart-total">{{ cart.total_price | money }}</div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <button type="submit" name="checkout" class="btn btn--primary btn--lg btn--block">{{ 'cart.general.checkout' | t }}</button>
+      </div>
+      <p class="muted center" style="font-size:.82rem;margin-top:14px">Secure checkout · Cards, Apple Pay, Google Pay &amp; more via Shopify Payments / Stripe.</p>
+    </form>
+  {% else %}
+    <div class="empty">
+      <p class="lead">{{ 'cart.general.empty' | t }}</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">{{ 'cart.general.continue' | t }}</a>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{ "name": "Cart" }
+{% endschema %}

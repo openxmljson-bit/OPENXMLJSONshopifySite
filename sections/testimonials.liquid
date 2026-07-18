@@ -1,0 +1,42 @@
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="quotes">
+      {% for block in section.blocks %}
+        <figure class="quote" {{ block.shopify_attributes }}>
+          <div class="stars">★★★★★</div>
+          <blockquote><p>&ldquo;{{ block.settings.quote }}&rdquo;</p></blockquote>
+          <figcaption class="quote__who">&mdash; {{ block.settings.author }}{% if block.settings.role != blank %}, {{ block.settings.role }}{% endif %}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Loved by data engineers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What people say." }
+  ],
+  "blocks": [
+    { "type": "quote", "name": "Quote", "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote" },
+      { "type": "text", "id": "author", "label": "Author" },
+      { "type": "text", "id": "role", "label": "Role" }
+    ]}
+  ],
+  "presets": [{
+    "name": "Testimonials",
+    "blocks": [
+      { "type": "quote", "settings": { "quote": "Opened an 8 GB NDJSON log that crashed everything else. It was on screen before I finished my coffee.", "author": "Priya S.", "role": "Backend engineer" } },
+      { "type": "quote", "settings": { "quote": "The JSONPath query bar plus regex find replaced three scripts I used to run to inspect API dumps.", "author": "Marco V.", "role": "Data engineer" } },
+      { "type": "quote", "settings": { "quote": "Follow-tail on a live JSON log is the feature I didn't know I needed. Memory just doesn't move.", "author": "Dan R.", "role": "SRE" } }
+    ]
+  }]
+}
+{% endschema %}

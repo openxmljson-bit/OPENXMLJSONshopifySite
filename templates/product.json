@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": { "type": "main-product" },
+    "features": { "type": "features", "settings": { "eyebrow": "Included", "heading": "What your license unlocks.", "subheading": "The full native engine, on every platform." } },
+    "faq": { "type": "faq" }
+  },
+  "order": ["main", "features", "faq"]
+}

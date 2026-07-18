@@ -1,0 +1,47 @@
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="{{ routes.root_url }}" class="brand">
+      {% if settings.logo != blank %}
+        <img src="{{ settings.logo | image_url: width: 60 }}" alt="{{ settings.brand_name }}" width="30" height="30">
+      {% else %}
+        <img src="{{ 'logo.png' | asset_url }}" alt="{{ settings.brand_name }}" width="30" height="30">
+      {% endif %}
+      <span>{{ settings.brand_name | default: shop.name }}</span>
+    </a>
+
+    <nav class="nav" id="primary-nav">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="header-actions">
+      {% if section.settings.download_url != blank %}
+        <a href="{{ section.settings.download_url }}" class="btn btn--ghost">{{ section.settings.download_label }}</a>
+      {% endif %}
+      {% if section.settings.buy_url != blank %}
+        <a href="{{ section.settings.buy_url }}" class="btn btn--primary">{{ section.settings.buy_label }}</a>
+      {% endif %}
+      <a href="{{ routes.cart_url }}" class="header-cart" aria-label="Cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+        {% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "text", "id": "download_label", "label": "Download button label", "default": "Download" },
+    { "type": "url", "id": "download_url", "label": "Download button URL" },
+    { "type": "text", "id": "buy_label", "label": "Buy button label", "default": "Buy license" },
+    { "type": "url", "id": "buy_url", "label": "Buy button URL" }
+  ]
+}
+{% endschema %}

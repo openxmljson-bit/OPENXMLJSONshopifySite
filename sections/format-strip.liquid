@@ -1,0 +1,33 @@
+<section class="section--tight">
+  <div class="wrap">
+    <p class="center muted" style="font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px">{{ section.settings.heading }}</p>
+    <div class="formatstrip">
+      {% for block in section.blocks %}
+        <span class="fmt" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Format strip",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One viewer for every large data format" }
+  ],
+  "blocks": [
+    { "type": "fmt", "name": "Format", "settings": [ { "type": "text", "id": "label", "label": "Label", "default": "JSON" } ] }
+  ],
+  "presets": [{
+    "name": "Format strip",
+    "blocks": [
+      { "type": "fmt", "settings": { "label": "JSON" } },
+      { "type": "fmt", "settings": { "label": "JSON-Lines / NDJSON" } },
+      { "type": "fmt", "settings": { "label": "XML" } },
+      { "type": "fmt", "settings": { "label": "CSV" } },
+      { "type": "fmt", "settings": { "label": "TSV" } },
+      { "type": "fmt", "settings": { "label": "Log files" } }
+    ]
+  }]
+}
+{% endschema %}

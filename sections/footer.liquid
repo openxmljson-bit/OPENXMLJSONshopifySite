@@ -1,0 +1,70 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="{{ routes.root_url }}" class="brand" style="margin-bottom:14px">
+          <img src="{% if settings.logo != blank %}{{ settings.logo | image_url: width: 60 }}{% else %}{{ 'logo.png' | asset_url }}{% endif %}" alt="{{ settings.brand_name }}" width="30" height="30">
+          <span>{{ settings.brand_name | default: shop.name }}</span>
+        </a>
+        <p>{{ section.settings.tagline }}</p>
+        {% if section.settings.show_newsletter %}
+          {% form 'customer' %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="newsletter">
+              <input type="email" name="contact[email]" placeholder="Email address" required>
+              <button type="submit" class="btn btn--primary">Subscribe</button>
+            </div>
+          {% endform %}
+        {% endif %}
+      </div>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'column' %}
+          <div class="footer-col" {{ block.shopify_attributes }}>
+            <h4>{{ block.settings.title }}</h4>
+            {% for link in block.settings.menu.links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ settings.brand_name | default: shop.name }}. All rights reserved.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        {% if settings.social_github != blank %}<a href="{{ settings.social_github }}">GitHub</a>{% endif %}
+        {% if settings.social_twitter != blank %}<a href="{{ settings.social_twitter }}">X</a>{% endif %}
+        {% if settings.social_youtube != blank %}<a href="{{ settings.social_youtube }}">YouTube</a>{% endif %}
+        {% if settings.contact_email != blank %}<a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a>{% endif %}
+      </span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "A fast viewer for very large JSON, XML and CSV files — up to ~10 GB, without loading them into memory." },
+    { "type": "checkbox", "id": "show_newsletter", "label": "Show newsletter signup", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Heading", "default": "Product" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "column", "settings": { "title": "Product" } },
+      { "type": "column", "settings": { "title": "Resources" } },
+      { "type": "column", "settings": { "title": "Company" } }
+    ]
+  }
+}
+{% endschema %}

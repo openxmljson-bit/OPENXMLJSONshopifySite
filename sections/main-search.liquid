@@ -1,0 +1,35 @@
+<section class="wrap">
+  <div class="page-head">
+    <h1>Search</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" style="max-width:520px;margin:20px auto 0;display:flex;gap:8px">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}"
+        style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:12px 18px;color:var(--text)">
+      <button type="submit" class="btn btn--primary">{{ 'general.search.submit' | t }}</button>
+    </form>
+  </div>
+
+  {% if search.performed %}
+    {% if search.results_count > 0 %}
+      <p class="center muted">{{ search.results_count }} results for &ldquo;{{ search.terms }}&rdquo;</p>
+      <div class="collection-grid">
+        {% for item in search.results %}
+          <a href="{{ item.url }}" class="card">
+            <div class="card__media">
+              {% if item.featured_image %}<img src="{{ item.featured_image | image_url: width: 500 }}" alt="{{ item.title | escape }}">{% elsif item.image %}<img src="{{ item.image | image_url: width: 500 }}" alt="{{ item.title | escape }}">{% else %}<img src="{{ 'logo.png' | asset_url }}" width="70" style="border-radius:12px">{% endif %}
+            </div>
+            <div class="card__body">
+              <span class="card__title">{{ item.title }}</span>
+              {% if item.price %}<span class="card__price">{{ item.price | money }}</span>{% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty muted">No results for &ldquo;{{ search.terms }}&rdquo;.</p>
+    {% endif %}
+  {% endif %}
+</section>
+
+{% schema %}
+{ "name": "Search" }
+{% endschema %}

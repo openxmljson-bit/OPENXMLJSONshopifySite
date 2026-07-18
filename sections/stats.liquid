@@ -1,0 +1,43 @@
+<section class="section">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p class="lead">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="stats">
+      {% for block in section.blocks %}
+        <div class="stat" {{ block.shopify_attributes }}>
+          <div class="stat__num">{{ block.settings.number }}</div>
+          <div class="stat__label">{{ block.settings.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stat callouts",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A whole new class of performance" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built for scale, byte by byte." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A native Rust engine treats your data as structure, not text — so memory tracks your working set, not the file size." }
+  ],
+  "blocks": [
+    { "type": "stat", "name": "Stat", "settings": [
+      { "type": "text", "id": "number", "label": "Number", "default": "10 GB" },
+      { "type": "text", "id": "label", "label": "Label", "default": "Files opened without loading into memory" }
+    ]}
+  ],
+  "presets": [{
+    "name": "Stat callouts",
+    "blocks": [
+      { "type": "stat", "settings": { "number": "~10 GB", "label": "Files open & search, no in-memory copy" } },
+      { "type": "stat", "settings": { "number": "24 B", "label": "Index per node — ~3 GB for 130M nodes" } },
+      { "type": "stat", "settings": { "number": "130M/s", "label": "Objects parsed per second" } },
+      { "type": "stat", "settings": { "number": "2 GB/s", "label": "Raw file read throughput" } }
+    ]
+  }]
+}
+{% endschema %}

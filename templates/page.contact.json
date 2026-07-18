@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "hero": { "type": "page-hero", "settings": { "eyebrow": "Contact", "heading": "Talk to us.", "subheading": "Licensing, deployment, or the Netcore Unbxd Edition — we're happy to help." } },
+    "form": { "type": "contact-form", "settings": { "heading": "" } }
+  },
+  "order": ["hero","form"]
+}

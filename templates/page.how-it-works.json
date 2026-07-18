@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "hero": { "type": "page-hero", "settings": { "eyebrow": "How it works", "heading": "From huge file to answer in three steps.", "subheading": "A native, memory-mapped engine that treats your data as structure — not text." } },
+    "steps": { "type": "steps", "settings": { "eyebrow": "The workflow", "heading": "Open it. Navigate it. Find anything." }, "blocks": {
+      "s1": { "type": "step", "settings": { "title": "Open the file", "body": "Drag in a JSON, NDJSON, XML, CSV or TSV file up to ~10 GB — or paste from the clipboard or fetch a URL with auth. It opens instantly, no progress bars." } },
+      "s2": { "type": "step", "settings": { "title": "Navigate the tree", "body": "Everything renders as one uniform, virtualized tree. Jump to any path, bookmark nodes, and read collapsed counts like “products : […], 31 items”." } },
+      "s3": { "type": "step", "settings": { "title": "Search & export", "body": "Regex find, live filter, or JSONPath / XPath queries backed by parallel native search. Then export or convert to JSON, XML or CSV." } }
+    }, "block_order": ["s1","s2","s3"] },
+    "benchmark": { "type": "benchmark", "blocks": {
+      "bm1": { "type": "bar", "settings": { "name": "OPENXMLJSON", "percent": 4, "value": "0.4s", "is_us": true } },
+      "bm2": { "type": "bar", "settings": { "name": "Notepad++", "percent": 62, "value": "65s" } },
+      "bm3": { "type": "bar", "settings": { "name": "VS Code", "percent": 78, "value": "82s" } },
+      "bm4": { "type": "bar", "settings": { "name": "Sublime", "percent": 55, "value": "58s" } },
+      "bm5": { "type": "bar", "settings": { "name": "Chrome", "percent": 100, "value": "fails" } }
+    }, "block_order": ["bm1","bm2","bm3","bm4","bm5"] },
+    "features": { "type": "features", "blocks": {
+      "f1": { "type": "feature", "settings": { "title": "Virtualized tree view", "body": "Objects, arrays, XML elements and CSV records render in one uniform, collapsible tree. Cost per frame tracks visible rows (~40), never file size." } },
+      "f2": { "type": "feature", "settings": { "title": "Regex find, instantly", "body": "Literal or regex search scoped to keys, values or attributes — chip-highlighted matches with stepping, backed by parallel native search." } },
+      "f3": { "type": "feature", "settings": { "title": "JSONPath & XPath queries", "body": "Query JSON/CSV with $.store.items[*].name and XML with //item/@id. Combine paths with | to pull several fields at once; results filter the tree." } },
+      "f4": { "type": "feature", "settings": { "title": "On-demand (lazy) indexing", "body": "Files too large to index eagerly open anyway — only the paths you expand are materialized, so resident memory tracks the subtree you view." } },
+      "f5": { "type": "feature", "settings": { "title": "Follow tail (tail -f)", "body": "Follow a growing JSON / NDJSON / log file. Only newly appended lines are parsed each tick, so it stays cheap on huge, live files." } },
+      "f6": { "type": "feature", "settings": { "title": "Convert & export", "body": "Export the whole document or any node as pretty JSON, XML or CSV — cross-format conversion built in, plus export of search matches." } }
+    }, "block_order": ["f1","f2","f3","f4","f5","f6"] },
+    "cta": { "type": "cta-band" }
+  },
+  "order": ["hero","steps","benchmark","features","cta"]
+}

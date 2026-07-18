@@ -1,0 +1,51 @@
+<section class="section section--alt">
+  <div class="wrap" style="max-width:920px">
+    <div class="center">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p class="lead">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="bench" data-bench>
+      {% for block in section.blocks %}
+        <div class="bench__row" {{ block.shopify_attributes }}>
+          <div class="bench__name {% if block.settings.is_us %}win{% endif %}">{{ block.settings.name }}</div>
+          <div class="bench__track">
+            <div class="bench__fill {% if block.settings.is_us %}win{% endif %}" data-bar="{{ block.settings.percent }}" style="width:0"></div>
+          </div>
+          <div class="bench__val">{{ block.settings.value }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    <p class="muted center" style="font-size:.8rem;margin-top:26px">{{ section.settings.footnote }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benchmark bars",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "163&times; faster load" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The result speaks for itself." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Approximate load time for a large JSON file. Where general-purpose editors stall or run out of memory, the structural index just opens." },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Illustrative comparison of load performance on a large JSON file. Actual results vary by hardware, file shape and configuration." }
+  ],
+  "blocks": [
+    { "type": "bar", "name": "Bar", "settings": [
+      { "type": "text", "id": "name", "label": "Tool name", "default": "Tool" },
+      { "type": "range", "id": "percent", "label": "Bar length %", "min": 2, "max": 100, "step": 1, "unit": "%", "default": 50 },
+      { "type": "text", "id": "value", "label": "Value label", "default": "" },
+      { "type": "checkbox", "id": "is_us", "label": "Highlight (our product)", "default": false }
+    ]}
+  ],
+  "presets": [{
+    "name": "Benchmark bars",
+    "blocks": [
+      { "type": "bar", "settings": { "name": "OPENXMLJSON", "percent": 4, "value": "0.4s", "is_us": true } },
+      { "type": "bar", "settings": { "name": "Notepad++", "percent": 62, "value": "65s" } },
+      { "type": "bar", "settings": { "name": "VS Code", "percent": 78, "value": "82s" } },
+      { "type": "bar", "settings": { "name": "Sublime", "percent": 55, "value": "58s" } },
+      { "type": "bar", "settings": { "name": "Chrome", "percent": 100, "value": "fails" } }
+    ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+<section class="hero">
+  <div class="wrap hero__inner">
+    {% if section.settings.eyebrow != blank %}<span class="pill">{{ section.settings.eyebrow }}</span>{% endif %}
+    <h1>{{ section.settings.heading }}</h1>
+    <p class="lead">{{ section.settings.subheading }}</p>
+    <div class="btn-row" style="justify-content:center">
+      {% if section.settings.primary_url != blank %}<a href="{{ section.settings.primary_url }}" class="btn btn--primary btn--lg">{{ section.settings.primary_label }}</a>{% endif %}
+      {% if section.settings.secondary_url != blank %}<a href="{{ section.settings.secondary_url }}" class="btn btn--ghost btn--lg">{{ section.settings.secondary_label }}</a>{% endif %}
+    </div>
+    <p class="hero__meta">{{ section.settings.meta }}</p>
+
+    <div class="hero__shot">
+      {% if section.settings.screenshot != blank %}
+        <img src="{{ section.settings.screenshot | image_url: width: 1920 }}" alt="{{ settings.brand_name }} interface">
+      {% else %}
+        {%- comment -%} Fallback: a mock of the app UI {%- endcomment -%}
+        <div class="codewin">
+          <div class="codewin__bar"><span></span><span></span><span></span><span class="codewin__title">events.ndjson — 8.4 GB — 132,884,910 nodes</span></div>
+          <div class="codewin__body">
+            <div class="codewin__tree">
+              <div class="row"><span class="k">&#9662; root</span> : {…}</div>
+              <div class="row" style="padding-left:16px"><span class="k">events</span> : [ … ], 4.1M items</div>
+              <div class="row sel" style="padding-left:32px">[0] : {…}</div>
+              <div class="row" style="padding-left:48px">id : 8842013</div>
+              <div class="row" style="padding-left:48px">level : "error"</div>
+              <div class="row" style="padding-left:48px">ts : 1718…</div>
+              <div class="row" style="padding-left:32px">[1] : {…}</div>
+              <div class="row" style="padding-left:32px">[2] : {…}</div>
+            </div>
+            <div class="codewin__main">
+<pre style="margin:0"><span class="ln">1</span><span class="tok-punc">{</span>
+<span class="ln">2</span>  <span class="tok-key">"events"</span><span class="tok-punc">: [</span>
+<span class="ln">3</span>    <span class="tok-punc">{</span> <span class="tok-key">"id"</span><span class="tok-punc">:</span> <span class="tok-num">8842013</span><span class="tok-punc">,</span> <span class="tok-key">"level"</span><span class="tok-punc">:</span> <span class="tok-str">"<span class="hl">error</span>"</span><span class="tok-punc">,</span>
+<span class="ln">4</span>      <span class="tok-key">"service"</span><span class="tok-punc">:</span> <span class="tok-str">"checkout"</span><span class="tok-punc">,</span> <span class="tok-key">"ts"</span><span class="tok-punc">:</span> <span class="tok-num">1718903112</span> <span class="tok-punc">},</span>
+<span class="ln">5</span>    <span class="tok-punc">{</span> <span class="tok-key">"id"</span><span class="tok-punc">:</span> <span class="tok-num">8842014</span><span class="tok-punc">,</span> <span class="tok-key">"level"</span><span class="tok-punc">:</span> <span class="tok-str">"info"</span><span class="tok-punc">,</span>
+<span class="ln">6</span>      <span class="tok-key">"service"</span><span class="tok-punc">:</span> <span class="tok-str">"search"</span><span class="tok-punc">,</span> <span class="tok-key">"ts"</span><span class="tok-punc">:</span> <span class="tok-num">1718903118</span> <span class="tok-punc">}</span>
+<span class="ln">7</span>  <span class="tok-punc">]</span>
+<span class="ln">8</span><span class="tok-punc">}</span>
+</pre>
+              <div style="margin-top:16px;color:var(--muted-2);font-size:.76rem">Find: <span class="hl">error</span> &nbsp; 12,904 matches &nbsp;·&nbsp; 0.03s &nbsp;·&nbsp; JSON · 8.4 GB file · 132,884,910 nodes · 3.0 GB index</div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow pill", "default": "Windows · macOS · Linux" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Open 10&nbsp;GB JSON, XML & CSV in a blink." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A zero-copy, memory-mapped viewer that opens, navigates and regex-searches enormous data files without ever loading them into memory." },
+    { "type": "text", "id": "primary_label", "label": "Primary button", "default": "Download free" },
+    { "type": "url", "id": "primary_url", "label": "Primary URL" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button", "default": "Buy a license" },
+    { "type": "url", "id": "secondary_url", "label": "Secondary URL" },
+    { "type": "text", "id": "meta", "label": "Meta line", "default": "Free edition available · No file leaves your machine" },
+    { "type": "image_picker", "id": "screenshot", "label": "App screenshot (optional)" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

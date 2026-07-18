@@ -1,0 +1,30 @@
+{
+  "general": {
+    "search": { "placeholder": "Search", "submit": "Search" },
+    "pagination": { "previous": "Previous", "next": "Next" },
+    "newsletter": { "email": "Email address", "submit": "Subscribe", "success": "Thanks for subscribing." }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Buy license",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "on_sale": "Sale"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your cart",
+      "empty": "Your cart is empty",
+      "continue": "Continue shopping",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "remove": "Remove"
+    }
+  },
+  "layout": {
+    "cart": { "title": "Cart" },
+    "footer": { "newsletter": "Get product updates" }
+  }
+}

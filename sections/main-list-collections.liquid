@@ -1,0 +1,20 @@
+<section class="wrap">
+  <div class="page-head"><h1>Collections</h1></div>
+  <div class="collection-grid">
+    {% for collection in collections %}
+      <a href="{{ collection.url }}" class="card">
+        <div class="card__media">
+          {% if collection.image %}<img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title | escape }}">{% else %}<img src="{{ 'logo.png' | asset_url }}" width="80" style="border-radius:14px">{% endif %}
+        </div>
+        <div class="card__body">
+          <span class="card__title">{{ collection.title }}</span>
+          <span class="muted" style="font-size:.9rem">{{ collection.products_count }} products</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "List collections" }
+{% endschema %}

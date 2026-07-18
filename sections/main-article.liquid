@@ -1,0 +1,17 @@
+<article class="wrap">
+  <div class="page-head">
+    <span class="muted" style="font-size:.85rem">{{ article.published_at | date: '%B %d, %Y' }}</span>
+    <h1>{{ article.title }}</h1>
+    {% if article.author %}<p class="muted">By {{ article.author }}</p>{% endif %}
+  </div>
+  {% if article.image %}
+    <div class="wrap" style="max-width:840px;margin-bottom:32px">
+      <img src="{{ article.image | image_url: width: 1600 }}" alt="{{ article.title | escape }}" style="border-radius:16px;border:1px solid var(--border)">
+    </div>
+  {% endif %}
+  <div class="page-body rte">{{ article.content }}</div>
+</article>
+
+{% schema %}
+{ "name": "Article" }
+{% endschema %}

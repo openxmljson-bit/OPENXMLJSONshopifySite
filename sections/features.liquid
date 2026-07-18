@@ -1,0 +1,51 @@
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p class="lead">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="features">
+      {% for block in section.blocks %}
+        <div class="feature" {{ block.shopify_attributes }}>
+          <div class="feature__ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          </div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Everything you need" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A data workbench, not a text editor." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Browse and query your files like a database — with the tools you'd expect from an enterprise DBMS." }
+  ],
+  "blocks": [
+    { "type": "feature", "name": "Feature", "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Feature" },
+      { "type": "textarea", "id": "body", "label": "Body", "default": "" }
+    ]}
+  ],
+  "presets": [{
+    "name": "Features grid",
+    "blocks": [
+      { "type": "feature", "settings": { "title": "Virtualized tree view", "body": "Objects, arrays, XML elements and CSV records render in one uniform, collapsible tree. Cost per frame tracks visible rows (~40), never file size." } },
+      { "type": "feature", "settings": { "title": "Regex find, instantly", "body": "Literal or regex search scoped to keys, values or attributes — chip-highlighted matches with ▲▼ stepping, backed by parallel native search." } },
+      { "type": "feature", "settings": { "title": "JSONPath & XPath queries", "body": "Query JSON/CSV with $.store.items[*].name and XML with //item/@id. Combine paths with | to pull several fields at once; results filter the tree." } },
+      { "type": "feature", "settings": { "title": "On-demand (lazy) indexing", "body": "Files too large to index eagerly open anyway — only the paths you expand are materialized, so resident memory tracks the subtree you view." } },
+      { "type": "feature", "settings": { "title": "CSV spreadsheet view", "body": "CSV/TSV opens in a grid with header detection. Leading-zero cells like ZIP codes deliberately stay strings — no silent data loss." } },
+      { "type": "feature", "settings": { "title": "Follow tail (tail -f)", "body": "Follow a growing JSON / NDJSON / log file. Only newly appended lines are parsed each tick, so it stays cheap on huge, live files." } },
+      { "type": "feature", "settings": { "title": "Convert & export", "body": "Export the whole document or any node as pretty JSON, XML or CSV — cross-format conversion built in, plus export of search matches." } },
+      { "type": "feature", "settings": { "title": "Open from URL", "body": "Fetch a document over HTTP(S) with None / Basic / Bearer / API-Key auth, remember credentials, and copy the request as cURL." } },
+      { "type": "feature", "settings": { "title": "Node statistics", "body": "Right-click any container for child counts, a type histogram, distinct values and numeric min / max / avg — understand your data fast." } }
+    ]
+  }]
+}
+{% endschema %}

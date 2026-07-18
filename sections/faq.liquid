@@ -1,0 +1,43 @@
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="faq" data-faq>
+      {% for block in section.blocks %}
+        <details {{ block.shopify_attributes }}{% if forloop.first %} open{% endif %}>
+          <summary>{{ block.settings.question }}</summary>
+          <p>{{ block.settings.answer }}</p>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions, answered" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What to know before you download." }
+  ],
+  "blocks": [
+    { "type": "qa", "name": "Q&A", "settings": [
+      { "type": "text", "id": "question", "label": "Question" },
+      { "type": "textarea", "id": "answer", "label": "Answer" }
+    ]}
+  ],
+  "presets": [{
+    "name": "FAQ",
+    "blocks": [
+      { "type": "qa", "settings": { "question": "How large a file can it really open?", "answer": "Around 10 GB comfortably. Files too large to index eagerly fall back to on-demand (lazy) indexing, so documents near or beyond your available RAM still open." } },
+      { "type": "qa", "settings": { "question": "Which formats are supported?", "answer": "JSON, JSON-Lines / NDJSON, XML, CSV and TSV. The parser is chosen from the file extension, and you can also paste from the clipboard or open from a URL." } },
+      { "type": "qa", "settings": { "question": "Does my data leave my machine?", "answer": "No. Files are memory-mapped and processed locally. Nothing is uploaded — the only network call is the optional Open-URL fetch you trigger yourself." } },
+      { "type": "qa", "settings": { "question": "What platforms does it run on?", "answer": "Windows, macOS (universal, Apple Silicon + Intel) and Linux." } },
+      { "type": "qa", "settings": { "question": "What's the difference between Free and paid editions?", "answer": "Free opens JSON up to 100 MB (XML/CSV any size). Premium and the Netcore Unbxd Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment." } },
+      { "type": "qa", "settings": { "question": "Is there a license refund policy?", "answer": "Yes — license purchases are covered by our standard refund policy. Reach out any time and we'll help." } }
+    ]
+  }]
+}
+{% endschema %}

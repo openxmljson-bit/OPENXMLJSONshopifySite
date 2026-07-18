@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "hero": { "type": "page-hero", "settings": { "eyebrow": "Reviews", "heading": "What engineers say after the first big file.", "subheading": "Real reactions to opening data that used to crash everything else." } },
+    "testimonials": { "type": "testimonials", "settings": { "eyebrow": "Customer stories", "heading": "Loved by people who live in data." }, "blocks": {
+      "t1": { "type": "quote", "settings": { "quote": "Opened an 8 GB NDJSON log that crashed everything else. It was on screen before I finished my coffee.", "author": "Priya S.", "role": "Backend engineer" } },
+      "t2": { "type": "quote", "settings": { "quote": "The JSONPath query bar plus regex find replaced three scripts I used to run to inspect API dumps.", "author": "Marco V.", "role": "Data engineer" } },
+      "t3": { "type": "quote", "settings": { "quote": "Follow-tail on a live JSON log is the feature I didn't know I needed. Memory just doesn't move.", "author": "Dan R.", "role": "SRE" } },
+      "t4": { "type": "quote", "settings": { "quote": "We inspect multi-GB catalog exports daily. This is the only viewer that opens them without a fight.", "author": "Lena K.", "role": "Commerce data lead" } },
+      "t5": { "type": "quote", "settings": { "quote": "XPath over huge XML feeds used to mean writing a script. Now it's a query bar. Enormous time saver.", "author": "Tomás R.", "role": "Integrations engineer" } },
+      "t6": { "type": "quote", "settings": { "quote": "Leading zeros in CSVs stay strings. Sounds small — it's saved me from silent data corruption twice.", "author": "Aisha B.", "role": "Analytics engineer" } }
+    }, "block_order": ["t1","t2","t3","t4","t5","t6"] },
+    "cta": { "type": "cta-band", "settings": { "heading": "See it on your own file.", "subheading": "Download free and open your biggest export in seconds." } }
+  },
+  "order": ["hero","testimonials","cta"]
+}
