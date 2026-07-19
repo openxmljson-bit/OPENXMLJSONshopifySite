@@ -113,6 +113,9 @@ p  { margin: 0 0 1rem; }
 .header-actions { display: flex; align-items: center; gap: 12px; }
 .header-cart { position: relative; color: var(--muted); display: inline-flex; }
 .header-cart:hover { color: var(--text); }
+.header-account { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 600; }
+.header-account:hover { color: var(--text); }
+.header-account__label { line-height: 1; }
 .cart-count {
   position: absolute; top: -7px; right: -9px; min-width: 17px; height: 17px;
   padding: 0 4px; border-radius: 999px; background: var(--accent); color: #fff;
@@ -208,6 +211,29 @@ p  { margin: 0 0 1rem; }
 .compare .col-us { background: var(--accent-soft); }
 .compare .yes { color: var(--green); font-weight: 700; }
 .compare .no  { color: var(--muted-2); }
+
+/* ============ CUSTOMER ACCOUNT ============ */
+.account-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+.account-head h1 { margin: 0; }
+.account-layout { display: grid; grid-template-columns: 1fr 320px; gap: 28px; align-items: start; }
+.account-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+.account-panel h2 { font-size: 1.12rem; margin: 0 0 16px; }
+.account-table { width: 100%; border-collapse: collapse; }
+.account-table th, .account-table td { padding: 13px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: .92rem; vertical-align: top; }
+.account-table thead th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; }
+.account-table tbody tr:last-child td { border-bottom: 0; }
+.account-table a { color: var(--accent); font-weight: 600; }
+.status-tag { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .74rem; font-weight: 700; letter-spacing: .02em; }
+.status-tag--paid, .status-tag--fulfilled, .status-tag--authorized { background: rgba(47,158,87,0.12); color: var(--green); }
+.status-tag--pending, .status-tag--unfulfilled, .status-tag--partial { background: var(--accent-soft); color: var(--accent); }
+.status-tag--void, .status-tag--refunded, .status-tag--unpaid { background: var(--surface-2); color: var(--muted); }
+.address-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.address-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
+.address-card address { font-style: normal; color: var(--muted); font-size: .92rem; line-height: 1.7; }
+.account-form { display: grid; gap: 14px; max-width: 560px; }
+.account-form input, .account-form select { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; color: var(--text); font-family: inherit; width: 100%; }
+.account-form label { font-size: .82rem; color: var(--muted); font-weight: 600; }
+@media (max-width: 860px) { .account-layout { grid-template-columns: 1fr; } .account-table { display: block; overflow-x: auto; } }
 
 /* ============ PRICING / EDITIONS ============ */
 .plans { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 44px; align-items: stretch; }
@@ -312,4 +338,5 @@ p  { margin: 0 0 1rem; }
   .steps, .stats, .features, .plans, .quotes, .collection-grid, .footer-grid { grid-template-columns: 1fr; }
   .bench__row { grid-template-columns: 92px 1fr 54px; }
   .header-actions .btn--ghost { display: none; }
+  .header-account__label { display: none; }
 }

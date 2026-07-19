@@ -1,0 +1,61 @@
+<section class="section">
+  <div class="wrap">
+
+    <div class="account-head">
+      <div>
+        <span class="eyebrow">Account</span>
+        <h1>Hi{% if customer.first_name %}, {{ customer.first_name }}{% endif %}</h1>
+        <p class="muted" style="margin:6px 0 0">{{ customer.email }}</p>
+      </div>
+      <a href="{{ routes.account_logout_url }}" class="btn btn--ghost">Log out</a>
+    </div>
+
+    <div class="account-layout">
+
+      {%- comment -%} ===== ORDER HISTORY ===== {%- endcomment -%}
+      <div class="account-panel">
+        <h2>Order history</h2>
+        {% paginate customer.orders by 15 %}
+          {% if customer.orders.size > 0 %}
+            <table class="account-table">
+              <thead>
+                <tr><th>Order</th><th>Date</th><th>Payment</th><th>Fulfillment</th><th style="text-align:right">Total</th></tr>
+              </thead>
+              <tbody>
+                {% for order in customer.orders %}
+                  <tr>
+                    <td><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
+                    <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+                    <td><span class="status-tag status-tag--{{ order.financial_status }}">{{ order.financial_status_label }}</span></td>
+                    <td><span class="status-tag status-tag--{{ order.fulfillment_status }}">{{ order.fulfillment_status_label }}</span></td>
+                    <td style="text-align:right">{{ order.total_net_amount | money }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% if paginate.pages > 1 %}
+              <div class="center" style="margin-top:18px">{{ paginate | default_pagination }}</div>
+            {% endif %}
+          {% else %}
+            <p class="muted" style="margin:0">You haven't placed any orders yet.</p>
+            <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="margin-top:16px">Browse licenses</a>
+          {% endif %}
+        {% endpaginate %}
+      </div>
+
+      {%- comment -%} ===== DEFAULT ADDRESS ===== {%- endcomment -%}
+      <div class="account-panel">
+        <h2>Default address</h2>
+        {% if customer.default_address %}
+          <address style="font-style:normal;color:var(--muted);line-height:1.7;font-size:.92rem">
+            {{ customer.default_address | format_address }}
+          </address>
+        {% else %}
+          <p class="muted" style="margin:0 0 14px">No address saved yet.</p>
+        {% endif %}
+        <a href="{{ routes.account_addresses_url }}" class="btn btn--ghost btn--block" style="margin-top:16px">Manage addresses</a>
+      </div>
+
+    </div>
+  </div>
+</section>

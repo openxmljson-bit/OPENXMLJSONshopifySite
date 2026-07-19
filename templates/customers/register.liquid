@@ -1,0 +1,32 @@
+<section class="hero" style="padding:72px 0 24px">
+  <div class="wrap hero__inner center">
+    <span class="eyebrow">Account</span>
+    <h1>Create your account</h1>
+    <p class="lead" style="margin:14px auto 0">Keep your licenses and downloads in one place.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap" style="max-width:440px">
+    {% form 'create_customer', novalidate: 'novalidate' %}
+      {{ form.errors | default_errors }}
+      <div style="display:grid;gap:14px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <input type="text" name="customer[first_name]" placeholder="First name" autocomplete="given-name"
+            style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+          <input type="text" name="customer[last_name]" placeholder="Last name" autocomplete="family-name"
+            style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        </div>
+        <input type="email" name="customer[email]" placeholder="Email address" autocomplete="email" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <input type="password" name="customer[password]" placeholder="Password" autocomplete="new-password" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <button type="submit" class="btn btn--primary btn--lg btn--block">Create account</button>
+      </div>
+    {% endform %}
+
+    <p class="center muted" style="margin-top:20px;font-size:.9rem">
+      Already have an account? <a href="{{ routes.account_login_url }}" style="color:var(--accent)">Sign in</a>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,112 @@
+<section class="section">
+  <div class="wrap">
+
+    <div class="account-head">
+      <div>
+        <span class="eyebrow">Account</span>
+        <h1>Your addresses</h1>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button type="button" class="btn btn--primary" onclick="document.getElementById('add-address').style.display='block';this.style.display='none';">Add a new address</button>
+        <a href="{{ routes.account_url }}" class="btn btn--ghost">Back to account</a>
+      </div>
+    </div>
+
+    {%- comment -%} ===== NEW ADDRESS ===== {%- endcomment -%}
+    <div id="add-address" class="account-panel" style="display:none;margin-bottom:28px">
+      <h2>New address</h2>
+      {% form 'customer_address', customer.new_address %}
+        <div class="account-form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div><label>First name</label><input type="text" name="address[first_name]" value="{{ form.first_name }}"></div>
+            <div><label>Last name</label><input type="text" name="address[last_name]" value="{{ form.last_name }}"></div>
+          </div>
+          <div><label>Company</label><input type="text" name="address[company]" value="{{ form.company }}"></div>
+          <div><label>Address</label><input type="text" name="address[address1]" value="{{ form.address1 }}"></div>
+          <div><label>Apartment, suite, etc.</label><input type="text" name="address[address2]" value="{{ form.address2 }}"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div><label>City</label><input type="text" name="address[city]" value="{{ form.city }}"></div>
+            <div><label>Postal / ZIP code</label><input type="text" name="address[zip]" value="{{ form.zip }}"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div><label>Country / region</label>
+              <select name="address[country]">{{ form.country_option_tags }}</select>
+            </div>
+            <div><label>State / province</label><input type="text" name="address[province]" value="{{ form.province }}"></div>
+          </div>
+          <div><label>Phone</label><input type="tel" name="address[phone]" value="{{ form.phone }}"></div>
+          <label style="display:flex;align-items:center;gap:8px;font-weight:500">
+            {{ form.set_as_default_checkbox }} Set as default address
+          </label>
+          <div style="display:flex;gap:10px">
+            <button type="submit" class="btn btn--primary btn--lg">Save address</button>
+            <button type="button" class="btn btn--ghost btn--lg" onclick="document.getElementById('add-address').style.display='none';">Cancel</button>
+          </div>
+        </div>
+      {% endform %}
+    </div>
+
+    {%- comment -%} ===== EXISTING ADDRESSES ===== {%- endcomment -%}
+    {% paginate customer.addresses by 10 %}
+      {% if customer.addresses.size > 0 %}
+        <div class="address-grid">
+          {% for address in customer.addresses %}
+            <div class="address-card">
+              {% if address == customer.default_address %}
+                <span class="status-tag status-tag--paid" style="margin-bottom:10px;display:inline-block">Default</span>
+              {% endif %}
+              <address>{{ address | format_address }}</address>
+              <div style="display:flex;gap:10px;margin-top:16px">
+                <button type="button" class="btn btn--ghost" onclick="document.getElementById('edit-{{ address.id }}').style.display='block';this.closest('.address-card').style.display='none';">Edit</button>
+                {% form 'customer_address', address, style: 'display:inline' %}
+                  <input type="hidden" name="_method" value="delete">
+                  <button type="submit" class="btn btn--ghost" onclick="return confirm('Delete this address?');">Delete</button>
+                {% endform %}
+              </div>
+            </div>
+
+            {%- comment -%} edit form for this address {%- endcomment -%}
+            <div id="edit-{{ address.id }}" class="account-panel" style="display:none;grid-column:1/-1">
+              <h2>Edit address</h2>
+              {% form 'customer_address', address %}
+                <div class="account-form">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+                    <div><label>First name</label><input type="text" name="address[first_name]" value="{{ form.first_name }}"></div>
+                    <div><label>Last name</label><input type="text" name="address[last_name]" value="{{ form.last_name }}"></div>
+                  </div>
+                  <div><label>Company</label><input type="text" name="address[company]" value="{{ form.company }}"></div>
+                  <div><label>Address</label><input type="text" name="address[address1]" value="{{ form.address1 }}"></div>
+                  <div><label>Apartment, suite, etc.</label><input type="text" name="address[address2]" value="{{ form.address2 }}"></div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+                    <div><label>City</label><input type="text" name="address[city]" value="{{ form.city }}"></div>
+                    <div><label>Postal / ZIP code</label><input type="text" name="address[zip]" value="{{ form.zip }}"></div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+                    <div><label>Country / region</label>
+                      <select name="address[country]">{{ form.country_option_tags }}</select>
+                    </div>
+                    <div><label>State / province</label><input type="text" name="address[province]" value="{{ form.province }}"></div>
+                  </div>
+                  <div><label>Phone</label><input type="tel" name="address[phone]" value="{{ form.phone }}"></div>
+                  <label style="display:flex;align-items:center;gap:8px;font-weight:500">
+                    {{ form.set_as_default_checkbox }} Set as default address
+                  </label>
+                  <div style="display:flex;gap:10px">
+                    <button type="submit" class="btn btn--primary btn--lg">Update address</button>
+                    <button type="button" class="btn btn--ghost btn--lg" onclick="document.getElementById('edit-{{ address.id }}').style.display='none';location.reload();">Cancel</button>
+                  </div>
+                </div>
+              {% endform %}
+            </div>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          <div class="center" style="margin-top:24px">{{ paginate | default_pagination }}</div>
+        {% endif %}
+      {% else %}
+        <p class="muted">You don't have any saved addresses yet.</p>
+      {% endif %}
+    {% endpaginate %}
+
+  </div>
+</section>

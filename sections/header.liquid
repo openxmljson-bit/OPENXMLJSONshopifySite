@@ -22,6 +22,19 @@
       {% if section.settings.buy_url != blank %}
         <a href="{{ section.settings.buy_url }}" class="btn btn--primary">{{ section.settings.buy_label }}</a>
       {% endif %}
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a href="{{ routes.account_url }}" class="header-account" aria-label="Your account">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <span class="header-account__label">{{ customer.first_name | default: 'Account' }}</span>
+          </a>
+        {% else %}
+          <a href="{{ routes.account_login_url }}" class="header-account" aria-label="Log in">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <span class="header-account__label">Log in</span>
+          </a>
+        {% endif %}
+      {% endif %}
       <a href="{{ routes.cart_url }}" class="header-cart" aria-label="Cart">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
         {% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}

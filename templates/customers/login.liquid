@@ -1,0 +1,66 @@
+<section class="hero" style="padding:72px 0 24px">
+  <div class="wrap hero__inner center">
+    <span class="eyebrow">Account</span>
+    <h1>Sign in</h1>
+    <p class="lead" style="margin:14px auto 0">Access your OPENXMLJSON licenses, orders and downloads.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap" style="max-width:440px">
+
+    {%- comment -%} ===== LOGIN ===== {%- endcomment -%}
+    <div id="login-view">
+      {% form 'customer_login', novalidate: 'novalidate' %}
+        {{ form.errors | default_errors }}
+        <div style="display:grid;gap:14px">
+          <label for="customer_email" class="muted" style="font-size:.85rem">Email</label>
+          <input type="email" name="customer[email]" id="customer_email" autocomplete="email" required
+            style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+
+          {% if form.password_needed %}
+            <label for="customer_password" class="muted" style="font-size:.85rem">Password</label>
+            <input type="password" name="customer[password]" id="customer_password" autocomplete="current-password" required
+              style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+            <a href="#recover" onclick="document.getElementById('login-view').style.display='none';document.getElementById('recover-view').style.display='block';return false;" style="color:var(--accent);font-size:.85rem;justify-self:start">Forgot your password?</a>
+          {% endif %}
+
+          <button type="submit" class="btn btn--primary btn--lg btn--block">Sign in</button>
+        </div>
+      {% endform %}
+
+      {% if shop.customer_accounts_enabled %}
+        <p class="center muted" style="margin-top:20px;font-size:.9rem">
+          New here? <a href="{{ routes.account_register_url }}" style="color:var(--accent)">Create an account</a>
+        </p>
+      {% endif %}
+    </div>
+
+    {%- comment -%} ===== PASSWORD RECOVERY ===== {%- endcomment -%}
+    <div id="recover-view" style="display:none">
+      <h2 style="font-size:1.3rem;margin-bottom:8px">Reset your password</h2>
+      <p class="muted" style="font-size:.9rem;margin-bottom:18px">We'll email you a link to set a new one.</p>
+      {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <p class="pill" style="display:block;text-align:center;padding:14px">We've sent you an email with a reset link.</p>
+        {% endif %}
+        <div style="display:grid;gap:14px">
+          <input type="email" name="email" placeholder="Email address" required
+            style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+          <button type="submit" class="btn btn--primary btn--lg btn--block">Send reset link</button>
+          <a href="#login" onclick="document.getElementById('recover-view').style.display='none';document.getElementById('login-view').style.display='block';return false;" class="muted center" style="font-size:.85rem">Back to sign in</a>
+        </div>
+      {% endform %}
+    </div>
+
+  </div>
+</section>
+
+{%- comment -%} If recovery was just attempted, show the recovery view on load {%- endcomment -%}
+{% if form.posted_successfully? or recover_password_email %}
+<script>
+  document.getElementById('login-view').style.display='none';
+  document.getElementById('recover-view').style.display='block';
+</script>
+{% endif %}

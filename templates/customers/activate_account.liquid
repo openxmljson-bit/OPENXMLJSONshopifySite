@@ -1,0 +1,25 @@
+<section class="hero" style="padding:72px 0 24px">
+  <div class="wrap hero__inner center">
+    <span class="eyebrow">Account</span>
+    <h1>Activate your account</h1>
+    <p class="lead" style="margin:14px auto 0">Create a password to finish setting up your account.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap" style="max-width:440px">
+    {% form 'activate_customer_password' %}
+      {{ form.errors | default_errors }}
+      <div style="display:grid;gap:14px">
+        <input type="password" name="customer[password]" placeholder="Password" autocomplete="new-password" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <input type="password" name="customer[password_confirmation]" placeholder="Confirm password" autocomplete="new-password" required
+          style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text)">
+        <div style="display:flex;gap:12px">
+          <button type="submit" name="commit" class="btn btn--primary btn--lg" style="flex:1">Activate account</button>
+          <button type="submit" name="decline" class="btn btn--ghost btn--lg" style="flex:1">Decline invitation</button>
+        </div>
+      </div>
+    {% endform %}
+  </div>
+</section>

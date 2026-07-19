@@ -146,7 +146,7 @@
       <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--block">Buy Premium</a>
     </div>
     <div class="plan">
-      <div><div class="plan__name">Enterprise</div><span class="plan__badge" style="background:#2F6BE322;color:#2F6BE3;margin-top:8px">Netcore Unbxd Edition</span></div>
+      <div><div class="plan__name">Enterprise</div><span class="plan__badge" style="background:#2F6BE322;color:#2F6BE3;margin-top:8px">Narik Edition</span></div>
       <div class="plan__price">Custom</div>
       <p class="plan__desc">Team licensing and deployment at scale.</p>
       <ul>
@@ -156,7 +156,7 @@
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>SSO / centralized updates</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Dedicated support SLA</span></li>
       </ul>
-      <a href="{{ routes.root_url }}pages/contact" class="btn btn--ghost btn--block">Contact sales</a>
+      <a href="{{ pages.contact.url | default: '/pages/contact' }}" class="btn btn--ghost btn--block">Contact sales</a>
     </div>
   </div>
 </div></section>
@@ -177,7 +177,7 @@
     <details><summary>Which formats are supported?</summary><p>JSON, JSON-Lines / NDJSON, XML, CSV and TSV. The parser is chosen from the file extension, and you can also paste from the clipboard or open from a URL.</p></details>
     <details><summary>Does my data leave my machine?</summary><p>No. Files are memory-mapped and processed locally. Nothing is uploaded &mdash; the only network call is the optional Open-URL fetch you trigger yourself.</p></details>
     <details><summary>What platforms does it run on?</summary><p>Windows, macOS (universal, Apple Silicon + Intel) and Linux.</p></details>
-    <details><summary>What's the difference between Free and paid editions?</summary><p>Free opens JSON up to 100 MB (XML/CSV any size). Premium and the Netcore Unbxd Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment.</p></details>
+    <details><summary>What's the difference between Free and paid editions?</summary><p>Free opens JSON up to 100 MB (XML/CSV any size). Premium and the Narik Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment.</p></details>
   </div>
 </div></section>
 

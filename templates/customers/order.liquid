@@ -1,0 +1,85 @@
+<section class="section">
+  <div class="wrap">
+
+    <div class="account-head">
+      <div>
+        <span class="eyebrow">Order</span>
+        <h1>{{ order.name }}</h1>
+        <p class="muted" style="margin:6px 0 0">Placed {{ order.created_at | date: "%B %d, %Y at %l:%M %p" }}</p>
+        <p style="margin:10px 0 0">
+          <span class="status-tag status-tag--{{ order.financial_status }}">{{ order.financial_status_label }}</span>
+          <span class="status-tag status-tag--{{ order.fulfillment_status }}" style="margin-left:6px">{{ order.fulfillment_status_label }}</span>
+        </p>
+      </div>
+      <a href="{{ routes.account_url }}" class="btn btn--ghost">Back to account</a>
+    </div>
+
+    {% if order.cancelled %}
+      <p class="pill" style="display:block;padding:14px 18px;margin-bottom:24px">
+        This order was cancelled on {{ order.cancelled_at | date: "%B %d, %Y" }}.
+        {% if order.cancel_reason %}Reason: {{ order.cancel_reason_label }}.{% endif %}
+      </p>
+    {% endif %}
+
+    <div class="account-panel" style="margin-bottom:24px">
+      <table class="account-table">
+        <thead>
+          <tr><th>Item</th><th>Price</th><th>Qty</th><th style="text-align:right">Total</th></tr>
+        </thead>
+        <tbody>
+          {% for line_item in order.line_items %}
+            <tr>
+              <td>
+                <strong>{{ line_item.title }}</strong>
+                {% if line_item.fulfillment %}
+                  <div class="muted" style="font-size:.82rem;margin-top:4px">
+                    Fulfilled {{ line_item.fulfillment.created_at | date: "%b %d, %Y" }}
+                    {% if line_item.fulfillment.tracking_number %}
+                      · <a href="{{ line_item.fulfillment.tracking_url }}">Track {{ line_item.fulfillment.tracking_company }}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </td>
+              <td>{{ line_item.price | money }}</td>
+              <td>{{ line_item.quantity }}</td>
+              <td style="text-align:right">{{ line_item.quantity | times: line_item.price | money }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3" style="text-align:right;color:var(--muted)">Subtotal</td><td style="text-align:right">{{ order.line_items_subtotal_price | money }}</td></tr>
+          {% for discount_application in order.discount_applications %}
+            <tr><td colspan="3" style="text-align:right;color:var(--muted)">Discount ({{ discount_application.title }})</td><td style="text-align:right">-{{ discount_application.total_allocated_amount | money }}</td></tr>
+          {% endfor %}
+          {% for shipping_method in order.shipping_methods %}
+            <tr><td colspan="3" style="text-align:right;color:var(--muted)">Shipping ({{ shipping_method.title }})</td><td style="text-align:right">{{ shipping_method.price | money }}</td></tr>
+          {% endfor %}
+          {% for tax_line in order.tax_lines %}
+            <tr><td colspan="3" style="text-align:right;color:var(--muted)">Tax ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td><td style="text-align:right">{{ tax_line.price | money }}</td></tr>
+          {% endfor %}
+          <tr><td colspan="3" style="text-align:right;font-weight:700">Total</td><td style="text-align:right;font-weight:700;color:var(--accent)">{{ order.total_net_amount | money }}</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="account-layout">
+      <div class="account-panel">
+        <h2>Billing address</h2>
+        {% if order.billing_address %}
+          <address style="font-style:normal;color:var(--muted);line-height:1.7;font-size:.92rem">{{ order.billing_address | format_address }}</address>
+        {% else %}
+          <p class="muted" style="margin:0">—</p>
+        {% endif %}
+      </div>
+      <div class="account-panel">
+        <h2>Shipping address</h2>
+        {% if order.shipping_address %}
+          <address style="font-style:normal;color:var(--muted);line-height:1.7;font-size:.92rem">{{ order.shipping_address | format_address }}</address>
+        {% else %}
+          <p class="muted" style="margin:0">Digital delivery — no shipping address.</p>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>
