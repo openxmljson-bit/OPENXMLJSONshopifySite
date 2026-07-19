@@ -2,7 +2,7 @@
 <div class="announcement">
   {{ section.settings.text }}
   {% if section.settings.link_text != blank %}
-    <a href="{{ section.settings.link_url }}">{{ section.settings.link_text }} &rarr;</a>
+    <a href="{{ section.settings.link_url | default: pages.pricing.url | default: '/pages/pricing' }}">{{ section.settings.link_text }} &rarr;</a>
   {% endif %}
 </div>
 {% endif %}
@@ -12,7 +12,7 @@
   "name": "Announcement bar",
   "settings": [
     { "type": "checkbox", "id": "show", "label": "Show announcement", "default": true },
-    { "type": "text", "id": "text", "label": "Text", "default": "New: Narik Edition — unlimited file size + auto-updates." },
+    { "type": "text", "id": "text", "label": "Text", "default": "New: Narik AI Edition — unlimited file size + auto-updates." },
     { "type": "text", "id": "link_text", "label": "Link text", "default": "See editions" },
     { "type": "url", "id": "link_url", "label": "Link URL" }
   ],

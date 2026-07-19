@@ -9,7 +9,7 @@
       "t5": { "type": "quote", "settings": { "quote": "XPath over huge XML feeds used to mean writing a script. Now it's a query bar. Enormous time saver.", "author": "Tomás R.", "role": "Integrations engineer" } },
       "t6": { "type": "quote", "settings": { "quote": "Leading zeros in CSVs stay strings. Sounds small — it's saved me from silent data corruption twice.", "author": "Aisha B.", "role": "Analytics engineer" } }
     }, "block_order": ["t1","t2","t3","t4","t5","t6"] },
-    "cta": { "type": "cta-band", "settings": { "heading": "See it on your own file.", "subheading": "Download free and open your biggest export in seconds." } }
+    "cta": { "type": "cta-band", "settings": { "heading": "See it on your own file.", "subheading": "Download and open your biggest export in seconds." } }
   },
   "order": ["hero","testimonials","cta"]
 }

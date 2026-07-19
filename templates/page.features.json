@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Features",
+        "heading": "Everything OPENXMLJSON can do.",
+        "subheading": "A cross-platform desktop viewer for very large JSON, NDJSON, XML, CSV and TSV files, built on a zero-copy, memory-mapped engine. Here's the complete feature set, category by category."
+      }
+    },
+    "catalog": {
+      "type": "feature-catalog",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "heading": "Ready to open your biggest file?",
+        "subheading": "Download OPENXMLJSON, or buy a Premium license and remove the size limit for good.",
+        "primary_label": "Download Essential",
+        "primary_url": "/collections/all",
+        "secondary_label": "See pricing",
+        "secondary_url": "/pages/pricing",
+        "meta": "Windows · macOS · Linux · Essential edition available"
+      }
+    }
+  },
+  "order": ["hero", "catalog", "cta"]
+}

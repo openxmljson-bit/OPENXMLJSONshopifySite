@@ -14,7 +14,7 @@
               <span class="plan__badge" style="background:{{ block.settings.badge_color }}22;color:{{ block.settings.badge_color }};margin-top:8px">{{ block.settings.edition_label }}</span>
             {% endif %}
           </div>
-          <div class="plan__price">{{ block.settings.price }}<small>{{ block.settings.price_note }}</small></div>
+          <div class="plan__price">{% if block.settings.original_price != blank %}<span class="plan__was">{{ block.settings.original_price }}</span>{% endif %}{{ block.settings.price }}<small>{{ block.settings.price_note }}</small></div>
           <p class="plan__desc">{{ block.settings.desc }}</p>
           <ul>
             {% assign feats = block.settings.features | newline_to_br | split: '<br />' %}
@@ -40,7 +40,7 @@
   "name": "Editions / pricing",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Editions" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Start free. Upgrade when you outgrow it." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Start Essential. Upgrade when you outgrow it." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every edition uses the same native engine. Paid editions unlock unlimited file size and automatic updates." }
   ],
   "blocks": [
@@ -49,6 +49,7 @@
       { "type": "text", "id": "edition_label", "label": "Edition badge" },
       { "type": "color", "id": "badge_color", "label": "Badge color", "default": "#d9825a" },
       { "type": "text", "id": "price", "label": "Price", "default": "$0" },
+      { "type": "text", "id": "original_price", "label": "Original price (strikethrough)" },
       { "type": "text", "id": "price_note", "label": "Price note" },
       { "type": "textarea", "id": "desc", "label": "Description" },
       { "type": "textarea", "id": "features", "label": "Features (one per line)" },
@@ -61,19 +62,19 @@
     "name": "Editions / pricing",
     "blocks": [
       { "type": "plan", "settings": {
-        "name": "Free", "edition_label": "Free Edition", "badge_color": "#D9433B",
-        "price": "$0", "price_note": " forever",
+        "name": "Essential", "edition_label": "Essential Edition - Monthly", "badge_color": "#D9433B",
+        "original_price": "$9.99", "price": "$4.99", "price_note": " / license",
         "desc": "Everything you need for everyday files.",
         "features": "JSON up to 100 MB\nXML & CSV / TSV, any size\nTree view, find & filter\nJSONPath / XPath queries\nExport to JSON / XML / CSV",
-        "button_label": "Download free", "featured": false } },
+        "button_label": "Get Essential", "featured": false } },
       { "type": "plan", "settings": {
-        "name": "Premium", "edition_label": "Premium Edition", "badge_color": "#2FA55A",
-        "price": "$49", "price_note": " / license",
+        "name": "Premium", "edition_label": "Premium Edition - Yearly", "badge_color": "#2FA55A",
+        "original_price": "$78", "price": "$49.99", "price_note": " / license",
         "desc": "For engineers who live in big data files.",
-        "features": "Everything in Free\nNo file-size limit\nAutomatic update checks\nFollow tail on live logs\nOpen from URL with auth\nPriority email support",
+        "features": "Everything in Essential\nNo file-size limit\nAutomatic update checks\nFollow tail on live logs\nOpen from URL with auth\nPriority email support",
         "button_label": "Buy Premium", "featured": true } },
       { "type": "plan", "settings": {
-        "name": "Enterprise", "edition_label": "Narik Edition", "badge_color": "#2F6BE3",
+        "name": "Enterprise", "edition_label": "Narik AI Edition", "badge_color": "#2F6BE3",
         "price": "Custom", "price_note": "",
         "desc": "Team licensing and deployment at scale.",
         "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA",

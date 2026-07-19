@@ -7,13 +7,13 @@
 
 <section class="hero"><div class="wrap hero__inner">
   <span class="pill">Windows &middot; macOS &middot; Linux</span>
-  <h1>Open 10&nbsp;GB JSON, XML &amp; CSV in a blink.</h1>
-  <p class="lead">A zero-copy, memory-mapped viewer that opens, navigates and regex-searches enormous data files without ever loading them into memory.</p>
+  <h1>Open 10+&nbsp;GB JSON, XML &amp; CSV in a blink.</h1>
+  <p class="lead">A zero-copy, memory-mapped viewer that opens, navigates and regex-searches enormous data files without ever loading them into memory &mdash; 10+ GB on a laptop, and 50+ GB on a 32&ndash;64 GB machine. Performance scales with your RAM.</p>
   <div class="btn-row" style="justify-content:center">
-    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download free</a>
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download Essential</a>
     <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost btn--lg">Buy a license</a>
   </div>
-  <p class="hero__meta">Free edition available &middot; No file leaves your machine</p>
+  <p class="hero__meta">Essential edition available &middot; No file leaves your machine &middot; Scales to 50+ GB with more RAM</p>
 
   <div class="hero__shot"><div class="codewin">
     <div class="codewin__bar"><span></span><span></span><span></span><span class="codewin__title">events.ndjson &mdash; 8.4 GB &mdash; 132,884,910 nodes</span></div>
@@ -50,7 +50,7 @@
   <div class="center"><span class="eyebrow">How it works</span><h2>Open it. Navigate it. Find anything.</h2>
   <p class="lead">Every file is memory-mapped and parsed once into a compact index &mdash; only the rows on screen are ever built.</p></div>
   <div class="steps">
-    <div class="step"><div class="step__n">1</div><h3>Open the file</h3><p>Drag in a JSON, NDJSON, XML, CSV or TSV file up to ~10 GB &mdash; or paste from the clipboard or fetch a URL with auth. It opens instantly, no progress bars.</p></div>
+    <div class="step"><div class="step__n">1</div><h3>Open the file</h3><p>Drag in a JSON, NDJSON, XML, CSV or TSV file up to 10+ GB (50+ GB with 32&ndash;64 GB of RAM) &mdash; or paste from the clipboard or fetch a URL with auth. It opens instantly, no progress bars.</p></div>
     <div class="step"><div class="step__n">2</div><h3>Navigate the tree</h3><p>Everything renders as one uniform, virtualized tree. Jump to any path, bookmark nodes, and read collapsed counts like &ldquo;products : […], 31 items&rdquo;.</p></div>
     <div class="step"><div class="step__n">3</div><h3>Search &amp; export</h3><p>Regex find, live filter, or JSONPath / XPath queries backed by parallel native search. Then export or convert to JSON, XML or CSV.</p></div>
   </div>
@@ -60,7 +60,7 @@
   <div class="center"><span class="eyebrow">A whole new class of performance</span><h2>Built for scale, byte by byte.</h2>
   <p class="lead">A native engine treats your data as structure, not text &mdash; so memory tracks your working set, not the file size.</p></div>
   <div class="stats">
-    <div class="stat"><div class="stat__num">~10 GB</div><div class="stat__label">Files open &amp; search, no in-memory copy</div></div>
+    <div class="stat"><div class="stat__num">50+ GB</div><div class="stat__label">Opens &amp; searches with 32&ndash;64 GB RAM &mdash; scales with memory</div></div>
     <div class="stat"><div class="stat__num">24 B</div><div class="stat__label">Index per node &mdash; ~3 GB for 130M nodes</div></div>
     <div class="stat"><div class="stat__num">130M/s</div><div class="stat__label">Objects parsed per second</div></div>
     <div class="stat"><div class="stat__num">2 GB/s</div><div class="stat__label">Raw file read throughput</div></div>
@@ -102,7 +102,7 @@
   <div class="compare"><table>
     <thead><tr><th></th><th class="us">OPENXMLJSON</th><th>Text editors</th><th>Browser / online</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Opens 10 GB files</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
+      <tr><th scope="row">Opens 10+ GB files</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
       <tr><th scope="row">Memory tracks working set, not file size</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
       <tr><th scope="row">Structural tree navigation</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="muted">Limited</span></td></tr>
       <tr><th scope="row">Parallel regex search</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="muted">Slow</span></td><td><span class="no">&#10005;</span></td></tr>
@@ -115,12 +115,12 @@
 </div></section>
 
 <section class="section" id="pricing"><div class="wrap">
-  <div class="center"><span class="eyebrow">Editions</span><h2>Start free. Upgrade when you outgrow it.</h2>
+  <div class="center"><span class="eyebrow">Editions</span><h2>Start Essential. Upgrade when you outgrow it.</h2>
   <p class="lead">Every edition uses the same native engine. Paid editions unlock unlimited file size and automatic updates.</p></div>
   <div class="plans">
     <div class="plan">
-      <div><div class="plan__name">Free</div><span class="plan__badge" style="background:#D9433B22;color:#D9433B;margin-top:8px">Free Edition</span></div>
-      <div class="plan__price">$0<small> forever</small></div>
+      <div><div class="plan__name">Essential</div><span class="plan__badge" style="background:#D9433B22;color:#D9433B;margin-top:8px">Essential Edition - Monthly</span></div>
+      <div class="plan__price"><span class="plan__was">$9.99</span>$4.99<small> / license</small></div>
       <p class="plan__desc">Everything you need for everyday files.</p>
       <ul>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSON up to 100 MB</span></li>
@@ -129,14 +129,14 @@
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSONPath / XPath queries</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Export to JSON / XML / CSV</span></li>
       </ul>
-      <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost btn--block">Download free</a>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost btn--block">Get Essential</a>
     </div>
     <div class="plan featured">
-      <div><div class="plan__name">Premium</div><span class="plan__badge" style="background:#2FA55A22;color:#2FA55A;margin-top:8px">Premium Edition</span></div>
-      <div class="plan__price">$49<small> / license</small></div>
+      <div><div class="plan__name">Premium</div><span class="plan__badge" style="background:#2FA55A22;color:#2FA55A;margin-top:8px">Premium Edition - Yearly</span></div>
+      <div class="plan__price"><span class="plan__was">$78</span>$49.99<small> / license</small></div>
       <p class="plan__desc">For engineers who live in big data files.</p>
       <ul>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Free</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Essential</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>No file-size limit</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Automatic update checks</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Follow tail on live logs</span></li>
@@ -146,7 +146,7 @@
       <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--block">Buy Premium</a>
     </div>
     <div class="plan">
-      <div><div class="plan__name">Enterprise</div><span class="plan__badge" style="background:#2F6BE322;color:#2F6BE3;margin-top:8px">Narik Edition</span></div>
+      <div><div class="plan__name">Enterprise</div><span class="plan__badge" style="background:#2F6BE322;color:#2F6BE3;margin-top:8px">Narik AI Edition</span></div>
       <div class="plan__price">Custom</div>
       <p class="plan__desc">Team licensing and deployment at scale.</p>
       <ul>
@@ -173,20 +173,20 @@
 <section class="section" id="faq"><div class="wrap">
   <div class="center"><span class="eyebrow">Questions, answered</span><h2>What to know before you download.</h2></div>
   <div class="faq" data-faq>
-    <details open><summary>How large a file can it really open?</summary><p>Around 10 GB comfortably. Files too large to index eagerly fall back to on-demand (lazy) indexing, so documents near or beyond your available RAM still open.</p></details>
+    <details open><summary>How large a file can it really open?</summary><p>On a typical machine it&#39;s comfortable around 10 GB. With 32&ndash;64 GB of RAM it opens 50+ GB files &mdash; performance scales with the memory you give it. Files too large to index eagerly fall back to on-demand (lazy) indexing, so documents near or beyond your available RAM still open.</p></details>
     <details><summary>Which formats are supported?</summary><p>JSON, JSON-Lines / NDJSON, XML, CSV and TSV. The parser is chosen from the file extension, and you can also paste from the clipboard or open from a URL.</p></details>
     <details><summary>Does my data leave my machine?</summary><p>No. Files are memory-mapped and processed locally. Nothing is uploaded &mdash; the only network call is the optional Open-URL fetch you trigger yourself.</p></details>
     <details><summary>What platforms does it run on?</summary><p>Windows, macOS (universal, Apple Silicon + Intel) and Linux.</p></details>
-    <details><summary>What's the difference between Free and paid editions?</summary><p>Free opens JSON up to 100 MB (XML/CSV any size). Premium and the Narik Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment.</p></details>
+    <details><summary>What's the difference between Essential and Premium editions?</summary><p>Essential opens JSON up to 100 MB (XML/CSV any size). Premium and the Narik AI Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment.</p></details>
   </div>
 </div></section>
 
 <section class="section cta-band"><div class="wrap center">
   <h2>Stop waiting on progress bars.</h2>
-  <p class="lead" style="margin:0 auto 26px">Download OPENXMLJSON free and open your biggest file in seconds.</p>
+  <p class="lead" style="margin:0 auto 26px">Download OPENXMLJSON and open your biggest file in seconds.</p>
   <div class="btn-row" style="justify-content:center">
-    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download free</a>
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download Essential</a>
     <a href="#pricing" class="btn btn--ghost btn--lg">Compare editions</a>
   </div>
-  <p class="hero__meta">Windows &middot; macOS &middot; Linux &middot; Free edition available</p>
+  <p class="hero__meta">Windows &middot; macOS &middot; Linux &middot; Essential edition available</p>
 </div></section>

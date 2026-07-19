@@ -10,7 +10,7 @@
       "st1": { "type": "stat", "settings": { "number": "~10 GB", "label": "Files open & search, no in-memory copy" } },
       "st2": { "type": "stat", "settings": { "number": "24 B", "label": "Index per node — ~3 GB for 130M nodes" } },
       "st3": { "type": "stat", "settings": { "number": "130M/s", "label": "Objects parsed per second" } },
-      "st4": { "type": "stat", "settings": { "number": "3", "label": "Editions: Free, Premium, Narik" } }
+      "st4": { "type": "stat", "settings": { "number": "3", "label": "Editions: Essential, Premium, Narik" } }
     }, "block_order": ["st1","st2","st3","st4"] },
     "cta": { "type": "cta-band" }
   },

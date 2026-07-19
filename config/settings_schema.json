@@ -51,7 +51,7 @@
       { "type": "text", "id": "social_github", "label": "GitHub URL" },
       { "type": "text", "id": "social_twitter", "label": "X / Twitter URL" },
       { "type": "text", "id": "social_youtube", "label": "YouTube URL" },
-      { "type": "text", "id": "contact_email", "label": "Contact email", "default": "hi@openxmljson.com" }
+      { "type": "text", "id": "contact_email", "label": "Contact email", "default": "openxmljson@gmail.com" }
     ]
   }
 ]

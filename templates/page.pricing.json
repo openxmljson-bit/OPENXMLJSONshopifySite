@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Pricing",
         "heading": "Astonishing performance for your biggest data files.",
-        "subheading": "Every edition uses the same native, memory-mapped engine. Start free, then upgrade when you need to remove the file-size limit and unlock advanced features."
+        "subheading": "Every edition uses the same native, memory-mapped engine. Start with Essential, then upgrade when you need to remove the file-size limit and unlock advanced features."
       }
     },
     "pricing": {
@@ -13,12 +13,12 @@
       "settings": {
         "eyebrow": "Editions",
         "heading": "Choose the edition that fits your work.",
-        "subheading": "Free forever for everyday files. Paid editions remove the size limit and add automatic updates, live-tail and priority support."
+        "subheading": "Essential covers everyday files. Higher editions remove the size limit and add automatic updates, live-tail and priority support."
       },
       "blocks": {
-        "p1": { "type": "plan", "settings": { "name": "Free", "edition_label": "Free Edition", "badge_color": "#D9433B", "price": "$0", "price_note": " forever", "desc": "Everything you need for everyday files.", "features": "JSON up to 100 MB\nXML & CSV / TSV, any size\nTree view, find & filter\nJSONPath / XPath queries\nExport to JSON / XML / CSV", "button_label": "Download free", "button_url": "", "featured": false } },
-        "p2": { "type": "plan", "settings": { "name": "Premium", "edition_label": "Premium Edition", "badge_color": "#2FA55A", "price": "$49", "price_note": " / license", "desc": "For engineers who live in big data files.", "features": "Everything in Free\nNo file-size limit\nAutomatic update checks\nFollow tail on live logs\nOpen from URL with auth\nPriority email support", "button_label": "Buy Premium", "button_url": "", "featured": true } },
-        "p3": { "type": "plan", "settings": { "name": "Enterprise", "edition_label": "Narik Edition", "badge_color": "#2F6BE3", "price": "Custom", "price_note": "", "desc": "Team licensing and deployment at scale.", "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA", "button_label": "Contact sales", "button_url": "/pages/contact", "featured": false } }
+        "p1": { "type": "plan", "settings": { "name": "Essential", "edition_label": "Essential Edition - Monthly", "badge_color": "#D9433B", "original_price": "$9.99", "price": "$4.99", "price_note": " / license", "desc": "Everything you need for everyday files.", "features": "JSON up to 100 MB\nXML & CSV / TSV, any size\nTree view, find & filter\nJSONPath / XPath queries\nExport to JSON / XML / CSV", "button_label": "Get Essential", "button_url": "", "featured": false } },
+        "p2": { "type": "plan", "settings": { "name": "Premium", "edition_label": "Premium Edition - Yearly", "badge_color": "#2FA55A", "original_price": "$78", "price": "$49.99", "price_note": " / license", "desc": "For engineers who live in big data files.", "features": "Everything in Essential\nNo file-size limit\nAutomatic update checks\nFollow tail on live logs\nOpen from URL with auth\nPriority email support", "button_label": "Buy Premium", "button_url": "", "featured": true } },
+        "p3": { "type": "plan", "settings": { "name": "Enterprise", "edition_label": "Narik AI Edition", "badge_color": "#2F6BE3", "price": "Custom", "price_note": "", "desc": "Team licensing and deployment at scale.", "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA", "button_label": "Contact sales", "button_url": "/pages/contact", "featured": false } }
       },
       "block_order": ["p1", "p2", "p3"]
     },
@@ -29,13 +29,13 @@
         "heading": "Frequently asked questions"
       },
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "Can I use OPENXMLJSON for free?", "answer": "Yes. The Free edition opens JSON up to 100 MB (XML and CSV / TSV at any size) and is free forever for non-commercial use — personal, educational or open-source projects." } },
+        "q1": { "type": "qa", "settings": { "question": "What does the Essential edition include?", "answer": "The Essential edition opens JSON up to 100 MB (XML and CSV / TSV at any size) for $5 per license — great for everyday and non-commercial work such as personal, educational or open-source projects." } },
         "q2": { "type": "qa", "settings": { "question": "Who is the Premium edition for?", "answer": "Anyone who works with big JSON files for commercial purposes or needs to open documents larger than 100 MB. Premium removes the file-size limit and adds live-tail, open-from-URL and priority support." } },
         "q3": { "type": "qa", "settings": { "question": "Who is the Narik (Enterprise) edition for?", "answer": "Teams that need volume or site licensing, managed deployment, SSO and centralized updates. Pricing is tailored to your seat count — reach out and we'll put together a quote." } },
-        "q4": { "type": "qa", "settings": { "question": "Do you offer a free trial?", "answer": "There's no separate trial — the Free edition is available forever, so you can confirm OPENXMLJSON fits your workflow before buying a paid license." } },
+        "q4": { "type": "qa", "settings": { "question": "Do you offer a free trial?", "answer": "There's no separate trial, but the low-cost Essential edition lets you confirm OPENXMLJSON fits your workflow before upgrading to Premium or the Narik AI edition." } },
         "q5": { "type": "qa", "settings": { "question": "How is a license delivered and what is a seat?", "answer": "You receive a license key by email right after purchase. One seat activates OPENXMLJSON on up to two devices or operating systems for a single user." } },
         "q6": { "type": "qa", "settings": { "question": "What happens if I cancel my subscription?", "answer": "Premium licenses are billed annually. If you cancel, your license stays valid until the next renewal date and you are not auto-charged for the following year." } },
-        "q7": { "type": "qa", "settings": { "question": "Do you offer volume licensing?", "answer": "Yes — volume and site licensing are part of the Narik Edition. If you're buying for an organization, contact us for pricing off the standard rate." } }
+        "q7": { "type": "qa", "settings": { "question": "Do you offer volume licensing?", "answer": "Yes — volume and site licensing are part of the Narik AI Edition. If you're buying for an organization, contact us for pricing off the standard rate." } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"]
     },
@@ -43,10 +43,10 @@
       "type": "cta-band",
       "settings": {
         "heading": "Ready to open your biggest file?",
-        "subheading": "Download OPENXMLJSON free, or buy a Premium license and remove the size limit for good.",
-        "primary_label": "Download free",
+        "subheading": "Download OPENXMLJSON, or buy a Premium license and remove the size limit for good.",
+        "primary_label": "Download Essential",
         "secondary_label": "Contact sales",
-        "meta": "Windows · macOS · Linux · Free edition available"
+        "meta": "Windows · macOS · Linux · Essential edition available"
       }
     }
   },
