@@ -8,7 +8,7 @@ the Therabot layout; brand palette (dark navy + terracotta) taken from the app i
 
 - **Homepage** (`templates/index.json`) — hero, format strip, how-it-works,
   performance stats, benchmark bars, 9-feature grid, comparison table,
-  editions/pricing (Free / Premium / Netcore Unbxd), testimonials, FAQ, CTA.
+  editions/pricing (Free / Premium / NARIK), testimonials, FAQ, CTA.
 - **Commerce templates** — product (license), collection, cart, search,
   list-collections, page, blog, article, 404, password.
 - Fully editable in **Online Store → Themes → Customize** (every section has schema).

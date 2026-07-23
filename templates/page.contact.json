@@ -1,6 +1,6 @@
 {
   "sections": {
-    "hero": { "type": "page-hero", "settings": { "eyebrow": "Contact", "heading": "Talk to us.", "subheading": "Licensing, deployment, or the Narik AI Edition — we're happy to help." } },
+    "hero": { "type": "page-hero", "settings": { "eyebrow": "Contact", "heading": "Talk to us.", "subheading": "Licensing, deployment, or the Narik Edition — we're happy to help." } },
     "form": { "type": "contact-form", "settings": { "heading": "" } }
   },
   "order": ["hero","form"]
