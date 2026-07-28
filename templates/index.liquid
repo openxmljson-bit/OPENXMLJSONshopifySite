@@ -10,7 +10,7 @@
   <h1>Open 10+&nbsp;GB JSON, XML &amp; CSV in a blink.</h1>
   <p class="lead">A zero-copy, memory-mapped viewer that opens, navigates and regex-searches enormous data files without ever loading them into memory &mdash; 10+ GB on a laptop, and 50+ GB on a 32&ndash;64 GB machine. Performance scales with your RAM.</p>
   <div class="btn-row" style="justify-content:center">
-    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download Essential</a>
+    <a href="{{ pages.downloads.url | default: '/pages/downloads' }}" class="btn btn--primary btn--lg">Download free</a>
     <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost btn--lg">Buy a license</a>
   </div>
   <p class="hero__meta">Essential edition available &middot; No file leaves your machine &middot; Scales to 50+ GB with more RAM</p>
@@ -115,32 +115,33 @@
 </div></section>
 
 <section class="section" id="pricing"><div class="wrap">
-  <div class="center"><span class="eyebrow">Editions</span><h2>Start Essential. Upgrade when you outgrow it.</h2>
-  <p class="lead">Every edition uses the same native engine. Paid editions unlock unlimited file size and automatic updates.</p></div>
+  <div class="center"><span class="eyebrow">Editions</span><h2>One full app. Monthly or yearly.</h2>
+  <p class="lead">Essential and Premium are the same complete app with no file-size limit &mdash; they differ only in billing. Narik is our enterprise edition. New here? <a href="{{ pages.downloads.url | default: '/pages/downloads' }}" style="color:var(--accent)">Try the free download</a> first.</p></div>
   <div class="plans">
     <div class="plan">
       <div><div class="plan__name">Essential</div><span class="plan__badge" style="background:#D9433B22;color:#D9433B;margin-top:8px">Essential Edition - Monthly</span></div>
-      <div class="plan__price"><span class="plan__was">$9.99</span>$4.99<small> / license</small></div>
-      <p class="plan__desc">Everything you need for everyday files.</p>
+      <div class="plan__price"><span class="plan__was">$9.99</span>$4.99<small> / month</small></div>
+      <p class="plan__desc">The complete app, billed monthly.</p>
       <ul>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSON up to 100 MB</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>XML &amp; CSV / TSV, any size</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>No file-size limit &mdash; open 10+ GB</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSON, XML, CSV &amp; TSV &mdash; any size</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Tree view, find &amp; filter</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSONPath / XPath queries</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Export to JSON / XML / CSV</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Follow tail on live logs</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Priority email support</span></li>
       </ul>
       <a href="{{ all_products['essential-edition'].url | default: routes.all_products_collection_url }}" class="btn btn--ghost btn--block">Get Essential</a>
     </div>
     <div class="plan featured">
       <div><div class="plan__name">Premium</div><span class="plan__badge" style="background:#2FA55A22;color:#2FA55A;margin-top:8px">Premium Edition - Yearly</span></div>
-      <div class="plan__price"><span class="plan__was">$78</span>$49.99<small> / license</small></div>
-      <p class="plan__desc">For engineers who live in big data files.</p>
+      <div class="plan__price"><span class="plan__was">$78</span>$49.99<small> / year</small></div>
+      <p class="plan__desc">The complete app, billed yearly &mdash; best value.</p>
       <ul>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Essential</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>No file-size limit</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Automatic update checks</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>No file-size limit &mdash; open 10+ GB</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSON, XML, CSV &amp; TSV &mdash; any size</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Tree view, find &amp; filter</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>JSONPath / XPath queries</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Follow tail on live logs</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Open from URL with auth</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Priority email support</span></li>
       </ul>
       <a href="{{ all_products['premium-edition'].url | default: routes.all_products_collection_url }}" class="btn btn--primary btn--block">Buy Premium</a>
@@ -148,7 +149,7 @@
     <div class="plan">
       <div><div class="plan__name">Enterprise</div><span class="plan__badge" style="background:#2F6BE322;color:#2F6BE3;margin-top:8px">Narik Edition</span></div>
       <div class="plan__price">Custom</div>
-      <p class="plan__desc">Team licensing and deployment at scale.</p>
+      <p class="plan__desc">For enterprise teams &mdash; licensing &amp; deployment at scale.</p>
       <ul>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Premium</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Volume &amp; site licensing</span></li>
@@ -177,7 +178,7 @@
     <details><summary>Which formats are supported?</summary><p>JSON, JSON-Lines / NDJSON, XML, CSV and TSV. The parser is chosen from the file extension, and you can also paste from the clipboard or open from a URL.</p></details>
     <details><summary>Does my data leave my machine?</summary><p>No. Files are memory-mapped and processed locally. Nothing is uploaded &mdash; the only network call is the optional Open-URL fetch you trigger yourself.</p></details>
     <details><summary>What platforms does it run on?</summary><p>Windows, macOS (universal, Apple Silicon + Intel) and Linux.</p></details>
-    <details><summary>What's the difference between Essential and Premium editions?</summary><p>Essential opens JSON up to 100 MB (XML/CSV any size). Premium and the Narik Edition remove the size limit and add automatic update checks; Enterprise adds volume licensing and managed deployment.</p></details>
+    <details><summary>What's the difference between Essential and Premium editions?</summary><p>They're the same complete app with no file-size limit &mdash; the only difference is billing: Essential is monthly and Premium is yearly. Narik is our enterprise edition, adding volume licensing, managed deployment and an SLA. Want to try first? The free download opens files up to 50 MB.</p></details>
   </div>
 </div></section>
 
@@ -185,7 +186,7 @@
   <h2>Stop waiting on progress bars.</h2>
   <p class="lead" style="margin:0 auto 26px">Download OPENXMLJSON and open your biggest file in seconds.</p>
   <div class="btn-row" style="justify-content:center">
-    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--lg">Download Essential</a>
+    <a href="{{ pages.downloads.url | default: '/pages/downloads' }}" class="btn btn--primary btn--lg">Download free</a>
     <a href="#pricing" class="btn btn--ghost btn--lg">Compare editions</a>
   </div>
   <p class="hero__meta">Windows &middot; macOS &middot; Linux &middot; Essential edition available</p>

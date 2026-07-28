@@ -40,8 +40,8 @@
   "name": "Editions / pricing",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Editions" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Start Essential. Upgrade when you outgrow it." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every edition uses the same native engine. Paid editions unlock unlimited file size and automatic updates." }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One full app. Monthly or yearly." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Essential and Premium are the same app with no file-size limit — choose monthly or yearly. Narik is our enterprise edition." }
   ],
   "blocks": [
     { "type": "plan", "name": "Plan", "settings": [
@@ -63,20 +63,20 @@
     "blocks": [
       { "type": "plan", "settings": {
         "name": "Essential", "edition_label": "Essential Edition - Monthly", "badge_color": "#D9433B",
-        "original_price": "$9.99", "price": "$4.99", "price_note": " / license",
-        "desc": "Everything you need for everyday files.",
-        "features": "JSON up to 100 MB\nXML & CSV / TSV, any size\nTree view, find & filter\nJSONPath / XPath queries\nExport to JSON / XML / CSV",
+        "original_price": "$9.99", "price": "$4.99", "price_note": " / month",
+        "desc": "The complete app, billed monthly.",
+        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nTree view, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
         "button_label": "Get Essential", "featured": false } },
       { "type": "plan", "settings": {
         "name": "Premium", "edition_label": "Premium Edition - Yearly", "badge_color": "#2FA55A",
-        "original_price": "$78", "price": "$49.99", "price_note": " / license",
-        "desc": "For engineers who live in big data files.",
-        "features": "Everything in Essential\nNo file-size limit\nAutomatic update checks\nFollow tail on live logs\nOpen from URL with auth\nPriority email support",
+        "original_price": "$78", "price": "$49.99", "price_note": " / year",
+        "desc": "The complete app, billed yearly — best value.",
+        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nTree view, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
         "button_label": "Buy Premium", "featured": true } },
       { "type": "plan", "settings": {
         "name": "Enterprise", "edition_label": "Narik Edition", "badge_color": "#2F6BE3",
         "price": "Custom", "price_note": "",
-        "desc": "Team licensing and deployment at scale.",
+        "desc": "For enterprise teams that need volume licensing and deployment.",
         "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA",
         "button_label": "Contact sales", "featured": false } }
     ]

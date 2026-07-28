@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Pricing",
         "heading": "Astonishing performance for your biggest data files.",
-        "subheading": "Every edition uses the same native, memory-mapped engine. Start with Essential, then upgrade when you need to remove the file-size limit and unlock advanced features."
+        "subheading": "Every edition uses the same native, memory-mapped engine with no file-size limit. Choose monthly or yearly billing — or try the free download first."
       }
     },
     "pricing": {
@@ -13,14 +13,62 @@
       "settings": {
         "eyebrow": "Editions",
         "heading": "Choose the edition that fits your work.",
-        "subheading": "Essential covers everyday files. Higher editions remove the size limit and add automatic updates, live-tail and priority support."
+        "subheading": "Essential and Premium are the same complete app with no file-size limit — they differ only in billing (Essential monthly, Premium yearly). Narik is our enterprise edition. Try the free download first."
       },
       "blocks": {
-        "p1": { "type": "plan", "settings": { "name": "Essential", "edition_label": "Essential Edition - Monthly", "badge_color": "#D9433B", "original_price": "$9.99", "price": "$4.99", "price_note": " / license", "desc": "Everything you need for everyday files.", "features": "JSON up to 100 MB\nXML & CSV / TSV, any size\nTree view, find & filter\nJSONPath / XPath queries\nExport to JSON / XML / CSV", "button_label": "Get Essential", "button_url": "shopify://products/essential-edition", "featured": false } },
-        "p2": { "type": "plan", "settings": { "name": "Premium", "edition_label": "Premium Edition - Yearly", "badge_color": "#2FA55A", "original_price": "$78", "price": "$49.99", "price_note": " / license", "desc": "For engineers who live in big data files.", "features": "Everything in Essential\nNo file-size limit\nAutomatic update checks\nFollow tail on live logs\nOpen from URL with auth\nPriority email support", "button_label": "Buy Premium", "button_url": "shopify://products/premium-edition", "featured": true } },
-        "p3": { "type": "plan", "settings": { "name": "Enterprise", "edition_label": "Narik Edition", "badge_color": "#2F6BE3", "price": "Custom", "price_note": "", "desc": "Team licensing and deployment at scale.", "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA", "button_label": "Contact sales", "button_url": "/pages/contact", "featured": false } }
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "name": "Essential",
+            "edition_label": "Essential Edition - Monthly",
+            "badge_color": "#D9433B",
+            "original_price": "$9.99",
+            "price": "$4.99",
+            "price_note": " / month",
+            "desc": "The complete app, billed monthly.",
+            "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nTree view, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
+            "button_label": "Get Essential",
+            "button_url": "shopify://products/essential-edition",
+            "featured": false
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "name": "Premium",
+            "edition_label": "Premium Edition - Yearly",
+            "badge_color": "#2FA55A",
+            "original_price": "$78",
+            "price": "$49.99",
+            "price_note": " / year",
+            "desc": "The complete app, billed yearly — best value.",
+            "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nTree view, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
+            "button_label": "Buy Premium",
+            "button_url": "shopify://products/premium-edition",
+            "featured": true
+          }
+        },
+        "p3": {
+          "type": "plan",
+          "settings": {
+            "name": "Enterprise",
+            "edition_label": "Narik Edition",
+            "badge_color": "#2F6BE3",
+            "price": "Custom",
+            "price_note": "",
+            "desc": "For enterprise teams that need volume licensing and deployment.",
+            "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA",
+            "button_label": "Contact sales",
+            "button_url": "/pages/contact",
+            "featured": false
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3"]
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
     },
     "faq": {
       "type": "faq",
@@ -29,26 +77,81 @@
         "heading": "Frequently asked questions"
       },
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "What does the Essential edition include?", "answer": "The Essential edition opens JSON up to 100 MB (XML and CSV / TSV at any size) for $5 per license — great for everyday and non-commercial work such as personal, educational or open-source projects." } },
-        "q2": { "type": "qa", "settings": { "question": "Who is the Premium edition for?", "answer": "Anyone who works with big JSON files for commercial purposes or needs to open documents larger than 100 MB. Premium removes the file-size limit and adds live-tail, open-from-URL and priority support." } },
-        "q3": { "type": "qa", "settings": { "question": "Who is the Narik (Enterprise) edition for?", "answer": "Teams that need volume or site licensing, managed deployment, SSO and centralized updates. Pricing is tailored to your seat count — reach out and we'll put together a quote." } },
-        "q4": { "type": "qa", "settings": { "question": "Do you offer a free trial?", "answer": "There's no separate trial, but the low-cost Essential edition lets you confirm OPENXMLJSON fits your workflow before upgrading to Premium or the Narik edition." } },
-        "q5": { "type": "qa", "settings": { "question": "How is a license delivered and what is a seat?", "answer": "You receive a license key by email right after purchase. One seat activates OPENXMLJSON on up to two devices or operating systems for a single user." } },
-        "q6": { "type": "qa", "settings": { "question": "What happens if I cancel my subscription?", "answer": "Premium licenses are billed annually. If you cancel, your license stays valid until the next renewal date and you are not auto-charged for the following year." } },
-        "q7": { "type": "qa", "settings": { "question": "Do you offer volume licensing?", "answer": "Yes — volume and site licensing are part of the Narik Edition. If you're buying for an organization, contact us for pricing off the standard rate." } }
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "What do Essential and Premium include?",
+            "answer": "Both are the complete OPENXMLJSON app with no file-size limit. The only difference is billing — Essential is $4.99/month and Premium is $49.99/year."
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Who is the Premium edition for?",
+            "answer": "Anyone who wants the full app with annual billing. Premium is identical to Essential (no size limit) — it's simply billed yearly at the best price."
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Who is the Narik (Enterprise) edition for?",
+            "answer": "Enterprise teams that need volume or site licensing, managed deployment, SSO and centralized updates. Narik is for enterprise customers only — contact us for a tailored quote."
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Do you offer a free trial?",
+            "answer": "Yes — download the free trial from the Downloads page. It opens files up to 50 MB so you can try OPENXMLJSON before buying Essential or Premium, which remove the limit."
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "How is a license delivered and what is a seat?",
+            "answer": "You receive a license key by email right after purchase. One seat activates OPENXMLJSON on up to two devices or operating systems for a single user."
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens if I cancel my subscription?",
+            "answer": "Premium licenses are billed annually. If you cancel, your license stays valid until the next renewal date and you are not auto-charged for the following year."
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "question": "Do you offer volume licensing?",
+            "answer": "Yes — volume and site licensing are part of the Narik Edition. If you're buying for an organization, contact us for pricing off the standard rate."
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"]
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ]
     },
     "cta": {
       "type": "cta-band",
       "settings": {
         "heading": "Ready to open your biggest file?",
-        "subheading": "Download OPENXMLJSON, or buy a Premium license and remove the size limit for good.",
+        "subheading": "Try the free download, or buy Essential or Premium to remove the size limit for good.",
         "primary_label": "Download Essential",
         "secondary_label": "Contact sales",
         "meta": "Windows · macOS · Linux · Essential edition available"
       }
     }
   },
-  "order": ["hero", "pricing", "faq", "cta"]
+  "order": [
+    "hero",
+    "pricing",
+    "faq",
+    "cta"
+  ]
 }
