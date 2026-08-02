@@ -7,7 +7,7 @@
     </div>
     <div class="plans">
       {% for block in section.blocks %}
-        <div class="plan {% if block.settings.featured %}featured{% endif %}" {{ block.shopify_attributes }}>
+        <div class="plan {% if block.settings.featured %}featured{% endif %}{% if block.settings.dark %} plan--dark{% endif %}" {{ block.shopify_attributes }}>
           <div>
             <div class="plan__name">{{ block.settings.name }}</div>
             {% if block.settings.edition_label != blank %}
@@ -55,7 +55,8 @@
       { "type": "textarea", "id": "features", "label": "Features (one per line)" },
       { "type": "text", "id": "button_label", "label": "Button label", "default": "Get started" },
       { "type": "url", "id": "button_url", "label": "Button URL" },
-      { "type": "checkbox", "id": "featured", "label": "Highlight as popular", "default": false }
+      { "type": "checkbox", "id": "featured", "label": "Highlight as popular", "default": false },
+      { "type": "checkbox", "id": "dark", "label": "Dark (Narik) styling", "default": false }
     ]}
   ],
   "presets": [{
@@ -74,11 +75,11 @@
         "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nTree view, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
         "button_label": "Buy Premium", "featured": true } },
       { "type": "plan", "settings": {
-        "name": "Enterprise", "edition_label": "Narik Edition", "badge_color": "#2F6BE3",
-        "price": "Custom", "price_note": "",
+        "name": "Enterprise", "edition_label": "Narik Edition", "badge_color": "#4C9DF7",
+        "original_price": "$199", "price": "$99", "price_note": " / year",
         "desc": "For enterprise teams that need volume licensing and deployment.",
-        "features": "Everything in Premium\nVolume & site licensing\nManaged deployment\nSSO / centralized updates\nDedicated support SLA",
-        "button_label": "Contact sales", "featured": false } }
+        "features": "Dual-engine architecture\nMulti-GB files, 100M+ rows\nRust-powered core\nEvery format (incl. YAML)\nOne-click conversion\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nVolume licensing, deploy & SLA",
+        "button_label": "See Narik Edition", "featured": false, "dark": true } }
     ]
   }]
 }

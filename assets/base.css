@@ -249,6 +249,35 @@ p  { margin: 0 0 1rem; }
 .dl-card { transition: transform .2s, border-color .2s; }
 .dl-card:hover { transform: translateY(-3px); border-color: rgba(217,130,90,0.4); }
 @media (max-width: 640px) { .dl-grid { grid-template-columns: 1fr; } }
+
+/* ============ NARIK EDITION (dark icon palette) ============ */
+.narik-box { background: #17191F; border: 1px solid #2B303B; border-radius: 30px; padding: 60px 48px; box-shadow: 0 30px 80px -50px rgba(76,157,247,0.4); }
+.narik-mark { font-family: var(--mono); font-size: 2.1rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 14px; }
+.narik-mark .brace { color: #98A0AC; }
+.narik-mark .en { color: #4C9DF7; }
+.narik-box .eyebrow { color: #4C9DF7; }
+.narik-box h2 { color: #EEF1F5; }
+.narik-box .lead { color: #AEB6C2; }
+.narik-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 42px; }
+.narik-card { background: #1F232B; border: 1px solid #2B303B; border-radius: 14px; padding: 22px 20px; transition: transform .2s, border-color .2s; }
+.narik-card:hover { transform: translateY(-3px); border-color: #4C9DF7; }
+.narik-card h3 { color: #EEF1F5; font-size: 1.02rem; margin-bottom: 6px; }
+.narik-card p { color: #9AA3B0; font-size: .9rem; margin: 0; line-height: 1.55; }
+.btn--narik { background: #4C9DF7; color: #0C1524; font-weight: 700; }
+.btn--narik:hover { background: #6BB0FA; }
+@media (max-width: 900px) { .narik-grid { grid-template-columns: 1fr 1fr; } .narik-box { padding: 44px 26px; } }
+@media (max-width: 600px) { .narik-grid { grid-template-columns: 1fr; } }
+/* dark Narik pricing card */
+.plan--dark { background: #17191F; border-color: #2B303B; box-shadow: 0 24px 60px -44px rgba(76,157,247,0.45); }
+.plan--dark .plan__name { color: #EEF1F5; }
+.plan--dark .plan__price { color: #fff; }
+.plan--dark .plan__price small { color: #AEB6C2; }
+.plan--dark .plan__desc { color: #AEB6C2; }
+.plan.plan--dark li { color: #D5DAE2; }
+.plan.plan--dark li svg { color: #4C9DF7; }
+.plan.plan--dark li span { color: #D5DAE2; }
+.plan--dark .btn { background: #4C9DF7; color: #0C1524; border-color: transparent; }
+.plan--dark .btn:hover { background: #6BB0FA; color: #0C1524; }
 .plan__desc { color: var(--muted); font-size: .92rem; min-height: 42px; }
 .plan ul { list-style: none; padding: 0; margin: 18px 0 26px; display: grid; gap: 11px; }
 .plan li { display: flex; gap: 10px; font-size: .93rem; color: var(--text); }

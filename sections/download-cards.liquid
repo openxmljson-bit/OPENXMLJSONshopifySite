@@ -24,6 +24,22 @@
 
   <p class="center muted" style="font-size:.85rem;margin-top:24px">Windows build coming soon &mdash; <a href="{{ pages.contact.url | default: '/pages/contact' }}" style="color:var(--accent)">get notified</a>.</p>
   <p class="center" style="margin-top:6px;font-size:.92rem">Need bigger files? <a href="{{ pages.pricing.url | default: '/pages/pricing' }}" style="color:var(--accent)">See Essential &amp; Premium &rarr;</a></p>
+
+  {% if section.settings.show_narik %}
+  <div class="narik-box" style="margin-top:52px">
+    <div class="center">
+      <div class="narik-mark"><span class="brace">{</span> <span class="en">N</span> <span class="brace">}</span></div>
+      <span class="eyebrow">Narik Edition</span>
+      <h2 style="font-size:1.6rem">Download the Narik build</h2>
+      <p class="lead" style="margin:12px auto 0;max-width:560px">The enterprise flagship &mdash; dual-engine, Rust-powered, built for the largest datasets. Licensed customers only.</p>
+    </div>
+    <div class="dl-grid" style="margin:34px auto 0;max-width:600px">
+      <a href="{{ section.settings.narik_mac_url | default: 'https://delivery.shopifyapps.com/-/d216bb514c66ac3f/33b65f479223de45' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">Download for macOS</a>
+      <a href="{{ section.settings.narik_linux_url | default: 'https://delivery.shopifyapps.com/-/94353e6b7c48b502/e1d12d88ee54b66e' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">Download for Linux</a>
+    </div>
+    <p class="center" style="margin-top:20px;font-size:.92rem"><a href="{{ pages.pricing.url | default: '/pages/pricing' }}#narik" style="color:#4C9DF7">See what's inside Narik &rarr;</a></p>
+  </div>
+  {% endif %}
 </div></section>
 
 {% schema %}
@@ -32,7 +48,10 @@
   "settings": [
     { "type": "textarea", "id": "intro", "label": "Intro text", "default": "Try OPENXMLJSON free — the trial opens files up to 50 MB so you can see it on your own data before buying. Essential and Premium remove the limit entirely." },
     { "type": "text", "id": "mac_url", "label": "macOS download URL" },
-    { "type": "text", "id": "linux_url", "label": "Linux download URL" }
+    { "type": "text", "id": "linux_url", "label": "Linux download URL" },
+    { "type": "checkbox", "id": "show_narik", "label": "Show Narik download card", "default": true },
+    { "type": "text", "id": "narik_mac_url", "label": "Narik macOS download URL" },
+    { "type": "text", "id": "narik_linux_url", "label": "Narik Linux download URL" }
   ],
   "presets": [{ "name": "Download cards" }]
 }
