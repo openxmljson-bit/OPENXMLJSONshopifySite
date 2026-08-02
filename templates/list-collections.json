@@ -13,7 +13,7 @@
       "settings": {
         "eyebrow": "Editions",
         "heading": "Choose the edition that fits your work.",
-        "subheading": "Essential and Premium are the same complete app with no file-size limit — they differ only in billing (Essential monthly, Premium yearly). Narik is our enterprise edition. Try the free download first."
+        "subheading": "Essential and Premium are the same complete app with no file-size limit — they differ only in billing (Essential monthly, Premium yearly). Narik is our top-tier edition, a step above Premium. Try the free download first."
       },
       "blocks": {
         "p1": {
@@ -97,7 +97,7 @@
           "type": "qa",
           "settings": {
             "question": "Who is the Narik (Enterprise) edition for?",
-            "answer": "Enterprise teams that need volume or site licensing, managed deployment, SSO and centralized updates. Narik is for enterprise customers only — contact us for a tailored quote."
+            "answer": "Enterprise teams that need volume or site licensing, managed deployment and centralized updates. Narik is our top-tier edition, above Premium, for enterprise customers only — contact us for a tailored quote."
           }
         },
         "q4": {
