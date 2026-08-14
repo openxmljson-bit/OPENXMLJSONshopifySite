@@ -33,9 +33,10 @@
       <h2 style="font-size:1.6rem">Download the Narik build</h2>
       <p class="lead" style="margin:12px auto 0;max-width:560px">Our top-tier edition, a step above Premium &mdash; dual-engine, Rust-powered, built for the largest datasets. Running the build needs a trial license key: contact sales to get one.</p>
     </div>
-    <div class="dl-grid" style="margin:34px auto 0;max-width:600px">
-      <a href="{{ section.settings.narik_mac_url | default: 'https://delivery.shopifyapps.com/-/d216bb514c66ac3f/33b65f479223de45' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">Download for macOS</a>
-      <a href="{{ section.settings.narik_linux_url | default: 'https://delivery.shopifyapps.com/-/94353e6b7c48b502/e1d12d88ee54b66e' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">Download for Linux</a>
+    <div class="dl3" style="margin:34px auto 0;max-width:720px">
+      <a href="{{ section.settings.narik_mac_url | default: 'https://delivery.shopifyapps.com/-/852be2b814844ac3/3bd891319718bd18' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">macOS Silicon</a>
+      <a href="{{ section.settings.narik_mac_intel_url | default: 'https://delivery.shopifyapps.com/-/aa7076b61cb2103f/c5780dbcc8143034' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">macOS Intel</a>
+      <a href="{{ section.settings.narik_linux_url | default: 'https://delivery.shopifyapps.com/-/15ecb94037bb4bc3/b990effe2985b03f' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">Linux</a>
     </div>
     <div class="center" style="margin-top:16px">
       <a href="{{ section.settings.narik_contact_url | default: pages.contact.url | default: '/pages/contact' }}" class="btn btn--lg" style="background:transparent;border:1px solid #4C9DF7;color:#4C9DF7">Contact sales for a trial license</a>
@@ -53,7 +54,8 @@
     { "type": "text", "id": "mac_url", "label": "macOS download URL" },
     { "type": "text", "id": "linux_url", "label": "Linux download URL" },
     { "type": "checkbox", "id": "show_narik", "label": "Show Narik card", "default": true },
-    { "type": "text", "id": "narik_mac_url", "label": "Narik macOS download URL" },
+    { "type": "text", "id": "narik_mac_url", "label": "Narik macOS (Apple Silicon) URL" },
+    { "type": "text", "id": "narik_mac_intel_url", "label": "Narik macOS (Intel) URL" },
     { "type": "text", "id": "narik_linux_url", "label": "Narik Linux download URL" },
     { "type": "url", "id": "narik_contact_url", "label": "Narik trial-license / sales URL" }
   ],

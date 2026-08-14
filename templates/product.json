@@ -1,8 +1,1 @@
-{
-  "sections": {
-    "main": { "type": "main-product" },
-    "features": { "type": "features", "settings": { "eyebrow": "Included", "heading": "What your license unlocks.", "subheading": "The full native engine, on every platform." } },
-    "faq": { "type": "faq" }
-  },
-  "order": ["main", "features", "faq"]
-}
+{"sections":{"main":{"type":"main-product","settings":{}},"features":{"type":"features","settings":{"eyebrow":"Included","heading":"What your license unlocks.","subheading":"The full native engine, on every platform."}},"faq":{"type":"faq","settings":{}}},"order":["main","features","faq"]}
