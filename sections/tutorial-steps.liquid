@@ -1,0 +1,60 @@
+<section class="section {% if section.settings.accent == 'blue' %}tut--blue{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %}><div class="wrap">
+  <div class="center">
+    {% if section.settings.eyebrow != blank %}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+    <h2>{{ section.settings.heading }}</h2>
+    {% if section.settings.subheading != blank %}<p class="lead" style="margin:14px auto 0;max-width:640px">{{ section.settings.subheading }}</p>{% endif %}
+  </div>
+
+  <div class="tut-list">
+    {% for block in section.blocks %}
+      <div class="tut-step {% cycle '', 'tut-step--rev' %}" {{ block.shopify_attributes }}>
+        <div class="tut-shot">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="1600">
+          {% else %}
+            <div class="tut-shot__ph">Screenshot {{ forloop.index }} &mdash; upload in the theme editor</div>
+          {% endif %}
+        </div>
+        <div class="tut-text">
+          <div class="tut-num">{{ forloop.index }}</div>
+          <h3>{{ block.settings.title }}</h3>
+          {% if block.settings.caption != blank %}<p>{{ block.settings.caption }}</p>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Tutorial steps",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Tutorial" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How to use OPENXMLJSON" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A quick, annotated walkthrough — from opening a huge file to searching and exporting." },
+    { "type": "text", "id": "anchor", "label": "Anchor id (for menu links, e.g. openxmljson)" },
+    { "type": "select", "id": "accent", "label": "Accent color", "default": "terracotta", "options": [ { "value": "terracotta", "label": "Terracotta (OPENXMLJSON)" }, { "value": "blue", "label": "Blue (NARIKJSON)" } ] }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Screenshot (annotate before uploading)" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Step title" },
+        { "type": "textarea", "id": "caption", "label": "Caption", "default": "Describe what the user should do or notice in this screenshot." }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [{
+    "name": "Tutorial steps",
+    "blocks": [
+      { "type": "step", "settings": { "title": "Open your file", "caption": "Drag a JSON, NDJSON, XML, CSV or TSV file onto the window — or use Open File / Open URL. It opens instantly, even at multiple gigabytes." } },
+      { "type": "step", "settings": { "title": "Explore the tree", "caption": "Browse the virtualized tree, expand nodes, and read collapsed counts. Use Jump to Path to reach any node instantly." } },
+      { "type": "step", "settings": { "title": "Search & filter", "caption": "Use Find (regex or literal) or the unified filter box with key:value, JSONPath ($.path) and XPath (//path) to narrow to what matters." } },
+      { "type": "step", "settings": { "title": "Convert & export", "caption": "Export the whole document or any node to JSON, XML or CSV — or save your search matches as a reusable dataset." } }
+    ]
+  }]
+}
+{% endschema %}

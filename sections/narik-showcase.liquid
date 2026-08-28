@@ -2,7 +2,7 @@
   <div class="narik-box">
     <div class="center">
       <div class="narik-mark"><span class="brace">{</span> <span class="en">N</span> <span class="brace">}</span></div>
-      <span class="eyebrow">{{ section.settings.eyebrow | default: 'Narik Edition' }}</span>
+      <span class="eyebrow">{{ section.settings.eyebrow | default: 'NARIKJSON Edition' }}</span>
       <h2>{{ section.settings.heading | default: 'Enterprise-grade data engineering.' }}</h2>
       {% if section.settings.subheading != blank %}
         <p class="lead" style="margin:14px auto 0;max-width:640px">{{ section.settings.subheading }}</p>
@@ -23,21 +23,21 @@
     </div>
 
     <div class="center" style="margin-top:42px">
-      <a href="{{ section.settings.button_url | default: pages.contact.url | default: '/pages/contact' }}" class="btn btn--lg btn--narik">{{ section.settings.button_label | default: 'Get Narik Edition' }}</a>
+      <a href="{{ section.settings.button_url | default: pages.contact.url | default: '/pages/contact' }}" class="btn btn--lg btn--narik">{{ section.settings.button_label | default: 'Get NARIKJSON Edition' }}</a>
     </div>
   </div>
 </div></section>
 
 {% schema %}
 {
-  "name": "Narik showcase",
+  "name": "NARIKJSON showcase",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Narik Edition" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "NARIKJSON Edition" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Enterprise-grade data engineering." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Our top-tier edition, a step above Premium — a dual-engine, Rust-powered workbench built for the largest datasets and the most demanding teams." },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get Narik Edition" },
-    { "type": "url", "id": "button_url", "label": "Button URL (link to the Narik product)" }
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get NARIKJSON Edition" },
+    { "type": "url", "id": "button_url", "label": "Button URL (link to the NARIKJSON product)" }
   ],
-  "presets": [{ "name": "Narik showcase" }]
+  "presets": [{ "name": "NARIKJSON showcase" }]
 }
 {% endschema %}

@@ -13,7 +13,7 @@
       "settings": {
         "eyebrow": "Editions",
         "heading": "Choose the edition that fits your work.",
-        "subheading": "Essential and Premium are the same complete app with no file-size limit — they differ only in billing (Essential monthly, Premium yearly). Narik is our top-tier edition, a step above Premium. Try the free download first."
+        "subheading": "Essential and Premium are the same complete app with no file-size limit — they differ only in billing (Essential monthly, Premium yearly). NARIKJSON is our top-tier edition, a step above Premium. Try the free download first."
       },
       "blocks": {
         "p1": {
@@ -52,13 +52,13 @@
           "type": "plan",
           "settings": {
             "name": "Enterprise",
-            "edition_label": "Narik Edition",
+            "edition_label": "NARIKJSON Edition",
             "badge_color": "#4C9DF7",
             "price": "$99",
             "price_note": " / year",
             "desc": "For enterprise teams that need volume licensing and deployment.",
             "features": "Dual-engine architecture\nMulti-GB files, 100M+ rows\nRust-powered core\nEvery format (incl. YAML)\nOne-click conversion\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nVolume licensing, deploy & SLA",
-            "button_label": "See Narik Edition",
+            "button_label": "See NARIKJSON Edition",
             "button_url": "/pages/pricing#narik",
             "featured": false,
             "dark": true,
@@ -96,8 +96,8 @@
         "q3": {
           "type": "qa",
           "settings": {
-            "question": "Who is the Narik (Enterprise) edition for?",
-            "answer": "Enterprise teams that need volume or site licensing, managed deployment and centralized updates. Narik is our top-tier edition, above Premium, for enterprise customers only — contact us for a tailored quote."
+            "question": "Who is the NARIKJSON (Enterprise) edition for?",
+            "answer": "Enterprise teams that need volume or site licensing, managed deployment and centralized updates. NARIKJSON is our top-tier edition, above Premium, for enterprise customers only — contact us for a tailored quote."
           }
         },
         "q4": {
@@ -125,7 +125,7 @@
           "type": "qa",
           "settings": {
             "question": "Do you offer volume licensing?",
-            "answer": "Yes — volume and site licensing are part of the Narik Edition. If you're buying for an organization, contact us for pricing off the standard rate."
+            "answer": "Yes — volume and site licensing are part of the NARIKJSON Edition. If you're buying for an organization, contact us for pricing off the standard rate."
           }
         }
       },
