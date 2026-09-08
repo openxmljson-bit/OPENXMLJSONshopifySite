@@ -2,7 +2,7 @@
   <div class="page-head">
     <span class="muted" style="font-size:.85rem">{{ article.published_at | date: '%B %d, %Y' }}</span>
     <h1>{{ article.title }}</h1>
-    {% if article.author %}<p class="muted">By {{ article.author }}</p>{% endif %}
+    {% comment %} {% if article.author %}<p class="muted">By {{ article.author }}</p>{% endif %} {% endcomment %}
   </div>
   {% if article.image %}
     <div class="wrap" style="max-width:840px;margin-bottom:32px">

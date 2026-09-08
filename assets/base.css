@@ -275,10 +275,10 @@ p  { margin: 0 0 1rem; }
 /* ============ PRICING / EDITIONS ============ */
 .plans { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 44px; align-items: stretch; }
 .plans--grouped { grid-template-columns: 1fr 1fr; column-gap: 22px; row-gap: 20px; }
-.plan-group { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; margin-top: 18px; }
-.plan-group:first-child { margin-top: 0; }
-.plan-group__label { font-size: .9rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text); }
-.plan-group__line { flex: 1; height: 1px; background: var(--border); }
+.plan-group { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; margin-top: 40px; }
+.plan-group:first-child { margin-top: 8px; }
+.plan-group__label { font-size: clamp(1.4rem, 2.4vw, 1.85rem); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--text); white-space: nowrap; }
+.plan-group__line { flex: 1; height: 2px; background: var(--border); }
 .plan { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; display: flex; flex-direction: column; }
 .plan.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 24px 60px -34px rgba(207,111,67,0.45); position: relative; }
 .plan.featured::before { content: "Most popular"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: .72rem; font-weight: 700; padding: 4px 14px; border-radius: 999px; }
@@ -312,6 +312,8 @@ p  { margin: 0 0 1rem; }
 .narik-card p { color: #9AA3B0; font-size: .9rem; margin: 0; line-height: 1.55; }
 .btn--narik { background: #4C9DF7; color: #0C1524; font-weight: 700; }
 .btn--narik:hover { background: #6BB0FA; }
+.btn--narik-ghost { background: transparent; color: #EEF1F5; font-weight: 700; border: 1px solid #4C9DF7; }
+.btn--narik-ghost:hover { background: rgba(76,157,247,0.14); border-color: #6BB0FA; color: #fff; }
 @media (max-width: 900px) { .narik-grid { grid-template-columns: 1fr 1fr; } .narik-box { padding: 44px 26px; } }
 @media (max-width: 600px) { .narik-grid { grid-template-columns: 1fr; } }
 /* dark Narik pricing card */

@@ -5,10 +5,10 @@
     {% if section.settings.subheading != blank %}<p class="lead" style="margin:14px auto 0;max-width:640px">{{ section.settings.subheading }}</p>{% endif %}
   </div>
 
-  <div class="tut-tabs" data-tut-tabs>
+  <div class="tut-tabs tut-tabs--blue" data-tut-tabs>
     <div class="tut-tabbar" role="tablist">
-      <button type="button" class="tut-tab is-active" data-tab="open" role="tab">{{ section.settings.tab1_label | default: 'OPENXMLJSON' }}</button>
-      <button type="button" class="tut-tab" data-tab="narik" role="tab">{{ section.settings.tab2_label | default: 'NARIKJSON' }}</button>
+      <button type="button" class="tut-tab is-active" data-tab="narik" role="tab">{{ section.settings.tab1_label | default: 'NARIKJSON' }}</button>
+      <button type="button" class="tut-tab" data-tab="open" role="tab">{{ section.settings.tab2_label | default: 'OPENXMLJSON' }}</button>
     </div>
 
     <div class="tut-list">
@@ -16,7 +16,7 @@
       {% for block in section.blocks %}
         {%- if block.settings.tab == 'narik' -%}{%- assign n_narik = n_narik | plus: 1 -%}{%- assign num = n_narik -%}{%- else -%}{%- assign n_open = n_open | plus: 1 -%}{%- assign num = n_open -%}{%- endif -%}
         {%- assign r = num | modulo: 2 -%}
-        <div class="tut-step {% if r == 0 %}tut-step--rev{% endif %}" data-tab="{{ block.settings.tab | default: 'open' }}"{% if block.settings.tab == 'narik' %} hidden{% endif %} {{ block.shopify_attributes }}>
+        <div class="tut-step {% if r == 0 %}tut-step--rev{% endif %}" data-tab="{{ block.settings.tab | default: 'open' }}"{% unless block.settings.tab == 'narik' %} hidden{% endunless %} {{ block.shopify_attributes }}>
           <div class="tut-shot">
             {% if block.settings.image != blank %}
               <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="1600">
@@ -66,8 +66,8 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Tutorial" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Learn the apps, step by step." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Pick a product and follow the annotated, step-by-step walkthrough." },
-    { "type": "text", "id": "tab1_label", "label": "Tab 1 label", "default": "OPENXMLJSON" },
-    { "type": "text", "id": "tab2_label", "label": "Tab 2 label", "default": "NARIKJSON" }
+    { "type": "text", "id": "tab1_label", "label": "Tab 1 label", "default": "NARIKJSON" },
+    { "type": "text", "id": "tab2_label", "label": "Tab 2 label", "default": "OPENXMLJSON" }
   ],
   "blocks": [
     {

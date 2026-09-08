@@ -74,23 +74,10 @@
   "presets": [{
     "name": "Editions / pricing",
     "blocks": [
-      { "type": "group", "settings": { "label": "OPENXMLJSON" } },
-      { "type": "plan", "settings": {
-        "name": "Essential", "edition_label": "Free monthly", "badge_color": "#D9433B",
-        "original_price": "$9.99", "price": "$0", "price_note": " / month",
-        "desc": "The complete OPENXMLJSON app — no file-size limit.",
-        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
-        "button_label": "Download free", "featured": false } },
-      { "type": "plan", "settings": {
-        "name": "Premium", "edition_label": "Paid yearly", "badge_color": "#2FA55A",
-        "original_price": "$78", "price": "$49.99", "price_note": " / year",
-        "desc": "The complete OPENXMLJSON app — no file-size limit.",
-        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
-        "button_label": "Buy Premium", "featured": true } },
-      { "type": "group", "settings": { "label": "NARIKJSON" } },
+      { "type": "group", "settings": { "label": "Enterprise edition" } },
       { "type": "plan", "settings": {
         "name": "NARIKJSON Free", "edition_label": "Free monthly", "badge_color": "#4C9DF7",
-        "original_price": "$12.98", "price": "$0", "price_note": " / month",
+        "original_price": "$20", "price": "FREE",
         "desc": "Our top-tier engine, a step above Premium — built for the largest datasets.",
         "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight",
         "button_label": "Download free", "featured": false, "dark": true } },
@@ -99,7 +86,20 @@
         "original_price": "$199", "price": "$99", "price_note": " / year",
         "desc": "Our top-tier engine, a step above Premium — built for the largest datasets.",
         "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight",
-        "button_label": "Get NARIKJSON", "featured": true, "dark": true } }
+        "button_label": "Get NARIKJSON", "featured": true, "dark": true } },
+      { "type": "group", "settings": { "label": "Individual edition" } },
+      { "type": "plan", "settings": {
+        "name": "Essential", "edition_label": "Free monthly", "badge_color": "#D9433B",
+        "original_price": "$9.99", "price": "FREE",
+        "desc": "The complete OPENXMLJSON app — no file-size limit.",
+        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
+        "button_label": "Download free", "featured": false } },
+      { "type": "plan", "settings": {
+        "name": "Premium", "edition_label": "Paid yearly", "badge_color": "#2FA55A",
+        "original_price": "$78", "price": "$49.99", "price_note": " / year",
+        "desc": "The complete OPENXMLJSON app — no file-size limit.",
+        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
+        "button_label": "Buy Premium", "featured": true } }
     ]
   }]
 }

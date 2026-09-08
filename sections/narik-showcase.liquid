@@ -22,7 +22,8 @@
       <div class="narik-card"><h3>Schema, Diff &amp; Insight</h3><p>Generate schemas, validate, diff files &amp; drill into structure.</p></div>
     </div>
 
-    <div class="center" style="margin-top:42px">
+    <div class="btn-row" style="margin-top:42px;justify-content:center">
+      <a href="{{ section.settings.free_button_url | default: 'shopify://products/narik-free-edition' }}" class="btn btn--lg btn--narik-ghost">{{ section.settings.free_button_label | default: 'Download NARIKJSON Free' }}</a>
       <a href="{{ section.settings.button_url | default: pages.contact.url | default: '/pages/contact' }}" class="btn btn--lg btn--narik">{{ section.settings.button_label | default: 'Get NARIKJSON Edition' }}</a>
     </div>
   </div>
@@ -36,7 +37,9 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Enterprise-grade data engineering." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Our top-tier edition, a step above Premium — a dual-engine, Rust-powered workbench built for the largest datasets and the most demanding teams." },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Get NARIKJSON Edition" },
-    { "type": "url", "id": "button_url", "label": "Button URL (link to the NARIKJSON product)" }
+    { "type": "url", "id": "button_url", "label": "Button URL (link to the NARIKJSON product)" },
+    { "type": "text", "id": "free_button_label", "label": "Free button label", "default": "Download NARIKJSON Free" },
+    { "type": "url", "id": "free_button_url", "label": "Free button URL (1-month free NARIKJSON)" }
   ],
   "presets": [{ "name": "NARIKJSON showcase" }]
 }
