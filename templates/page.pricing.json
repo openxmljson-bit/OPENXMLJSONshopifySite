@@ -1,1 +1,217 @@
-{"sections":{"hero":{"type":"page-hero","settings":{"eyebrow":"Pricing","heading":"Astonishing performance for your biggest data files.","subheading":"Two products — OPENXMLJSON and NARIKJSON — each available as a free monthly tier or a paid yearly license. Same complete app, no file-size limit on any tier."}},"pricing":{"type":"pricing","blocks":{"g1":{"type":"group","settings":{"label":"Individual edition"}},"p1":{"type":"plan","settings":{"name":"Essential","edition_label":"Free monthly","badge_color":"#d9433b","price":"FREE","original_price":"$9.99","price_note":"","desc":"The complete OPENXMLJSON app — no file-size limit.","features":"No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support","button_label":"Download free","button_url":"shopify://products/essential-edition","featured":false,"dark":false}},"p2":{"type":"plan","settings":{"name":"Premium","edition_label":"Paid yearly","badge_color":"#2fa55a","price":"$49.99","original_price":"$78","price_note":"/ year","desc":"The complete OPENXMLJSON app — no file-size limit.","features":"No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support","button_label":"Buy Premium","button_url":"shopify://products/premium-edition","featured":true,"dark":false}},"g2":{"type":"group","settings":{"label":"Enterprise edition"}},"p3":{"type":"plan","settings":{"name":"NARIKJSON Free","edition_label":"Free monthly","badge_color":"#4c9df7","price":"FREE","original_price":"$20","price_note":"","desc":"Our top-tier engine, a step above Premium — built for the largest datasets.","features":"Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight","button_label":"Download free","button_url":"shopify://products/narik-free-edition","featured":false,"dark":true}},"p4":{"type":"plan","settings":{"name":"NARIKJSON","edition_label":"Paid yearly","badge_color":"#4c9df7","price":"$99","original_price":"$199","price_note":"/ year","desc":"Our top-tier engine, a step above Premium — built for the largest datasets.","features":"Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight","button_label":"Get NARIKJSON","button_url":"shopify://products/narik-edition","featured":true,"dark":true}}},"block_order":["g2","p3","p4","g1","p1","p2"],"settings":{"eyebrow":"Pricing","heading":"Choose your plan.","subheading":"Two products, each offered as a free monthly tier or a paid yearly license. It's the same complete app either way — the only difference is billing."}},"narik":{"type":"narik-showcase","settings":{"eyebrow":"NARIKJSON Edition","heading":"Enterprise-grade data engineering.","subheading":"Our top-tier edition, a step above Premium — a dual-engine, Rust-powered workbench built for the largest datasets and the most demanding teams.","button_label":"Get NARIKJSON Edition","button_url":"shopify://products/narik-edition","free_button_label":"Download NARIKJSON Free","free_button_url":"shopify://products/narik-free-edition"}},"faq":{"type":"faq","blocks":{"q1":{"type":"qa","settings":{"question":"What's the difference between Essential and Premium?","answer":"Nothing in features — both are the complete OPENXMLJSON app with no file-size limit. Essential is free with monthly billing; Premium is a paid yearly license at $49.99."}},"q2":{"type":"qa","settings":{"question":"Who is the Premium edition for?","answer":"Anyone who prefers a yearly license over monthly billing. Premium is identical to Essential in features — the same complete app with no file-size limit."}},"q3":{"type":"qa","settings":{"question":"Who is the NARIKJSON (Enterprise) edition for?","answer":"Enterprise teams that need volume or site licensing, managed deployment and centralized updates. NARIKJSON is our top-tier edition, above Premium, for enterprise customers only — contact us for a tailored quote."}},"q4":{"type":"qa","settings":{"question":"Do you offer a free tier?","answer":"Yes — Essential (OPENXMLJSON) and NARIKJSON Free are both free with monthly billing, and include the full app with no file-size limit. The paid Premium and NARIKJSON editions are the same apps on a yearly license."}},"q5":{"type":"qa","settings":{"question":"How is a license delivered and what is a seat?","answer":"You receive a license key by email right after purchase. One seat activates OPENXMLJSON on up to two devices or operating systems for a single user."}},"q6":{"type":"qa","settings":{"question":"What happens if I cancel my subscription?","answer":"Premium licenses are billed annually. If you cancel, your license stays valid until the next renewal date and you are not auto-charged for the following year."}},"q7":{"type":"qa","settings":{"question":"Do you offer volume licensing?","answer":"Yes — volume and site licensing are part of the NARIKJSON Edition. If you're buying for an organization, contact us for pricing off the standard rate."}}},"block_order":["q1","q2","q3","q4","q5","q6","q7"],"settings":{"eyebrow":"FAQ","heading":"Frequently asked questions"}},"cta":{"type":"cta-band","settings":{"heading":"Ready to open your biggest file?","subheading":"Start free with monthly billing, or take a yearly license — it's the same complete app either way.","primary_label":"Download free","primary_url":"/pages/downloads","secondary_label":"Contact sales","secondary_url":"/pages/contact","meta":"Windows · macOS · Linux · Free tier available"}}},"order":["hero","narik","pricing","faq","cta"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Pricing",
+        "heading": "Astonishing performance for your biggest data files.",
+        "subheading": "Two products — OPENXMLJSON and NARIKJSON — each available as a free monthly tier or a paid yearly license. Same complete app, no file-size limit on any tier."
+      }
+    },
+    "pricing": {
+      "type": "pricing",
+      "blocks": {
+        "g1": {
+          "type": "group",
+          "settings": {
+            "label": "Individual edition"
+          }
+        },
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "name": "Essential",
+            "edition_label": "Free monthly",
+            "badge_color": "#d9433b",
+            "price": "FREE",
+            "original_price": "$9.99",
+            "price_note": "",
+            "desc": "The complete OPENXMLJSON app — no file-size limit.",
+            "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
+            "button_label": "Download free",
+            "button_url": "shopify://products/essential-edition",
+            "featured": false,
+            "dark": false
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "name": "Premium",
+            "edition_label": "Paid yearly",
+            "badge_color": "#2fa55a",
+            "price": "$49.99",
+            "original_price": "$78",
+            "price_note": "/ year",
+            "desc": "The complete OPENXMLJSON app — no file-size limit.",
+            "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
+            "button_label": "Buy Premium",
+            "button_url": "shopify://products/premium-edition",
+            "featured": true,
+            "dark": false
+          }
+        },
+        "g2": {
+          "type": "group",
+          "settings": {
+            "label": "Enterprise edition"
+          }
+        },
+        "p3": {
+          "type": "plan",
+          "settings": {
+            "name": "NARIKJSON Free",
+            "edition_label": "Free monthly",
+            "badge_color": "#4c9df7",
+            "price": "FREE",
+            "original_price": "$20",
+            "price_note": "",
+            "desc": "Our top-tier engine, a step above Premium — built for the largest datasets.",
+            "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight",
+            "button_label": "Download free",
+            "button_url": "shopify://products/narik-free-edition",
+            "featured": false,
+            "dark": true
+          }
+        },
+        "p4": {
+          "type": "plan",
+          "settings": {
+            "name": "NARIKJSON",
+            "edition_label": "Paid yearly",
+            "badge_color": "#4c9df7",
+            "price": "$99",
+            "original_price": "$199",
+            "price_note": "/ year",
+            "desc": "Our top-tier engine, a step above Premium — built for the largest datasets.",
+            "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight",
+            "button_label": "Get NARIKJSON",
+            "button_url": "shopify://products/narik-edition",
+            "featured": true,
+            "dark": true
+          }
+        }
+      },
+      "block_order": [
+        "g2",
+        "p3",
+        "p4",
+        "g1",
+        "p1",
+        "p2"
+      ],
+      "settings": {
+        "eyebrow": "Pricing",
+        "heading": "Choose your plan.",
+        "subheading": "Two products, each offered as a free monthly tier or a paid yearly license. It's the same complete app either way — the only difference is billing."
+      }
+    },
+    "narik": {
+      "type": "narik-showcase",
+      "settings": {
+        "eyebrow": "NARIKJSON Edition",
+        "heading": "Enterprise-grade data engineering.",
+        "subheading": "Our top-tier edition, a step above Premium — a dual-engine, Rust-powered workbench built for the largest datasets and the most demanding teams.",
+        "button_label": "Get NARIKJSON Edition",
+        "button_url": "shopify://products/narik-edition",
+        "free_button_label": "Download NARIKJSON Free",
+        "free_button_url": "shopify://products/narik-free-edition"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "What's the difference between Essential and Premium?",
+            "answer": "Nothing in features — both are the complete OPENXMLJSON app with no file-size limit. Essential is free with monthly billing; Premium is a paid yearly license at $49.99."
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Who is the Premium edition for?",
+            "answer": "Anyone who prefers a yearly license over monthly billing. Premium is identical to Essential in features — the same complete app with no file-size limit."
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "Who is the NARIKJSON (Enterprise) edition for?",
+            "answer": "Enterprise teams that need volume or site licensing, managed deployment and centralized updates. NARIKJSON is our top-tier edition, above Premium, for enterprise customers only — contact us for a tailored quote."
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Do you offer a free tier?",
+            "answer": "Yes — Essential (OPENXMLJSON) and NARIKJSON Free are both free with monthly billing, and include the full app with no file-size limit. The paid Premium and NARIKJSON editions are the same apps on a yearly license."
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "How is a license delivered and what is a seat?",
+            "answer": "You receive a license key by email right after purchase. One seat activates OPENXMLJSON on up to two devices or operating systems for a single user."
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens if I cancel my subscription?",
+            "answer": "Premium licenses are billed annually. If you cancel, your license stays valid until the next renewal date and you are not auto-charged for the following year."
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "question": "Do you offer volume licensing?",
+            "answer": "Yes — volume and site licensing are part of the NARIKJSON Edition. If you're buying for an organization, contact us for pricing off the standard rate."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Frequently asked questions"
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "heading": "Ready to open your biggest file?",
+        "subheading": "Start free with monthly billing, or take a yearly license — it's the same complete app either way.",
+        "primary_label": "Download free",
+        "primary_url": "shopify://products/narik-free-edition",
+        "secondary_label": "Contact sales",
+        "secondary_url": "/pages/contact",
+        "meta": "Windows · macOS · Linux · Free tier available"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "narik",
+    "pricing",
+    "faq",
+    "cta"
+  ]
+}

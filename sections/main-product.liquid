@@ -27,7 +27,7 @@
         {% unless product.has_only_default_variant %}
           {% for option in product.options_with_values %}
             <label for="opt-{{ option.position }}">{{ option.name }}</label>
-            <select id="opt-{{ option.position }}" name="options[{{ option.name | escape }}]">
+            <select id="opt-{{ option.position }}" class="product__option-select" data-option-position="{{ option.position }}" name="options[{{ option.name | escape }}]">
               {% for value in option.values %}
                 <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
               {% endfor %}
@@ -35,13 +35,49 @@
           {% endfor %}
         {% endunless %}
 
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="id" id="variant-id-{{ section.id }}" value="{{ product.selected_or_first_available_variant.id }}">
 
-        <button type="submit" name="add" class="btn btn--primary btn--lg btn--block"
+        <button type="submit" name="add" class="btn btn--primary btn--lg btn--block" data-add-btn
           {% unless product.available %}disabled{% endunless %}>
           {% if product.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
         </button>
       {%- endform -%}
+
+      {% unless product.has_only_default_variant %}
+      <script type="application/json" data-variants-for="{{ section.id }}">
+        {{ product.variants | json }}
+      </script>
+      <script>
+        (function(){
+          var root = document.currentScript.closest('.product__info') || document;
+          var dataEl = root.querySelector('[data-variants-for="{{ section.id }}"]');
+          if (!dataEl) return;
+          var variants = JSON.parse(dataEl.textContent);
+          var idInput = document.getElementById('variant-id-{{ section.id }}');
+          var selects = root.querySelectorAll('.product__option-select');
+          var addBtn = root.querySelector('[data-add-btn]');
+          function update(){
+            var chosen = [];
+            selects.forEach(function(s){ chosen[parseInt(s.getAttribute('data-option-position'),10)-1] = s.value; });
+            var match = variants.find(function(v){
+              return (chosen[0] == null || v.option1 === chosen[0])
+                  && (chosen[1] == null || v.option2 === chosen[1])
+                  && (chosen[2] == null || v.option3 === chosen[2]);
+            });
+            if (match){
+              idInput.value = match.id;
+              if (addBtn){
+                addBtn.disabled = !match.available;
+                if (!match.available) addBtn.textContent = {{ 'products.product.sold_out' | t | json }};
+                else addBtn.textContent = {{ 'products.product.add_to_cart' | t | json }};
+              }
+            }
+          }
+          selects.forEach(function(s){ s.addEventListener('change', update); });
+          update();
+        })();
+      </script>
+      {% endunless %}
 
       <ul class="checklist">
         {% for block in section.blocks %}
