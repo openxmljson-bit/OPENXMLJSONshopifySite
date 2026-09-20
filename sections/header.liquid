@@ -13,6 +13,18 @@
       {% for link in section.settings.menu.links %}
         <a href="{{ link.url }}">{{ link.title }}</a>
       {% endfor %}
+
+      {%- comment -%}
+        The header action buttons don't fit beside the brand on narrow phones,
+        so they are repeated here inside the mobile nav sheet (CSS-hidden on
+        desktop) rather than dropped.
+      {%- endcomment -%}
+      {% if section.settings.download_url != blank %}
+        <a href="{{ section.settings.download_url }}" class="nav__cta">{{ section.settings.download_label }}</a>
+      {% endif %}
+      {% if section.settings.buy_url != blank %}
+        <a href="{{ section.settings.buy_url }}" class="nav__cta">{{ section.settings.buy_label }}</a>
+      {% endif %}
     </nav>
 
     <div class="header-actions">
@@ -39,7 +51,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
         {% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-label="Menu">
+      <button class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>

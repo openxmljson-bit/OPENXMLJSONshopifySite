@@ -1,11 +1,11 @@
 <section class="section {% if section.settings.accent == 'blue' %}tut--blue{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %}><div class="wrap">
-  <div class="center">
+  <div class="center" data-reveal>
     {% if section.settings.eyebrow != blank %}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
     <h2>{{ section.settings.heading }}</h2>
     {% if section.settings.subheading != blank %}<p class="lead" style="margin:14px auto 0;max-width:640px">{{ section.settings.subheading }}</p>{% endif %}
   </div>
 
-  <div class="tut-list">
+  <div class="tut-list" data-stagger="120">
     {% for block in section.blocks %}
       <div class="tut-step {% cycle '', 'tut-step--rev' %}" {{ block.shopify_attributes }}>
         <div class="tut-shot">
@@ -30,10 +30,10 @@
   "name": "Tutorial steps",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Tutorial" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "How to use OPENXMLJSON" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How to use NARIKJSON" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A quick, annotated walkthrough — from opening a huge file to searching and exporting." },
     { "type": "text", "id": "anchor", "label": "Anchor id (for menu links, e.g. openxmljson)" },
-    { "type": "select", "id": "accent", "label": "Accent color", "default": "terracotta", "options": [ { "value": "terracotta", "label": "Terracotta (OPENXMLJSON)" }, { "value": "blue", "label": "Blue (NARIKJSON)" } ] }
+    { "type": "select", "id": "accent", "label": "Accent color", "default": "terracotta", "options": [ { "value": "terracotta", "label": "Terracotta" }, { "value": "blue", "label": "Blue (NARIKJSON)" } ] }
   ],
   "blocks": [
     {

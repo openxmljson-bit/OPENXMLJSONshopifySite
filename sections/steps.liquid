@@ -1,11 +1,11 @@
 <section class="section section--alt" id="how-it-works">
   <div class="wrap">
-    <div class="center">
+    <div class="center" data-reveal>
       <span class="eyebrow">{{ section.settings.eyebrow }}</span>
       <h2>{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.subheading }}</p>
     </div>
-    <div class="steps">
+    <div class="steps" data-stagger="100">
       {% for block in section.blocks %}
         <div class="step" {{ block.shopify_attributes }}>
           <div class="step__n">{{ forloop.index }}</div>

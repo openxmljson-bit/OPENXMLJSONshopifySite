@@ -1,14 +1,24 @@
 <section class="section">
   <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <div class="center" data-reveal>
+      {% if section.settings.eyebrow != blank %}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
       <h2>{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.subheading }}</p>
     </div>
-    <div class="stats">
+    <div class="stats" data-stagger="90">
       {% for block in section.blocks %}
-        <div class="stat" {{ block.shopify_attributes }}>
-          <div class="stat__num">{{ block.settings.number }}</div>
+        <div class="stat {% if block.settings.style == 'cool' %}stat--cool{% endif %}" {{ block.shopify_attributes }}>
+          <div class="stat__num">
+            {%- comment -%}
+              Set "Animate from" to count the number up when the card scrolls
+              into view; leave it blank to print the static text instead.
+            {%- endcomment -%}
+            {%- if block.settings.count != blank -%}
+              {{ block.settings.prefix }}<span data-count="{{ block.settings.count }}" data-count-duration="1800">0</span>{{ block.settings.suffix }}
+            {%- else -%}
+              {{ block.settings.number }}
+            {%- endif -%}
+          </div>
           <div class="stat__label">{{ block.settings.label }}</div>
         </div>
       {% endfor %}
@@ -22,21 +32,34 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A whole new class of performance" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Built for scale, byte by byte." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A native Rust engine treats your data as structure, not text — so memory tracks your working set, not the file size." }
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "A native engine treats your data as structure, not text — so memory tracks your working set, not the file size." }
   ],
   "blocks": [
     { "type": "stat", "name": "Stat", "settings": [
-      { "type": "text", "id": "number", "label": "Number", "default": "10 GB" },
-      { "type": "text", "id": "label", "label": "Label", "default": "Files opened without loading into memory" }
+      { "type": "header", "content": "Animated number" },
+      { "type": "paragraph", "content": "Fill in “Animate to” for a number that counts up on scroll. Leave it blank to show the static text below instead." },
+      { "type": "text", "id": "count", "label": "Animate to (digits only, e.g. 6500)" },
+      { "type": "text", "id": "prefix", "label": "Prefix (e.g. $)" },
+      { "type": "text", "id": "suffix", "label": "Suffix (e.g. + or GB)" },
+      { "type": "header", "content": "Static fallback" },
+      { "type": "text", "id": "number", "label": "Static number", "default": "10 GB" },
+      { "type": "header", "content": "Content" },
+      { "type": "text", "id": "label", "label": "Label", "default": "Files opened without loading into memory" },
+      { "type": "select", "id": "style", "label": "Accent", "default": "warm",
+        "options": [
+          { "value": "warm", "label": "Terracotta" },
+          { "value": "cool", "label": "Electric blue" }
+        ]
+      }
     ]}
   ],
   "presets": [{
     "name": "Stat callouts",
     "blocks": [
-      { "type": "stat", "settings": { "number": "50+ GB", "label": "Opens & searches with 32–64 GB RAM — scales with memory" } },
-      { "type": "stat", "settings": { "number": "24 B", "label": "Index per node — ~3 GB for 130M nodes" } },
-      { "type": "stat", "settings": { "number": "130M/s", "label": "Objects parsed per second" } },
-      { "type": "stat", "settings": { "number": "2 GB/s", "label": "Raw file read throughput" } }
+      { "type": "stat", "settings": { "count": "50", "suffix": "+ GB", "style": "warm", "label": "Opens & searches with 32–64 GB RAM — scales with memory" } },
+      { "type": "stat", "settings": { "count": "24", "suffix": " B", "style": "cool", "label": "Index per node — ~3 GB for 130M nodes" } },
+      { "type": "stat", "settings": { "count": "130", "suffix": "M/s", "style": "warm", "label": "Objects parsed per second" } },
+      { "type": "stat", "settings": { "count": "2", "suffix": " GB/s", "style": "cool", "label": "Raw file read throughput" } }
     ]
   }]
 }

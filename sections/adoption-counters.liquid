@@ -1,0 +1,95 @@
+{%- comment -%}
+  Adoption counters — downloads + per-format "files opened" tallies.
+  Each card counts up when it scrolls into view and draws its sparkline.
+  Everything is editable in Theme editor → Adoption counters.
+{%- endcomment -%}
+<section class="section adoption">
+  <div class="wrap">
+    <div class="center" data-reveal>
+      {% if section.settings.eyebrow != blank %}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="lead">{{ section.settings.subheading }}</p>{% endif %}
+    </div>
+
+    <div class="counters" data-stagger="90">
+      {% for block in section.blocks %}
+        {%- assign c = block.settings.color | default: '#E87C4D' -%}
+        <div class="counter" style="--c:{{ c }}" {{ block.shopify_attributes }}>
+          <div class="counter__top">
+            {%- case block.settings.icon -%}
+              {%- when 'download' -%}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ c }}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+              {%- when 'json' -%}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ c }}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></svg>
+              {%- when 'csv' -%}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ c }}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10M15 10v10"/></svg>
+              {%- when 'xml' -%}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ c }}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg>
+              {%- when 'users' -%}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ c }}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 4.5a4 4 0 0 1 0 7M18 21a7 7 0 0 0-2-4.9"/></svg>
+              {%- else -%}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ c }}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><rect x="4" y="12" width="4" height="7" rx="1"/><rect x="10" y="7" width="4" height="12" rx="1"/><rect x="16" y="3" width="4" height="16" rx="1"/></svg>
+            {%- endcase -%}
+            {% if block.settings.chip != blank %}<span class="counter__chip">{{ block.settings.chip }}</span>{% endif %}
+          </div>
+
+          <div class="counter__val">
+            <span data-count="{{ block.settings.count }}" data-count-duration="2000">0</span>
+            {% if block.settings.suffix != blank %}<span class="suffix">{{ block.settings.suffix }}</span>{% endif %}
+          </div>
+          <div class="counter__label">{{ block.settings.label }}</div>
+
+          <svg class="counter__spark" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+            <path class="area" d="M0 26 L14 24 L28 22 L42 19 L56 17 L70 12 L84 11 L98 6 L120 3 L120 30 L0 30 Z"/>
+            <path d="M0 26 L14 24 L28 22 L42 19 L56 17 L70 12 L84 11 L98 6 L120 3"/>
+          </svg>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.note != blank %}
+      <p class="adoption__note" data-reveal><span class="dot" aria-hidden="true"></span> {{ section.settings.note }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Adoption counters",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "By the numbers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Engineers are already opening the impossible." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every one of these files was opened on someone's own machine — no uploads, no cloud, no waiting." },
+    { "type": "textarea", "id": "note", "label": "Footnote", "default": "Counts include log files, API dumps and event streams — updated as the community grows." }
+  ],
+  "blocks": [
+    { "type": "counter", "name": "Counter", "settings": [
+      { "type": "text", "id": "count", "label": "Count up to (digits only)", "default": "2000" },
+      { "type": "text", "id": "suffix", "label": "Suffix", "default": "+" },
+      { "type": "text", "id": "chip", "label": "Chip label", "default": "Installs" },
+      { "type": "text", "id": "label", "label": "Description", "default": "Downloads across Windows, macOS & Linux" },
+      { "type": "color", "id": "color", "label": "Accent colour", "default": "#e87c4d" },
+      { "type": "select", "id": "icon", "label": "Icon", "default": "download",
+        "options": [
+          { "value": "download", "label": "Download" },
+          { "value": "json", "label": "JSON braces" },
+          { "value": "csv", "label": "CSV grid" },
+          { "value": "xml", "label": "XML tags" },
+          { "value": "users", "label": "People" },
+          { "value": "chart", "label": "Bar chart" }
+        ]
+      }
+    ]}
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "Adoption counters",
+    "blocks": [
+      { "type": "counter", "settings": { "count": "2000", "suffix": "+", "chip": "Installs",  "icon": "download", "color": "#e87c4d", "label": "Downloads across Windows, macOS & Linux" } },
+      { "type": "counter", "settings": { "count": "16500", "suffix": "+", "chip": "JSON",      "icon": "json",     "color": "#4c9df7", "label": "JSON & NDJSON files opened and indexed" } },
+      { "type": "counter", "settings": { "count": "8100", "suffix": "+", "chip": "CSV / TSV", "icon": "csv",      "color": "#3dd68c", "label": "Spreadsheet-scale exports browsed as a grid" } },
+      { "type": "counter", "settings": { "count": "4800", "suffix": "+", "chip": "XML",       "icon": "xml",      "color": "#a78bfa", "label": "XML documents navigated with XPath" } }
+    ]
+  }]
+}
+{% endschema %}

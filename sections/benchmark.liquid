@@ -1,16 +1,16 @@
 <section class="section section--alt">
   <div class="wrap" style="max-width:920px">
-    <div class="center">
+    <div class="center" data-reveal>
       <span class="eyebrow">{{ section.settings.eyebrow }}</span>
       <h2>{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.subheading }}</p>
     </div>
-    <div class="bench" data-bench>
+    <div class="bench" data-bench data-reveal>
       {% for block in section.blocks %}
         <div class="bench__row" {{ block.shopify_attributes }}>
           <div class="bench__name {% if block.settings.is_us %}win{% endif %}">{{ block.settings.name }}</div>
           <div class="bench__track">
-            <div class="bench__fill {% if block.settings.is_us %}win{% endif %}" data-bar="{{ block.settings.percent }}" style="width:0"></div>
+            <div class="bench__fill {% if block.settings.is_us %}win{% endif %}" data-bar="{{ block.settings.percent }}" style="--bar-w:{{ block.settings.percent }}%"></div>
           </div>
           <div class="bench__val">{{ block.settings.value }}</div>
         </div>
@@ -40,7 +40,7 @@
   "presets": [{
     "name": "Benchmark bars",
     "blocks": [
-      { "type": "bar", "settings": { "name": "OPENXMLJSON", "percent": 4, "value": "0.4s", "is_us": true } },
+      { "type": "bar", "settings": { "name": "NARIKJSON", "percent": 4, "value": "0.4s", "is_us": true } },
       { "type": "bar", "settings": { "name": "Notepad++", "percent": 62, "value": "65s" } },
       { "type": "bar", "settings": { "name": "VS Code", "percent": 78, "value": "82s" } },
       { "type": "bar", "settings": { "name": "Sublime", "percent": 55, "value": "58s" } },

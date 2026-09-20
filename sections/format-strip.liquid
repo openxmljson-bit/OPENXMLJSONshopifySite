@@ -1,10 +1,12 @@
 <section class="section--tight">
   <div class="wrap">
-    <p class="center muted" style="font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px">{{ section.settings.heading }}</p>
-    <div class="formatstrip">
-      {% for block in section.blocks %}
-        <span class="fmt" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
-      {% endfor %}
+    <p class="center muted" data-reveal style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px;font-family:var(--mono)">{{ section.settings.heading }}</p>
+    <div class="formatstrip-wrap">
+      <div class="formatstrip" data-marquee>
+        {% for block in section.blocks %}
+          <span class="fmt" {{ block.shopify_attributes }}><i></i>{{ block.settings.label }}</span>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>

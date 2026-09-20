@@ -1,124 +1,336 @@
 {%- comment -%}
   Self-contained homepage. Built as a plain Liquid template (not JSON) so it
   imports reliably. Buttons/links read from theme settings where useful.
+
+  Motion: sections carry data-reveal / data-stagger and are animated by
+  assets/global.js. With JS off everything renders immediately (.no-js rules).
 {%- endcomment -%}
 
-{%- assign download_url = section.settings.download_url | default: '#' -%}
+{%- assign pricing_url = pages.pricing.url | default: '/pages/pricing' -%}
 
-{%- comment -%} Promo banner — 4 styles, one shown at random per visitor {%- endcomment -%}
-{%- assign promo_msg = '<strong>3-month free trial</strong> of OPENXMLJSON &amp; NARIKJSON &mdash; no size limits, every feature unlocked. Talk to our sales team to start.' -%}
-{%- assign promo_url = pages.contact.url | default: '/pages/contact' -%}
-<div class="promo-rotator" data-promo-rotator>
-  <section class="promo-banner" style="background:linear-gradient(90deg,#cf6f43 0%,#b95fb0 50%,#4C9DF7 100%)"><div class="promo-banner__inner"><p class="promo-banner__text">{{ promo_msg }}</p><a href="{{ promo_url }}" class="btn promo-banner__btn" style="background:#fff;color:#17191d">Contact sales &rarr;</a></div></section>
-  <section class="promo-banner" style="background:#17191F"><div class="promo-banner__inner"><p class="promo-banner__text">{{ promo_msg }}</p><a href="{{ promo_url }}" class="btn promo-banner__btn" style="background:#4C9DF7;color:#0C1524">Contact sales &rarr;</a></div></section>
-  <section class="promo-banner" style="background:#cf6f43"><div class="promo-banner__inner"><p class="promo-banner__text">{{ promo_msg }}</p><a href="{{ promo_url }}" class="btn promo-banner__btn" style="background:#fff;color:#17191d">Contact sales &rarr;</a></div></section>
-  <section class="promo-banner" style="background:#4C9DF7"><div class="promo-banner__inner"><p class="promo-banner__text">{{ promo_msg }}</p><a href="{{ promo_url }}" class="btn promo-banner__btn" style="background:#0C1524;color:#fff">Contact sales &rarr;</a></div></section>
-</div>
-<script>
-  (function(){var r=document.querySelector('[data-promo-rotator]');if(!r)return;var b=r.querySelectorAll('.promo-banner');if(b.length<2)return;for(var i=0;i<b.length;i++){b[i].style.display='none';}b[Math.floor(Math.random()*b.length)].style.display='block';})();
-</script>
-
+{%- comment -%} ============================ HERO ============================ {%- endcomment -%}
 <section class="hero"><div class="wrap hero__inner">
-  <span class="pill">Windows &middot; macOS &middot; Linux</span>
-  <h1>Open 10+&nbsp;GB JSON, XML &amp; CSV in a blink.</h1>
-  <p class="lead">A zero-copy, memory-mapped viewer that opens, navigates and regex-searches enormous data files without ever loading them into memory &mdash; 10+ GB on a laptop, and 50+ GB on a 32&ndash;64 GB machine. Performance scales with your RAM.</p>
-  <div class="btn-row" style="justify-content:center">
-    <a href="{{ pages.pricing.url | default: '/pages/pricing' }}" class="btn btn--primary btn--lg" style="padding:19px 52px;font-size:1.18rem">Download free</a>
-  </div>
-  <p class="hero__meta">Essential edition available &middot; No file leaves your machine &middot; Scales to 50+ GB with more RAM</p>
+  <span class="pill" data-reveal>Windows &middot; macOS &middot; Linux</span>
+  <h1 data-reveal style="--reveal-delay:80ms">NARIKJSON opens 10+&nbsp;GB JSON, XML &amp; CSV <span class="grad-text">in a blink.</span></h1>
+  <p class="lead" data-reveal style="--reveal-delay:160ms">A dual-engine, Rust-powered data workbench. It opens, navigates, queries and converts enormous JSON, NDJSON, XML, YAML, CSV and TSV files without ever loading them into memory &mdash; 10+ GB on a laptop, and 50+ GB on a 32&ndash;64 GB machine.</p>
 
-  <div class="hero__shot"><div class="codewin">
+  <div class="btn-row" data-reveal style="--reveal-delay:240ms">
+    <a href="{{ pricing_url }}" class="btn btn--primary btn--lg" style="padding:19px 48px;font-size:1.14rem">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+      <span>Download NARIKJSON free</span>
+    </a>
+    <a href="#how-it-works" class="btn btn--ghost btn--lg">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4Z"/></svg>
+      <span>See how it works</span>
+    </a>
+  </div>
+
+  <p class="hero__meta" data-reveal style="--reveal-delay:300ms">
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Free tier available</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>No file leaves your machine</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Scales to 50+ GB with more RAM</span>
+  </p>
+
+  <div class="hero__shot" data-reveal="zoom" data-tilt style="--reveal-delay:380ms"><div class="codewin">
     <div class="codewin__bar"><span></span><span></span><span></span><span class="codewin__title">events.ndjson &mdash; 8.4 GB &mdash; 132,884,910 nodes</span></div>
     <div class="codewin__body">
       <div class="codewin__tree">
         <div class="row"><span class="k">&#9662; root</span> : {…}</div>
-        <div class="row" style="padding-left:16px"><span class="k">events</span> : [ … ], 4.1M items</div>
+        <div class="row" style="padding-left:16px"><span class="k">&#9662; events</span> : [ … ] <span class="tok-punc">4.1M items</span></div>
         <div class="row sel" style="padding-left:32px">[0] : {…}</div>
-        <div class="row" style="padding-left:48px">id : 8842013</div>
-        <div class="row" style="padding-left:48px">level : "error"</div>
+        <div class="row" style="padding-left:48px">id : <span class="tok-num">8842013</span></div>
+        <div class="row" style="padding-left:48px">level : <span class="tok-str">"error"</span></div>
+        <div class="row" style="padding-left:48px">service : <span class="tok-str">"checkout"</span></div>
         <div class="row" style="padding-left:32px">[1] : {…}</div>
+        <div class="row" style="padding-left:32px">[2] : {…}</div>
+        <div class="row" style="padding-left:16px"><span class="k">&#9656; meta</span> : {…} <span class="tok-punc">6 keys</span></div>
       </div>
-      <div class="codewin__main"><pre style="margin:0"><span class="ln">1</span>{
-<span class="ln">2</span>  <span class="tok-key">"events"</span>: [
-<span class="ln">3</span>    { <span class="tok-key">"id"</span>: <span class="tok-num">8842013</span>, <span class="tok-key">"level"</span>: <span class="tok-str">"<span class="hl">error</span>"</span>,
-<span class="ln">4</span>      <span class="tok-key">"service"</span>: <span class="tok-str">"checkout"</span> },
-<span class="ln">5</span>    { <span class="tok-key">"id"</span>: <span class="tok-num">8842014</span>, <span class="tok-key">"level"</span>: <span class="tok-str">"info"</span> }
-<span class="ln">6</span>  ]
+      <div class="codewin__main">
+        <div class="codewin__scan" aria-hidden="true"></div>
+<pre><span class="ln">1</span>{
+<span class="ln">2</span>  <span class="tok-key">"events"</span><span class="tok-punc">:</span> [
+<span class="ln">3</span>    { <span class="tok-key">"id"</span><span class="tok-punc">:</span> <span class="tok-num">8842013</span><span class="tok-punc">,</span> <span class="tok-key">"level"</span><span class="tok-punc">:</span> <span class="tok-str">"<span class="hl">error</span>"</span><span class="tok-punc">,</span>
+<span class="ln">4</span>      <span class="tok-key">"service"</span><span class="tok-punc">:</span> <span class="tok-str">"checkout"</span><span class="tok-punc">,</span> <span class="tok-key">"ms"</span><span class="tok-punc">:</span> <span class="tok-num">1284</span> <span class="tok-punc">}</span><span class="tok-punc">,</span>
+<span class="ln">5</span>    { <span class="tok-key">"id"</span><span class="tok-punc">:</span> <span class="tok-num">8842014</span><span class="tok-punc">,</span> <span class="tok-key">"level"</span><span class="tok-punc">:</span> <span class="tok-str">"info"</span> <span class="tok-punc">}</span>
+<span class="ln">6</span>  ]<span class="codewin__caret" aria-hidden="true"></span>
 <span class="ln">7</span>}</pre>
-        <div style="margin-top:16px;color:#6b7480;font-size:.76rem">Find: <span class="hl">error</span> &nbsp; 12,904 matches &middot; 0.03s &middot; JSON &middot; 8.4 GB file &middot; 3.0 GB index</div>
+        <div class="codewin__status">
+          <span>Find <span class="hl">error</span></span>
+          <span><b>12,904</b> matches</span>
+          <span>0.03s</span>
+          <span>JSON &middot; 8.4 GB file</span>
+          <span>3.0 GB index</span>
+          <span>RSS 412 MB</span>
+        </div>
       </div>
     </div>
   </div></div>
 </div></section>
 
-<section class="section devline"><div class="wrap center" style="max-width:780px">
-  <p class="devline__kicker">// a developer, to a developer</p>
-  <h2>Built by a developer who lives in big data &mdash; for the ones who do too.</h2>
-  <p class="lead" style="margin:14px auto 0">No bloat, no telemetry, no progress bars &mdash; just the tool we wished existed every time an editor choked on our files.</p>
-</div></section>
-
+{%- comment -%} ===================== FORMAT MARQUEE ===================== {%- endcomment -%}
 <section class="section--tight"><div class="wrap">
-  <p class="center muted" style="font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px">One viewer for every large data format</p>
-  <div class="formatstrip">
-    <span class="fmt">JSON</span><span class="fmt">JSON-Lines / NDJSON</span><span class="fmt">XML</span><span class="fmt">CSV</span><span class="fmt">TSV</span><span class="fmt">Log files</span>
+  <p class="center muted" style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px;font-family:var(--mono)" data-reveal>One viewer for every large data format</p>
+  <div class="formatstrip-wrap">
+    <div class="formatstrip" data-marquee>
+      <span class="fmt"><i></i>JSON</span>
+      <span class="fmt"><i></i>JSON-Lines / NDJSON</span>
+      <span class="fmt"><i></i>XML</span>
+      <span class="fmt"><i></i>CSV</span>
+      <span class="fmt"><i></i>TSV</span>
+      <span class="fmt"><i></i>Log files</span>
+      <span class="fmt"><i></i>API dumps</span>
+      <span class="fmt"><i></i>Event streams</span>
+      <span class="fmt"><i></i>Config bundles</span>
+      <span class="fmt"><i></i>Data exports</span>
+    </div>
   </div>
 </div></section>
 
-<section class="section section--alt" id="how-it-works"><div class="wrap">
-  <div class="center"><span class="eyebrow">How it works</span><h2>Open it. Navigate it. Find anything.</h2>
-  <p class="lead">Every file is memory-mapped and parsed once into a compact index &mdash; only the rows on screen are ever built.</p></div>
-  <div class="steps">
+{%- comment -%} ================= ADOPTION / LIVE COUNTERS ================= {%- endcomment -%}
+<section class="section adoption"><div class="wrap">
+  <div class="center">
+    <span class="eyebrow" data-reveal>By the numbers</span>
+    <h2 data-reveal style="--reveal-delay:60ms">Engineers are already <span class="grad-text">opening the impossible.</span></h2>
+    <p class="lead" data-reveal style="--reveal-delay:120ms">Every one of these files was opened with NARIKJSON on someone's own machine &mdash; no uploads, no cloud, no waiting.</p>
+  </div>
+
+  <div class="counters" data-stagger="90">
+
+    <div class="counter" style="--c:#E87C4D">
+      <div class="counter__top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E87C4D" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+        <span class="counter__chip">Installs</span>
+      </div>
+      <div class="counter__val"><span data-count="2000" data-count-duration="1900">0</span><span class="suffix">+</span></div>
+      <div class="counter__label">Downloads across Windows, macOS &amp; Linux</div>
+      <svg class="counter__spark" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+        <path class="area" d="M0 26 L14 24 L28 22 L42 19 L56 17 L70 12 L84 11 L98 6 L120 3 L120 30 L0 30 Z"/>
+        <path d="M0 26 L14 24 L28 22 L42 19 L56 17 L70 12 L84 11 L98 6 L120 3"/>
+      </svg>
+    </div>
+
+    <div class="counter" style="--c:#4C9DF7">
+      <div class="counter__top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4C9DF7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></svg>
+        <span class="counter__chip">JSON</span>
+      </div>
+      <div class="counter__val"><span data-count="16500" data-count-duration="2100">0</span><span class="suffix">+</span></div>
+      <div class="counter__label">JSON &amp; NDJSON files opened and indexed</div>
+      <svg class="counter__spark" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+        <path class="area" d="M0 27 L14 25 L28 20 L42 21 L56 15 L70 13 L84 8 L98 7 L120 2 L120 30 L0 30 Z"/>
+        <path d="M0 27 L14 25 L28 20 L42 21 L56 15 L70 13 L84 8 L98 7 L120 2"/>
+      </svg>
+    </div>
+
+    <div class="counter" style="--c:#3DD68C">
+      <div class="counter__top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DD68C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10M15 10v10"/></svg>
+        <span class="counter__chip">CSV / TSV</span>
+      </div>
+      <div class="counter__val"><span data-count="8100" data-count-duration="2000">0</span><span class="suffix">+</span></div>
+      <div class="counter__label">Spreadsheet-scale exports browsed as a grid</div>
+      <svg class="counter__spark" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+        <path class="area" d="M0 25 L14 26 L28 21 L42 18 L56 19 L70 14 L84 10 L98 9 L120 4 L120 30 L0 30 Z"/>
+        <path d="M0 25 L14 26 L28 21 L42 18 L56 19 L70 14 L84 10 L98 9 L120 4"/>
+      </svg>
+    </div>
+
+    <div class="counter" style="--c:#A78BFA">
+      <div class="counter__top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg>
+        <span class="counter__chip">XML</span>
+      </div>
+      <div class="counter__val"><span data-count="4800" data-count-duration="2000">0</span><span class="suffix">+</span></div>
+      <div class="counter__label">XML documents navigated with XPath</div>
+      <svg class="counter__spark" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true">
+        <path class="area" d="M0 26 L14 23 L28 24 L42 20 L56 16 L70 16 L84 11 L98 8 L120 5 L120 30 L0 30 Z"/>
+        <path d="M0 26 L14 23 L28 24 L42 20 L56 16 L70 16 L84 11 L98 8 L120 5"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <p class="adoption__note" data-reveal><span class="dot" aria-hidden="true"></span> Counts include log files, API dumps and event streams &mdash; updated as the community grows.</p>
+</div></section>
+
+{%- comment -%} ======================= DEV TO DEV ======================= {%- endcomment -%}
+<section class="section devline"><div class="wrap center" style="max-width:800px">
+  <p class="devline__kicker" data-reveal>// a developer, to a developer</p>
+  <h2 data-reveal style="--reveal-delay:60ms">Built by a developer who lives in big data &mdash; for the ones who do too.</h2>
+  <p class="lead" style="margin:14px auto 0" data-reveal>No bloat, no telemetry, no progress bars &mdash; just the tool we wished existed every time an editor choked on our files. That tool is NARIKJSON.</p>
+</div></section>
+
+{%- comment -%} ====================== HOW IT WORKS ====================== {%- endcomment -%}
+<section class="section" id="how-it-works"><div class="wrap">
+  <div class="center">
+    <span class="eyebrow" data-reveal>How it works</span>
+    <h2 data-reveal style="--reveal-delay:60ms">Open it. Navigate it. Find anything.</h2>
+    <p class="lead" data-reveal style="--reveal-delay:120ms">Every file is memory-mapped and parsed once into a compact index &mdash; only the rows on screen are ever built.</p>
+  </div>
+
+  {%- comment -%} pipeline diagram: disk -> mmap -> index -> viewport {%- endcomment -%}
+  <div data-reveal="zoom" style="margin-top:52px">
+    <svg viewBox="0 0 1080 200" width="100%" role="img" aria-label="Pipeline: the file stays on disk, is memory-mapped, indexed at 24 bytes per node, and only the visible rows are built." style="display:block;max-width:980px;margin:0 auto;overflow:hidden">
+      <defs>
+        <linearGradient id="pipeWarm" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#E87C4D"/><stop offset="100%" stop-color="#F2A166"/>
+        </linearGradient>
+        <linearGradient id="pipeFlow" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#E87C4D" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#F2A166" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#4C9DF7" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <line x1="60" y1="100" x2="1020" y2="100" stroke="#2F3B55" stroke-width="2" stroke-dasharray="5 7"/>
+      <line x1="60" y1="100" x2="1020" y2="100" stroke="url(#pipeFlow)" stroke-width="3" stroke-dasharray="130 830" stroke-linecap="round">
+        <animate attributeName="stroke-dashoffset" from="960" to="-130" dur="4s" repeatCount="indefinite"/>
+      </line>
+
+      <g font-family="JetBrains Mono, monospace">
+        <!-- 1. on disk -->
+        <g transform="translate(60,52)">
+          <rect width="176" height="96" rx="14" fill="#131826" stroke="#222B3E"/>
+          <rect x="18" y="20" width="34" height="42" rx="5" fill="none" stroke="#E87C4D" stroke-width="2"/>
+          <path d="M24 32h22M24 40h22M24 48h14" stroke="#E87C4D" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+          <text x="64" y="38" fill="#EDF1F7" font-size="14" font-weight="700">8.4 GB</text>
+          <text x="64" y="57" fill="#7A87A5" font-size="11">stays on disk</text>
+          <text x="18" y="82" fill="#7A87A5" font-size="10" letter-spacing="1.4">01 · SOURCE</text>
+        </g>
+
+        <!-- 2. memory map -->
+        <g transform="translate(292,52)">
+          <rect width="176" height="96" rx="14" fill="#131826" stroke="#222B3E"/>
+          <g stroke="#4C9DF7" stroke-width="2" fill="none">
+            <rect x="18" y="24" width="15" height="15" rx="3"/><rect x="37" y="24" width="15" height="15" rx="3"/>
+            <rect x="18" y="43" width="15" height="15" rx="3"/><rect x="37" y="43" width="15" height="15" rx="3" opacity=".4"/>
+          </g>
+          <text x="64" y="38" fill="#EDF1F7" font-size="14" font-weight="700">mmap</text>
+          <text x="64" y="57" fill="#7A87A5" font-size="11">zero copy</text>
+          <text x="18" y="82" fill="#7A87A5" font-size="10" letter-spacing="1.4">02 · MAP</text>
+        </g>
+
+        <!-- 3. structural index -->
+        <g transform="translate(524,52)">
+          <rect width="176" height="96" rx="14" fill="#131826" stroke="#222B3E"/>
+          <g stroke="#3DD68C" stroke-width="2" fill="none" stroke-linecap="round">
+            <path d="M20 28h10M20 38h10M20 48h10M20 58h10"/>
+            <path d="M34 28h14M34 38h18M34 48h12M34 58h16" opacity=".45"/>
+          </g>
+          <text x="64" y="38" fill="#EDF1F7" font-size="14" font-weight="700">24 B / node</text>
+          <text x="64" y="57" fill="#7A87A5" font-size="11">structural index</text>
+          <text x="20" y="82" fill="#7A87A5" font-size="10" letter-spacing="1.4">03 · INDEX</text>
+        </g>
+
+        <!-- 4. viewport -->
+        <g transform="translate(756,52)">
+          <rect width="264" height="96" rx="14" fill="#131826" stroke="url(#pipeWarm)" stroke-width="1.5"/>
+          <g stroke="#F2A166" stroke-width="2" fill="none" stroke-linecap="round">
+            <path d="M22 30h9M22 42h9M22 54h9"/>
+            <path d="M37 30h20M37 42h28M37 54h16"/>
+          </g>
+          <text x="76" y="38" fill="#EDF1F7" font-size="14" font-weight="700">~40 rows built</text>
+          <text x="76" y="57" fill="#7A87A5" font-size="11">cost tracks the viewport</text>
+          <text x="22" y="82" fill="#F2A166" font-size="10" letter-spacing="1.4">04 · VIEWPORT</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="steps" data-stagger="100">
     <div class="step"><div class="step__n">1</div><h3>Open the file</h3><p>Drag in a JSON, NDJSON, XML, CSV or TSV file up to 10+ GB (50+ GB with 32&ndash;64 GB of RAM) &mdash; or paste from the clipboard or fetch a URL with auth. It opens instantly, no progress bars.</p></div>
     <div class="step"><div class="step__n">2</div><h3>Navigate the tree</h3><p>Everything renders as one uniform, virtualized tree. Jump to any path, bookmark nodes, and read collapsed counts like &ldquo;products : […], 31 items&rdquo;.</p></div>
     <div class="step"><div class="step__n">3</div><h3>Search &amp; export</h3><p>Regex find, live filter, or JSONPath / XPath queries backed by parallel native search. Then export or convert to JSON, XML or CSV.</p></div>
   </div>
 </div></section>
 
-<section class="section"><div class="wrap">
-  <div class="center"><span class="eyebrow">A whole new class of performance</span><h2>Built for scale, byte by byte.</h2>
-  <p class="lead">A native engine treats your data as structure, not text &mdash; so memory tracks your working set, not the file size.</p></div>
-  <div class="stats">
-    <div class="stat"><div class="stat__num">50+ GB</div><div class="stat__label">Opens &amp; searches with 32&ndash;64 GB RAM &mdash; scales with memory</div></div>
-    <div class="stat"><div class="stat__num">24 B</div><div class="stat__label">Index per node &mdash; ~3 GB for 130M nodes</div></div>
-    <div class="stat"><div class="stat__num">130M/s</div><div class="stat__label">Objects parsed per second</div></div>
-    <div class="stat"><div class="stat__num">2 GB/s</div><div class="stat__label">Raw file read throughput</div></div>
-  </div>
-</div></section>
-
-<section class="section section--alt"><div class="wrap" style="max-width:920px">
-  <div class="center"><span class="eyebrow">163&times; faster load</span><h2>The result speaks for itself.</h2>
-  <p class="lead">Approximate load time for a large JSON file. Where general-purpose editors stall or run out of memory, the structural index just opens.</p></div>
-  <div class="bench" data-bench>
-    <div class="bench__row"><div class="bench__name win">OPENXMLJSON</div><div class="bench__track"><div class="bench__fill win" data-bar="4" style="width:0"></div></div><div class="bench__val">0.4s</div></div>
-    <div class="bench__row"><div class="bench__name">Notepad++</div><div class="bench__track"><div class="bench__fill" data-bar="62" style="width:0"></div></div><div class="bench__val">65s</div></div>
-    <div class="bench__row"><div class="bench__name">VS Code</div><div class="bench__track"><div class="bench__fill" data-bar="78" style="width:0"></div></div><div class="bench__val">82s</div></div>
-    <div class="bench__row"><div class="bench__name">Sublime</div><div class="bench__track"><div class="bench__fill" data-bar="55" style="width:0"></div></div><div class="bench__val">58s</div></div>
-    <div class="bench__row"><div class="bench__name">Chrome</div><div class="bench__track"><div class="bench__fill" data-bar="100" style="width:0"></div></div><div class="bench__val">fails</div></div>
-  </div>
-  <p class="muted center" style="font-size:.8rem;margin-top:26px">Illustrative comparison on a large JSON file. Actual results vary by hardware, file shape and configuration.</p>
-</div></section>
-
-<section class="section" id="features"><div class="wrap">
-  <div class="center"><span class="eyebrow">Everything you need</span><h2>A data workbench, not a text editor.</h2>
-  <p class="lead">Browse and query your files like a database &mdash; with the tools you'd expect from an enterprise DBMS.</p></div>
-  <div class="features">
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Virtualized tree view</h3><p>Objects, arrays, XML elements and CSV records render in one uniform, collapsible tree. Cost per frame tracks visible rows (~40), never file size.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Regex find, instantly</h3><p>Literal or regex search scoped to keys, values or attributes &mdash; chip-highlighted matches with &#9650;&#9660; stepping, backed by parallel native search.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>JSONPath &amp; XPath queries</h3><p>Query JSON/CSV with $.store.items[*].name and XML with //item/@id. Combine paths to pull several fields at once; results filter the tree.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>On-demand (lazy) indexing</h3><p>Files too large to index eagerly open anyway &mdash; only the paths you expand are materialized, so resident memory tracks the subtree you view.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>CSV spreadsheet view</h3><p>CSV/TSV opens in a grid with header detection. Leading-zero cells like ZIP codes deliberately stay strings &mdash; no silent data loss.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Follow tail (tail -f)</h3><p>Follow a growing JSON / NDJSON / log file. Only newly appended lines are parsed each tick, so it stays cheap on huge, live files.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Convert &amp; export</h3><p>Export the whole document or any node as pretty JSON, XML or CSV &mdash; cross-format conversion built in, plus export of search matches.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Open from URL</h3><p>Fetch a document over HTTP(S) with None / Basic / Bearer / API-Key auth, remember credentials, and copy the request as cURL.</p></div>
-    <div class="feature"><div class="feature__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Node statistics</h3><p>Right-click any container for child counts, a type histogram, distinct values and numeric min / max / avg &mdash; understand your data fast.</p></div>
-  </div>
-</div></section>
-
+{%- comment -%} ================== PERFORMANCE STATS ================== {%- endcomment -%}
 <section class="section section--alt"><div class="wrap">
-  <div class="center"><span class="eyebrow">How it compares</span><h2>Other tools weren't built for gigabytes.</h2>
-  <p class="lead">General-purpose editors treat JSON as plain text. OPENXMLJSON treats it as structured data.</p></div>
-  <div class="compare"><table>
-    <thead><tr><th></th><th class="us">OPENXMLJSON</th><th>Text editors</th><th>Browser / online</th></tr></thead>
+  <div class="center">
+    <span class="eyebrow" data-reveal>A whole new class of performance</span>
+    <h2 data-reveal style="--reveal-delay:60ms">Built for scale, <span class="grad-text">byte by byte.</span></h2>
+    <p class="lead" data-reveal style="--reveal-delay:120ms">NARIKJSON's dual engine treats your data as structure, not text &mdash; in-memory for speed or database-scale for the biggest files, auto-selected. Memory tracks your working set, not the file size.</p>
+  </div>
+  <div class="stats" data-stagger="90">
+    <div class="stat">
+      <div class="stat__ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+      <div class="stat__num"><span data-count="50" data-count-duration="1500">0</span>+ GB</div>
+      <div class="stat__label">Opens &amp; searches with 32&ndash;64 GB RAM &mdash; scales with memory</div>
+    </div>
+    <div class="stat stat--cool">
+      <div class="stat__ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+      <div class="stat__num"><span data-count="24" data-count-duration="1400">0</span> B</div>
+      <div class="stat__label">Index per node &mdash; ~3 GB for 130M nodes</div>
+    </div>
+    <div class="stat">
+      <div class="stat__ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></svg></div>
+      <div class="stat__num"><span data-count="130" data-count-duration="1700">0</span>M/s</div>
+      <div class="stat__label">Objects parsed per second</div>
+    </div>
+    <div class="stat stat--cool">
+      <div class="stat__ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+      <div class="stat__num"><span data-count="2" data-count-duration="1300">0</span> GB/s</div>
+      <div class="stat__label">Raw file read throughput</div>
+    </div>
+  </div>
+</div></section>
+
+{%- comment -%} ======================= BENCHMARK ======================= {%- endcomment -%}
+<section class="section"><div class="wrap" style="max-width:940px">
+  <div class="center">
+    <span class="eyebrow" data-reveal>163&times; faster load</span>
+    <h2 data-reveal style="--reveal-delay:60ms">The result speaks for itself.</h2>
+    <p class="lead" data-reveal style="--reveal-delay:120ms">Approximate load time for a large JSON file. Where general-purpose editors stall or run out of memory, the structural index just opens.</p>
+  </div>
+  <div class="bench" data-bench data-reveal>
+    <div class="bench__row"><div class="bench__name win">NARIKJSON</div><div class="bench__track"><div class="bench__fill win" data-bar="4" style="--bar-w:4%"></div></div><div class="bench__val">0.4s</div></div>
+    <div class="bench__row"><div class="bench__name">Notepad++</div><div class="bench__track"><div class="bench__fill" data-bar="62" style="--bar-w:62%"></div></div><div class="bench__val">65s</div></div>
+    <div class="bench__row"><div class="bench__name">VS Code</div><div class="bench__track"><div class="bench__fill" data-bar="78" style="--bar-w:78%"></div></div><div class="bench__val">82s</div></div>
+    <div class="bench__row"><div class="bench__name">Sublime</div><div class="bench__track"><div class="bench__fill" data-bar="55" style="--bar-w:55%"></div></div><div class="bench__val">58s</div></div>
+    <div class="bench__row"><div class="bench__name">Chrome</div><div class="bench__track"><div class="bench__fill" data-bar="100" style="--bar-w:100%"></div></div><div class="bench__val">fails</div></div>
+  </div>
+  <p class="muted center" style="font-size:.8rem;margin-top:28px" data-reveal>Illustrative comparison on a large JSON file. Actual results vary by hardware, file shape and configuration.</p>
+</div></section>
+
+{%- comment -%} ======================== FEATURES ======================== {%- endcomment -%}
+<section class="section section--alt" id="features"><div class="wrap">
+  <div class="center">
+    <span class="eyebrow" data-reveal>Everything you need</span>
+    <h2 data-reveal style="--reveal-delay:60ms">A data workbench, <span class="grad-text">not a text editor.</span></h2>
+    <p class="lead" data-reveal style="--reveal-delay:120ms">Browse, query, transform and convert your files like a database &mdash; with the tools you'd expect from an enterprise DBMS.</p>
+  </div>
+  <div class="features" data-stagger="70">
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h7"/><path d="M6 4v14a2 2 0 0 0 2 2h2"/><path d="M6 12h4"/><rect x="13" y="2" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="5" rx="1.5"/><rect x="13" y="18" width="8" height="4" rx="1.5"/></svg></div><h3>Virtualized tree view</h3><p>Objects, arrays, XML elements and CSV records render in one uniform, collapsible tree. Cost per frame tracks visible rows (~40), never file size.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/><path d="M8 10.5h5M10.5 8v5"/></svg></div><h3>Lightning search</h3><p>Trigram-indexed literal or regex search scoped to keys, values or attributes &mdash; finds anything in milliseconds, even on massive files.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/><path d="M12 9v6"/></svg></div><h3>JSONPath, XPath &amp; jq</h3><p>Query JSON/CSV with <code>$.store.items[*].name</code> and XML with <code>//item/@id</code>, or run a full <code>jq</code> program in the built-in bar &mdash; results open in a new tab.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></div><h3>Dual-engine architecture</h3><p>Two engines in one &mdash; in-memory for speed, database-scale for the biggest files &mdash; auto-selected for your data. Files too large to index eagerly still open on demand.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14.5h18M9 9v11M15 9v11"/></svg></div><h3>Spreadsheet-grade tables</h3><p>Pin, filter, sort and profile millions of rows like a spreadsheet, with a SQL console over CSV, TSV and delimited files. Leading-zero cells like ZIP codes stay strings.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h4l2.5 7 4-16L15 12h7"/></svg></div><h3>Follow tail (tail -f)</h3><p>Follow a growing JSON / NDJSON / log file. Only newly appended lines are parsed each tick, so it stays cheap on huge, live files.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h14l-3.5-3.5"/><path d="M21 16H7l3.5 3.5"/></svg></div><h3>Every format, one click</h3><p>JSON, NDJSON, XML, YAML, CSV, TSV and delimited files in one app &mdash; convert freely between them, batch-export, or save your search matches as a dataset.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg></div><h3>Integrated API workbench</h3><p>Postman-style requests with None / Basic / Bearer / API-Key auth &mdash; explore live responses as structured data and copy any request as cURL.</p></div>
+
+    <div class="feature"><div class="feature__ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><rect x="4" y="12" width="4" height="7" rx="1"/><rect x="10" y="7" width="4" height="12" rx="1"/><rect x="16" y="3" width="4" height="16" rx="1"/></svg></div><h3>Schema, diff &amp; insight</h3><p>Generate and validate schemas, diff two files, check column coverage, and read child counts, type histograms and numeric min / max / avg for any node.</p></div>
+
+  </div>
+</div></section>
+
+{%- comment -%} ======================= COMPARISON ======================= {%- endcomment -%}
+<section class="section"><div class="wrap">
+  <div class="center">
+    <span class="eyebrow" data-reveal>How it compares</span>
+    <h2 data-reveal style="--reveal-delay:60ms">Other tools weren't built for gigabytes.</h2>
+    <p class="lead" data-reveal style="--reveal-delay:120ms">General-purpose editors treat JSON as plain text. NARIKJSON treats it as structured data.</p>
+  </div>
+  <div class="compare" data-reveal><table>
+    <thead><tr><th></th><th class="us">NARIKJSON</th><th>Text editors</th><th>Browser / online</th></tr></thead>
     <tbody>
       <tr><th scope="row">Opens 10+ GB files</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
       <tr><th scope="row">Memory tracks working set, not file size</th><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&#10005;</span></td><td><span class="no">&#10005;</span></td></tr>
@@ -132,32 +344,45 @@
   </table></div>
 </div></section>
 
+{%- comment -%} ====================== TESTIMONIALS ====================== {%- endcomment -%}
 <section class="section section--alt"><div class="wrap">
-  <div class="center"><span class="eyebrow">Loved by data engineers</span><h2>What people say.</h2></div>
-  <div class="quotes">
-    <figure class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;Opened an 8 GB NDJSON log that crashed everything else. It was on screen before I finished my coffee.&rdquo;</p></blockquote><figcaption class="quote__who">&mdash; Priya S., Backend engineer</figcaption></figure>
-    <figure class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;The JSONPath query bar plus regex find replaced three scripts I used to run to inspect API dumps.&rdquo;</p></blockquote><figcaption class="quote__who">&mdash; Marco V., Data engineer</figcaption></figure>
-    <figure class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;Follow-tail on a live JSON log is the feature I didn't know I needed. Memory just doesn't move.&rdquo;</p></blockquote><figcaption class="quote__who">&mdash; Dan R., SRE</figcaption></figure>
+  <div class="center">
+    <span class="eyebrow" data-reveal>Loved by data engineers</span>
+    <h2 data-reveal style="--reveal-delay:60ms">What people say.</h2>
+  </div>
+  <div class="quotes" data-stagger="100">
+    <figure class="quote"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;Opened an 8 GB NDJSON log that crashed everything else. It was on screen before I finished my coffee.&rdquo;</p></blockquote><figcaption class="quote__who"><span class="av" aria-hidden="true">PS</span>Priya S. &middot; Backend engineer</figcaption></figure>
+    <figure class="quote"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;The JSONPath query bar plus regex find replaced three scripts I used to run to inspect API dumps.&rdquo;</p></blockquote><figcaption class="quote__who"><span class="av av--cool" aria-hidden="true">MV</span>Marco V. &middot; Data engineer</figcaption></figure>
+    <figure class="quote"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote><p>&ldquo;Follow-tail on a live JSON log is the feature I didn't know I needed. Memory just doesn't move.&rdquo;</p></blockquote><figcaption class="quote__who"><span class="av" aria-hidden="true">DR</span>Dan R. &middot; SRE</figcaption></figure>
   </div>
 </div></section>
 
+{%- comment -%} ========================== FAQ ========================== {%- endcomment -%}
 <section class="section" id="faq"><div class="wrap">
-  <div class="center"><span class="eyebrow">Questions, answered</span><h2>What to know before you download.</h2></div>
-  <div class="faq" data-faq>
-    <details open><summary>How large a file can it really open?</summary><p>On a typical machine it&#39;s comfortable around 10 GB. With 32&ndash;64 GB of RAM it opens 50+ GB files &mdash; performance scales with the memory you give it. Files too large to index eagerly fall back to on-demand (lazy) indexing, so documents near or beyond your available RAM still open.</p></details>
-    <details><summary>Which formats are supported?</summary><p>JSON, JSON-Lines / NDJSON, XML, CSV and TSV. The parser is chosen from the file extension, and you can also paste from the clipboard or open from a URL.</p></details>
-    <details><summary>Does my data leave my machine?</summary><p>No. Files are memory-mapped and processed locally. Nothing is uploaded &mdash; the only network call is the optional Open-URL fetch you trigger yourself.</p></details>
-    <details><summary>What platforms does it run on?</summary><p>Windows, macOS (universal, Apple Silicon + Intel) and Linux.</p></details>
-    <details><summary>What's the difference between Essential and Premium editions?</summary><p>They're the same complete app with no file-size limit &mdash; the only difference is billing: Essential is monthly and Premium is yearly. NARIKJSON is our top-tier edition, above Premium &mdash; adding volume licensing, managed deployment and an SLA. Want to try first? The free download opens files up to 50 MB.</p></details>
+  <div class="center">
+    <span class="eyebrow" data-reveal>Questions, answered</span>
+    <h2 data-reveal style="--reveal-delay:60ms">What to know before you download.</h2>
+  </div>
+  <div class="faq" data-faq data-stagger="60">
+    <details open><summary>How large a file can NARIKJSON really open?</summary><p>On a typical machine it&#39;s comfortable around 10 GB. With 32&ndash;64 GB of RAM it opens 50+ GB files and hundreds of millions of rows &mdash; performance scales with the memory you give it. Files too large to index eagerly fall back to the database engine and on-demand indexing, so documents near or beyond your available RAM still open.</p></details>
+    <details><summary>Which formats are supported?</summary><p>JSON, JSON-Lines / NDJSON, XML, YAML, CSV, TSV and other delimited files &mdash; all in one app, with one-click conversion between them. You can also paste from the clipboard or open from a URL.</p></details>
+    <details><summary>What are the two engines?</summary><p>NARIKJSON runs an in-memory engine for speed and a database engine for scale, and picks the right one for your file automatically. The database engine uses SQLite for JSON and XML and DuckDB for CSV and delimited data, which is what makes multi-GB files and 100M+ rows practical.</p></details>
+    <details><summary>Does my data leave my machine?</summary><p>No. Files are processed locally by the native Rust core. Nothing is uploaded &mdash; the only network calls are the ones you make yourself from the API workbench.</p></details>
+    <details><summary>What platforms does it run on?</summary><p>macOS (Apple Silicon and Intel) and Linux today. A Windows build is coming soon &mdash; <a href="{{ pages.contact.url | default: '/pages/contact' }}">get notified</a>.</p></details>
+    <details><summary>What&#39;s the difference between the free and paid tiers?</summary><p>They are the same complete application. NARIKJSON Free is billed monthly at no cost; the paid NARIKJSON license is billed yearly and adds volume and site licensing, managed deployment, centralized updates and a dedicated support SLA for teams.</p></details>
   </div>
 </div></section>
 
+{%- comment -%} ========================== CTA ========================== {%- endcomment -%}
 <section class="section cta-band"><div class="wrap center">
-  <h2>Stop waiting on progress bars.</h2>
-  <p class="lead" style="margin:0 auto 26px">Download OPENXMLJSON and open your biggest file in seconds.</p>
-  <div class="btn-row" style="justify-content:center">
-    <a href="{{ pages.pricing.url | default: '/pages/pricing' }}" class="btn btn--primary btn--lg">Download free</a>
-    <a href="{{ pages.pricing.url | default: '/pages/pricing' }}" class="btn btn--ghost btn--lg">See pricing</a>
+  <h2 data-reveal>Stop waiting on <span class="grad-text">progress bars.</span></h2>
+  <p class="lead" data-reveal style="margin:0 auto 28px;--reveal-delay:60ms">Download NARIKJSON and open your biggest file in seconds.</p>
+  <div class="btn-row" data-reveal style="--reveal-delay:120ms">
+    <a href="{{ pricing_url }}" class="btn btn--primary btn--lg">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+      <span>Download NARIKJSON free</span>
+    </a>
+    <a href="{{ pricing_url }}" class="btn btn--ghost btn--lg">See pricing</a>
   </div>
-  <p class="hero__meta">Windows &middot; macOS &middot; Linux &middot; Essential edition available</p>
+  <p class="hero__meta" data-reveal><span>Windows &middot; macOS &middot; Linux &middot; Free tier available</span></p>
 </div></section>

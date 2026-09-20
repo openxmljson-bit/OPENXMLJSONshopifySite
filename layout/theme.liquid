@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+<html lang="{{ request.locale.iso_code }}" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBFAF8">
+  <meta name="color-scheme" content="light">
   <link rel="canonical" href="{{ canonical_url }}">
   {% if settings.favicon != blank %}
     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">
@@ -11,9 +12,11 @@
     <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | asset_url }}">
   {% endif %}
 
+  <script>document.documentElement.classList.remove('no-js');</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <title>
     {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
@@ -27,12 +30,28 @@
 
   {%- style -%}
     :root {
-      --accent: {{ settings.accent_color }};
-      --bg: {{ settings.bg_color }};
+      {%- if settings.accent_color != blank %}--accent: {{ settings.accent_color }};{% endif -%}
+      {%- if settings.accent_ink != blank %}--accent-ink: {{ settings.accent_ink }};{% endif -%}
+      {%- if settings.accent_color_2 != blank %}--accent-2: {{ settings.accent_color_2 }};{% endif -%}
+      {%- if settings.secondary_color != blank %}--blue: {{ settings.secondary_color }};{% endif -%}
+      {%- if settings.bg_color != blank %}--bg: {{ settings.bg_color }};{% endif -%}
     }
   {%- endstyle -%}
 </head>
 <body class="template-{{ template.name | handle }}">
+
+  <div class="scroll-rail" data-scroll-rail aria-hidden="true"></div>
+
+  {%- comment -%}
+    Ambient canvas: drifting aurora orbs over a faint engineering grid.
+    Purely decorative, fixed behind the content, disabled under reduced motion.
+  {%- endcomment -%}
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-fx__grid"></div>
+    <div class="bg-fx__orb bg-fx__orb--1"></div>
+    <div class="bg-fx__orb bg-fx__orb--2"></div>
+    <div class="bg-fx__orb bg-fx__orb--3"></div>
+  </div>
 
   {% section 'announcement' %}
   {% section 'header' %}

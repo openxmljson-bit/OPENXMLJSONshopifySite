@@ -1,11 +1,11 @@
 <section class="section" id="features">
   <div class="wrap">
-    <div class="center">
+    <div class="center" data-reveal>
       <span class="eyebrow">{{ section.settings.eyebrow }}</span>
       <h2>{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.subheading }}</p>
     </div>
-    <div class="features">
+    <div class="features" data-stagger="70">
       {% for block in section.blocks %}
         <div class="feature" {{ block.shopify_attributes }}>
           <div class="feature__ic">

@@ -1,63 +1,54 @@
-<section class="section" id="downloads"><div class="wrap" style="max-width:840px">
-  <div class="center" style="margin-bottom:16px">
-    <span class="pill">Free trial &middot; opens files up to 50 MB</span>
+{%- comment -%}
+  NARIKJSON download cards. The three real builds are the primary action;
+  a trial licence key is requested from sales.
+{%- endcomment -%}
+<section class="section" id="downloads"><div class="wrap" style="max-width:940px">
+  <div class="center" data-reveal style="margin-bottom:16px">
+    <span class="pill">{{ section.settings.badge | default: 'NARIKJSON Free · no file-size limit' }}</span>
   </div>
   {% if section.settings.intro != blank %}
-    <p class="lead center" style="margin:0 auto 34px;max-width:640px">{{ section.settings.intro }}</p>
+    <p class="lead center" data-reveal style="margin:0 auto 38px;max-width:660px">{{ section.settings.intro }}</p>
   {% endif %}
 
-  <div class="dl-grid">
-    <div class="dl-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px 26px;text-align:center">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent)"><path d="M16.365 1.43c0 1.14-.42 2.2-1.1 2.98-.74.85-1.96 1.5-3.02 1.42-.13-1.12.44-2.27 1.06-2.99.74-.85 2.03-1.48 3.06-1.41zM20.5 17.6c-.55 1.27-.82 1.83-1.53 2.95-.99 1.56-2.39 3.5-4.13 3.52-1.54.02-1.94-.99-4.04-.98-2.1.01-2.54 1-4.09.97-1.73-.03-3.05-1.78-4.05-3.34C-.86 16.1-1.26 10.5 1.07 7.6c1.02-1.28 2.62-2.09 4.12-2.09 1.53 0 2.49 1.02 3.76 1.02 1.22 0 1.97-1.02 3.75-1.02 1.34 0 2.75.73 3.76 1.98-3.3 1.8-2.76 6.51.04 8.13z"/></svg>
-      <h3 style="margin:14px 0 4px">macOS</h3>
-      <p class="muted" style="font-size:.86rem;margin:0 0 20px">Universal &middot; Apple Silicon &amp; Intel</p>
-      <a href="{{ section.settings.mac_url | default: 'https://delivery.shopifyapps.com/-/b628efcbb6c886ac/f5985779ff629361' }}" class="btn btn--primary btn--block" rel="noopener">Download for macOS</a>
+  <div class="dl-grid dl-grid--3" data-stagger="90">
+    <div class="dl-card">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.1 2.98-.74.85-1.96 1.5-3.02 1.42-.13-1.12.44-2.27 1.06-2.99.74-.85 2.03-1.48 3.06-1.41zM20.5 17.6c-.55 1.27-.82 1.83-1.53 2.95-.99 1.56-2.39 3.5-4.13 3.52-1.54.02-1.94-.99-4.04-.98-2.1.01-2.54 1-4.09.97-1.73-.03-3.05-1.78-4.05-3.34C-.86 16.1-1.26 10.5 1.07 7.6c1.02-1.28 2.62-2.09 4.12-2.09 1.53 0 2.49 1.02 3.76 1.02 1.22 0 1.97-1.02 3.75-1.02 1.34 0 2.75.73 3.76 1.98-3.3 1.8-2.76 6.51.04 8.13z"/></svg>
+      <h3>macOS</h3>
+      <p class="muted">Apple Silicon &middot; M-series</p>
+      <a href="{{ section.settings.narik_mac_url | default: 'https://delivery.shopifyapps.com/-/852be2b814844ac3/3bd891319718bd18' }}" class="btn btn--primary btn--block" rel="noopener">Download for macOS</a>
     </div>
 
-    <div class="dl-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px 26px;text-align:center">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--accent)"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 8l3 2.5L7 13M13 13h4M8 21h8M12 17v4"/></svg>
-      <h3 style="margin:14px 0 4px">Linux</h3>
-      <p class="muted" style="font-size:.86rem;margin:0 0 20px">x86-64 &middot; portable build</p>
-      <a href="{{ section.settings.linux_url | default: 'https://delivery.shopifyapps.com/-/3be4c0527a4b1964/26449ea668feef00' }}" class="btn btn--primary btn--block" rel="noopener">Download for Linux</a>
+    <div class="dl-card">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.1 2.98-.74.85-1.96 1.5-3.02 1.42-.13-1.12.44-2.27 1.06-2.99.74-.85 2.03-1.48 3.06-1.41zM20.5 17.6c-.55 1.27-.82 1.83-1.53 2.95-.99 1.56-2.39 3.5-4.13 3.52-1.54.02-1.94-.99-4.04-.98-2.1.01-2.54 1-4.09.97-1.73-.03-3.05-1.78-4.05-3.34C-.86 16.1-1.26 10.5 1.07 7.6c1.02-1.28 2.62-2.09 4.12-2.09 1.53 0 2.49 1.02 3.76 1.02 1.22 0 1.97-1.02 3.75-1.02 1.34 0 2.75.73 3.76 1.98-3.3 1.8-2.76 6.51.04 8.13z"/></svg>
+      <h3>macOS</h3>
+      <p class="muted">Intel &middot; x86-64</p>
+      <a href="{{ section.settings.narik_mac_intel_url | default: 'https://delivery.shopifyapps.com/-/aa7076b61cb2103f/c5780dbcc8143034' }}" class="btn btn--primary btn--block" rel="noopener">Download for macOS</a>
+    </div>
+
+    <div class="dl-card">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 8l3 2.5L7 13M13 13h4M8 21h8M12 17v4"/></svg>
+      <h3>Linux</h3>
+      <p class="muted">x86-64 &middot; portable build</p>
+      <a href="{{ section.settings.narik_linux_url | default: 'https://delivery.shopifyapps.com/-/15ecb94037bb4bc3/b990effe2985b03f' }}" class="btn btn--primary btn--block" rel="noopener">Download for Linux</a>
     </div>
   </div>
 
-  <p class="center muted" style="font-size:.85rem;margin-top:24px">Windows build coming soon &mdash; <a href="{{ pages.contact.url | default: '/pages/contact' }}" style="color:var(--accent)">get notified</a>.</p>
-  <p class="center" style="margin-top:6px;font-size:.92rem">Need bigger files? <a href="{{ pages.pricing.url | default: '/pages/pricing' }}" style="color:var(--accent)">See Essential &amp; Premium &rarr;</a></p>
-
-  {% if section.settings.show_narik %}
-  <div class="narik-box" style="margin-top:52px">
-    <div class="center">
-      <div class="narik-mark"><span class="brace">{</span> <span class="en">N</span> <span class="brace">}</span></div>
-      <span class="eyebrow">NARIKJSON Edition</span>
-      <h2 style="font-size:1.6rem">Download the NARIKJSON build</h2>
-      <p class="lead" style="margin:12px auto 0;max-width:560px">Our top-tier edition, a step above Premium &mdash; dual-engine, Rust-powered, built for the largest datasets. Running the build needs a trial license key: contact sales to get one.</p>
-    </div>
-    <div class="dl3" style="margin:34px auto 0;max-width:720px">
-      <a href="{{ section.settings.narik_mac_url | default: 'https://delivery.shopifyapps.com/-/852be2b814844ac3/3bd891319718bd18' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">macOS Silicon</a>
-      <a href="{{ section.settings.narik_mac_intel_url | default: 'https://delivery.shopifyapps.com/-/aa7076b61cb2103f/c5780dbcc8143034' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">macOS Intel</a>
-      <a href="{{ section.settings.narik_linux_url | default: 'https://delivery.shopifyapps.com/-/15ecb94037bb4bc3/b990effe2985b03f' }}" class="btn btn--lg btn--narik btn--block" rel="noopener">Linux</a>
-    </div>
-    <div class="center" style="margin-top:16px">
-      <a href="{{ section.settings.narik_contact_url | default: pages.contact.url | default: '/pages/contact' }}" class="btn btn--lg" style="background:transparent;border:1px solid #4C9DF7;color:#4C9DF7">Contact sales for a trial license</a>
-    </div>
-    <p class="center" style="margin-top:20px;font-size:.92rem"><a href="{{ pages.pricing.url | default: '/pages/pricing' }}#narik" style="color:#4C9DF7">See what's inside NARIKJSON &rarr;</a></p>
+  <div class="dl-note" data-reveal>
+    <p>Running the build needs a licence key &mdash; <a href="{{ section.settings.narik_contact_url | default: pages.contact.url | default: '/pages/contact' }}">contact sales for a free trial key</a>.</p>
+    <p class="muted">Windows build coming soon &mdash; <a href="{{ pages.contact.url | default: '/pages/contact' }}">get notified</a>. &nbsp;&middot;&nbsp; <a href="{{ pages.pricing.url | default: '/pages/pricing' }}">See NARIKJSON pricing &rarr;</a></p>
   </div>
-  {% endif %}
 </div></section>
 
 {% schema %}
 {
   "name": "Download cards",
   "settings": [
-    { "type": "textarea", "id": "intro", "label": "Intro text", "default": "Try OPENXMLJSON free — the trial opens files up to 50 MB so you can see it on your own data before buying. Essential and Premium remove the limit entirely." },
-    { "type": "text", "id": "mac_url", "label": "macOS download URL" },
-    { "type": "text", "id": "linux_url", "label": "Linux download URL" },
-    { "type": "checkbox", "id": "show_narik", "label": "Show NARIKJSON card", "default": true },
-    { "type": "text", "id": "narik_mac_url", "label": "NARIKJSON macOS (Apple Silicon) URL" },
-    { "type": "text", "id": "narik_mac_intel_url", "label": "NARIKJSON macOS (Intel) URL" },
-    { "type": "text", "id": "narik_linux_url", "label": "NARIKJSON Linux download URL" },
-    { "type": "url", "id": "narik_contact_url", "label": "NARIKJSON trial-license / sales URL" }
+    { "type": "text", "id": "badge", "label": "Badge", "default": "NARIKJSON Free · no file-size limit" },
+    { "type": "textarea", "id": "intro", "label": "Intro text", "default": "NARIKJSON Free is the complete dual-engine workbench with no file-size limit, billed monthly at no cost. Take a yearly licence any time for volume licensing, managed deployment and a support SLA." },
+    { "type": "text", "id": "narik_mac_url", "label": "macOS (Apple Silicon) URL" },
+    { "type": "text", "id": "narik_mac_intel_url", "label": "macOS (Intel) URL" },
+    { "type": "text", "id": "narik_linux_url", "label": "Linux download URL" },
+    { "type": "url", "id": "narik_contact_url", "label": "Trial-licence / sales URL" }
   ],
   "presets": [{ "name": "Download cards" }]
 }

@@ -1,13 +1,21 @@
 <section class="section" id="pricing">
   <div class="wrap">
-    <div class="center">
+    <div class="center" data-reveal>
       <span class="eyebrow">{{ section.settings.eyebrow }}</span>
       <h2>{{ section.settings.heading }}</h2>
       <p class="lead">{{ section.settings.subheading }}</p>
     </div>
+    {%- comment -%}
+      The grid follows the number of plans: with fewer than three the default
+      three-column track would leave an empty column and shove the cards left.
+    {%- endcomment -%}
     {%- assign has_groups = false -%}
-    {%- for block in section.blocks -%}{%- if block.type == 'group' -%}{%- assign has_groups = true -%}{%- endif -%}{%- endfor -%}
-    <div class="plans {% if has_groups %}plans--grouped{% endif %}">
+    {%- assign plan_count = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'group' -%}{%- assign has_groups = true -%}
+      {%- else -%}{%- assign plan_count = plan_count | plus: 1 -%}{%- endif -%}
+    {%- endfor -%}
+    <div class="plans {% if has_groups %}plans--grouped{% else %}plans--n{{ plan_count }}{% endif %}" data-stagger="90">
       {% for block in section.blocks %}
         {% if block.type == 'group' %}
           <div class="plan-group" {{ block.shopify_attributes }}>
@@ -48,18 +56,18 @@
 {
   "name": "Editions / pricing",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Editions" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "One full app. Monthly or yearly." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Essential and Premium are the same app with no file-size limit — choose monthly or yearly. NARIKJSON is our top-tier edition, a step above Premium." }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Pricing" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose your NARIKJSON plan." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Free monthly or a yearly license — it's the same complete app either way. The yearly license adds volume licensing, managed deployment and a support SLA." }
   ],
   "blocks": [
     { "type": "group", "name": "Product heading", "settings": [
-      { "type": "text", "id": "label", "label": "Product name", "default": "OPENXMLJSON" }
+      { "type": "text", "id": "label", "label": "Product name", "default": "NARIKJSON" }
     ]},
     { "type": "plan", "name": "Plan", "settings": [
       { "type": "text", "id": "name", "label": "Name", "default": "Plan" },
       { "type": "text", "id": "edition_label", "label": "Edition badge" },
-      { "type": "color", "id": "badge_color", "label": "Badge color", "default": "#d9825a" },
+      { "type": "color", "id": "badge_color", "label": "Badge color", "default": "#4c9df7" },
       { "type": "text", "id": "price", "label": "Price", "default": "$0" },
       { "type": "text", "id": "original_price", "label": "Original price (strikethrough)" },
       { "type": "text", "id": "price_note", "label": "Price note" },
@@ -68,38 +76,24 @@
       { "type": "text", "id": "button_label", "label": "Button label", "default": "Get started" },
       { "type": "url", "id": "button_url", "label": "Button URL" },
       { "type": "checkbox", "id": "featured", "label": "Highlight as popular", "default": false },
-      { "type": "checkbox", "id": "dark", "label": "Dark (NARIKJSON) styling", "default": false }
+      { "type": "checkbox", "id": "dark", "label": "Dark (NARIKJSON) styling", "default": true }
     ]}
   ],
   "presets": [{
     "name": "Editions / pricing",
     "blocks": [
-      { "type": "group", "settings": { "label": "Enterprise edition" } },
       { "type": "plan", "settings": {
         "name": "NARIKJSON Free", "edition_label": "Free monthly", "badge_color": "#4C9DF7",
         "original_price": "$20", "price": "FREE",
-        "desc": "Our top-tier engine, a step above Premium — built for the largest datasets.",
-        "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight",
+        "desc": "The complete dual-engine workbench — no file-size limit.",
+        "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format — JSON, NDJSON, XML, YAML, CSV, TSV\nOne-click conversion between formats\nSpreadsheet-grade tables & SQL console\nTrigram-indexed lightning search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema generation, validation & diff",
         "button_label": "Download free", "featured": false, "dark": true } },
       { "type": "plan", "settings": {
         "name": "NARIKJSON", "edition_label": "Paid yearly", "badge_color": "#4C9DF7",
         "original_price": "$199", "price": "$99", "price_note": " / year",
-        "desc": "Our top-tier engine, a step above Premium — built for the largest datasets.",
-        "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format (incl. YAML)\nSpreadsheet-grade tables\nLightning trigram search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema, diff & insight",
-        "button_label": "Get NARIKJSON", "featured": true, "dark": true } },
-      { "type": "group", "settings": { "label": "Individual edition" } },
-      { "type": "plan", "settings": {
-        "name": "Essential", "edition_label": "Free monthly", "badge_color": "#D9433B",
-        "original_price": "$9.99", "price": "FREE",
-        "desc": "The complete OPENXMLJSON app — no file-size limit.",
-        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
-        "button_label": "Download free", "featured": false } },
-      { "type": "plan", "settings": {
-        "name": "Premium", "edition_label": "Paid yearly", "badge_color": "#2FA55A",
-        "original_price": "$78", "price": "$49.99", "price_note": " / year",
-        "desc": "The complete OPENXMLJSON app — no file-size limit.",
-        "features": "No file-size limit — open 10+ GB files\nJSON, XML, CSV & TSV — any size\nVirtualized tree, find & filter\nJSONPath / XPath queries\nFollow tail on live logs\nOpen from URL with auth\nExport to JSON / XML / CSV\nAutomatic update checks\nPriority email support",
-        "button_label": "Buy Premium", "featured": true } }
+        "desc": "Everything in Free, plus licensing, deployment and support for teams.",
+        "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format — JSON, NDJSON, XML, YAML, CSV, TSV\nOne-click conversion between formats\nSpreadsheet-grade tables & SQL console\nTrigram-indexed lightning search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema generation, validation & diff\nVolume & site licensing\nManaged deployment & centralized updates\nDedicated support SLA",
+        "button_label": "Get NARIKJSON", "featured": true, "dark": true } }
     ]
   }]
 }

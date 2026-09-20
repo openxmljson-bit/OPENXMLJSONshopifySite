@@ -1,10 +1,10 @@
 <section class="section section--alt">
   <div class="wrap">
-    <div class="center">
+    <div class="center" data-reveal>
       <span class="eyebrow">{{ section.settings.eyebrow }}</span>
       <h2>{{ section.settings.heading }}</h2>
     </div>
-    <div class="quotes">
+    <div class="quotes" data-stagger="100">
       {% for block in section.blocks %}
         <figure class="quote" {{ block.shopify_attributes }}>
           <div class="stars">★★★★★</div>

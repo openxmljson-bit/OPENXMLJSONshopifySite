@@ -32,26 +32,69 @@
     "name": "Colors",
     "settings": [
       {
+        "type": "header",
+        "content": "Light theme palette"
+      },
+      {
+        "type": "paragraph",
+        "content": "The theme sits on a warm off-white canvas. “Accent (text)” is a darker tone used wherever the brand colour appears as small text, so it stays readable — keep it darker than the main accent."
+      },
+      {
         "type": "color",
         "id": "accent_color",
-        "label": "Accent (terracotta)",
-        "default": "#cf6f43"
+        "label": "Primary accent (terracotta)",
+        "default": "#d2683a"
+      },
+      {
+        "type": "color",
+        "id": "accent_ink",
+        "label": "Accent (text on light)",
+        "default": "#a94d22"
+      },
+      {
+        "type": "color",
+        "id": "accent_color_2",
+        "label": "Accent highlight (amber)",
+        "default": "#e8944f"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary accent (blue)",
+        "default": "#2f6be3"
       },
       {
         "type": "color",
         "id": "bg_color",
-        "label": "Background",
-        "default": "#ffffff"
+        "label": "Page background",
+        "default": "#fbfaf8"
       }
     ]
   },
   {
     "name": "Social",
     "settings": [
-      { "type": "text", "id": "social_github", "label": "GitHub URL" },
-      { "type": "text", "id": "social_twitter", "label": "X / Twitter URL" },
-      { "type": "text", "id": "social_youtube", "label": "YouTube URL" },
-      { "type": "text", "id": "contact_email", "label": "Contact email", "default": "openxmljson@gmail.com" }
+      {
+        "type": "text",
+        "id": "social_github",
+        "label": "GitHub URL"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "X / Twitter URL"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Contact email",
+        "default": "openxmljson@gmail.com"
+      }
     ]
   }
 ]

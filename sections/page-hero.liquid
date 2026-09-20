@@ -1,8 +1,8 @@
 <section class="hero" style="padding:72px 0 32px">
   <div class="wrap hero__inner center">
-    {% if section.settings.eyebrow != blank %}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
-    <h1>{{ section.settings.heading | default: page.title }}</h1>
-    {% if section.settings.subheading != blank %}<p class="lead" style="margin:14px auto 0">{{ section.settings.subheading }}</p>{% endif %}
+    {% if section.settings.eyebrow != blank %}<span class="eyebrow" data-reveal>{{ section.settings.eyebrow }}</span>{% endif %}
+    <h1 data-reveal style="--reveal-delay:70ms">{{ section.settings.heading | default: page.title }}</h1>
+    {% if section.settings.subheading != blank %}<p class="lead" data-reveal style="margin:14px auto 0;--reveal-delay:140ms">{{ section.settings.subheading }}</p>{% endif %}
   </div>
 </section>
 

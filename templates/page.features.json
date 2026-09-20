@@ -4,8 +4,8 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Features",
-        "heading": "Everything OPENXMLJSON can do.",
-        "subheading": "A cross-platform desktop viewer for very large JSON, NDJSON, XML, CSV and TSV files, built on a zero-copy, memory-mapped engine. Here's the complete feature set, category by category."
+        "heading": "Everything NARIKJSON can do.",
+        "subheading": "A cross-platform desktop workbench for very large JSON, NDJSON, XML, YAML, CSV and TSV files, built on a dual-engine, Rust-powered core. Here's the complete feature set, category by category."
       }
     },
     "catalog": {
@@ -16,14 +16,18 @@
       "type": "cta-band",
       "settings": {
         "heading": "Ready to open your biggest file?",
-        "subheading": "Download OPENXMLJSON, or buy a Premium license and remove the size limit for good.",
-        "primary_label": "Download Essential",
-        "primary_url": "/collections/all",
+        "subheading": "Download NARIKJSON free, or take a yearly license for volume licensing, deployment and support.",
+        "primary_label": "Download NARIKJSON free",
+        "primary_url": "shopify://products/narik-free-edition",
         "secondary_label": "See pricing",
         "secondary_url": "/pages/pricing",
-        "meta": "Windows · macOS · Linux · Essential edition available"
+        "meta": "macOS · Linux · Windows coming soon · Free tier available"
       }
     }
   },
-  "order": ["hero", "catalog", "cta"]
+  "order": [
+    "hero",
+    "catalog",
+    "cta"
+  ]
 }
