@@ -43,7 +43,7 @@
             "original_price": "$199",
             "price_note": " / year",
             "desc": "Everything in Free, plus licensing, deployment and support for teams.",
-            "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format — JSON, NDJSON, XML, YAML, CSV, TSV\nOne-click conversion between formats\nSpreadsheet-grade tables & SQL console\nTrigram-indexed lightning search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema generation, validation & diff\nVolume & site licensing\nManaged deployment & centralized updates\nDedicated support SLA",
+            "features": "Dual-engine architecture (in-memory + database)\nMulti-GB files, 100M+ rows\nRust-powered native core\nEvery format — JSON, NDJSON, XML, YAML, CSV, TSV\nOne-click conversion between formats\nSpreadsheet-grade tables & SQL console\nTrigram-indexed lightning search\nBuilt-in jq filtering\nIntegrated API workbench\nSchema generation, validation & diff",
             "button_label": "Get NARIKJSON",
             "button_url": "shopify://products/narik-edition",
             "featured": true,
